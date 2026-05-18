@@ -2,6 +2,12 @@
 
 ## Recent Changes
 
+- [2026-05-18 14:26]: **Hotfix: Resolved Accent Variable Typos & Restored Memento Grid Visibility**
+  - *Details*: Fixed a stylesheet bug where an undefined CSS variable `var(--accent-color)` caused interactive features, hotspot pins, and weeks dots to render as completely black/invisible.
+  - *Tech Notes*:
+    - **Variable Synchronization**: Mapped all typo occurrences of `var(--accent-color)` to the correct flagship custom theme color `var(--accent-indigo)` inside `styles.css` and `app.js`.
+    - **Memento Grid Contrast Rebalancing**: Configured `.dot-cell.future` to use the correct highly-visible slate border color `var(--border-color)` instead of the extremely dark translucent gray, restoring the beautiful 4,160 weeks grid representation.
+
 - [2026-05-18 14:23]: **AAA Premium Interactivity Rewrite (Maximum UX & Jaw-Dropping Aesthetics)**
   - *Details*: Upgraded the entire landing page with high-end, immersive, and sensory interactive features that deliver an Apple-level product showcase experience.
   - *Tech Notes*:
