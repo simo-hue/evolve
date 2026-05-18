@@ -231,7 +231,7 @@ function initMementoMoriCalculator() {
                 if (dot.classList.contains('lived')) state = "Vissuta";
                 if (dot.classList.contains('current')) state = "Attuale";
                 
-                hoverCard.innerHTML = `Settimana ${weekNum.toLocaleString()} (Età ${age}) — <span style="color: ${state === 'Vissuta' ? 'var(--accent-color)' : '#fbbf24'}">${state}</span>`;
+                hoverCard.innerHTML = `Settimana ${weekNum.toLocaleString()} (Età ${age}) — <span style="color: ${state === 'Vissuta' ? 'var(--accent-indigo)' : '#fbbf24'}">${state}</span>`;
                 
                 const dotRect = dot.getBoundingClientRect();
                 const gridRect = gridContainer.getBoundingClientRect();
