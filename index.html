@@ -222,84 +222,95 @@
         </div>
     </section>
 
-    <!-- Sezione INTERACTIVE GRID / GALLERY -->
+    <!-- Sezione INTERACTIVE GALLERY SLIDER -->
     <section class="gallery-section" id="showcase">
         <div class="section-header">
             <h2 class="section-title">La galleria dell'evoluzione</h2>
-            <p class="section-subtitle">Esplora da vicino ogni dettaglio dell'interfaccia. Clicca su uno screenshot per ingrandirlo in altissima risoluzione.</p>
+            <p class="section-subtitle">Esplora da vicino ogni dettaglio dell'interfaccia. Trascina la galleria con il mouse o usa le frecce laterali per scorrere gli screenshot in altissima definizione.</p>
         </div>
         
-        <div class="gallery-grid" id="interactive-gallery">
-            <div class="gallery-card" data-index="1">
-                <div class="gallery-card-glow"></div>
-                <div class="gallery-card-inner">
-                    <img src="iphone_img/01.png" alt="Dashboard Evolve">
-                    <div class="gallery-card-overlay">
-                        <span class="card-tag">Dashboard</span>
-                        <h4>Focus Quotidiano</h4>
+        <div class="gallery-slider-wrapper">
+            <button class="gallery-arrow arrow-left" id="gallery-prev" aria-label="Screenshot Precedente"><i class="fa-solid fa-chevron-left"></i></button>
+            
+            <div class="gallery-track" id="gallery-track">
+                <div class="gallery-card" data-index="1">
+                    <div class="gallery-card-glow"></div>
+                    <div class="gallery-card-inner">
+                        <img src="iphone_img/01.png" alt="Dashboard Evolve">
+                        <div class="gallery-card-overlay">
+                            <span class="card-tag">Dashboard</span>
+                            <h4>Focus Quotidiano</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-card" data-index="2">
+                    <div class="gallery-card-glow"></div>
+                    <div class="gallery-card-inner">
+                        <img src="iphone_img/02.png" alt="Habit Tracker Evolve">
+                        <div class="gallery-card-overlay">
+                            <span class="card-tag">Habits</span>
+                            <h4>Tracciamento Continuo</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-card" data-index="3">
+                    <div class="gallery-card-glow"></div>
+                    <div class="gallery-card-inner">
+                        <img src="iphone_img/03.png" alt="Routines Evolve">
+                        <div class="gallery-card-overlay">
+                            <span class="card-tag">Routine</span>
+                            <h4>Blocchi di Tempo</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-card" data-index="4">
+                    <div class="gallery-card-glow"></div>
+                    <div class="gallery-card-inner">
+                        <img src="iphone_img/04.png" alt="Focus Evolve">
+                        <div class="gallery-card-overlay">
+                            <span class="card-tag">Tasks</span>
+                            <h4>Lavoro Immersivo</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-card" data-index="5">
+                    <div class="gallery-card-glow"></div>
+                    <div class="gallery-card-inner">
+                        <img src="iphone_img/05.png" alt="AI Coach Evolve">
+                        <div class="gallery-card-overlay">
+                            <span class="card-tag">AI Assistant</span>
+                            <h4>Coaching Mentale</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-card" data-index="6">
+                    <div class="gallery-card-glow"></div>
+                    <div class="gallery-card-inner">
+                        <img src="iphone_img/06.png" alt="Analytics Evolve">
+                        <div class="gallery-card-overlay">
+                            <span class="card-tag">Analytics</span>
+                            <h4>Statistiche di Crescita</h4>
+                        </div>
+                    </div>
+                </div>
+                <div class="gallery-card" data-index="7">
+                    <div class="gallery-card-glow"></div>
+                    <div class="gallery-card-inner">
+                        <img src="iphone_img/07.png" alt="Themes Evolve">
+                        <div class="gallery-card-overlay">
+                            <span class="card-tag">Custom</span>
+                            <h4>Temi e Widget</h4>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="gallery-card" data-index="2">
-                <div class="gallery-card-glow"></div>
-                <div class="gallery-card-inner">
-                    <img src="iphone_img/02.png" alt="Habit Tracker Evolve">
-                    <div class="gallery-card-overlay">
-                        <span class="card-tag">Habits</span>
-                        <h4>Tracciamento Continuo</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="gallery-card" data-index="3">
-                <div class="gallery-card-glow"></div>
-                <div class="gallery-card-inner">
-                    <img src="iphone_img/03.png" alt="Routines Evolve">
-                    <div class="gallery-card-overlay">
-                        <span class="card-tag">Routine</span>
-                        <h4>Blocchi di Tempo</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="gallery-card" data-index="4">
-                <div class="gallery-card-glow"></div>
-                <div class="gallery-card-inner">
-                    <img src="iphone_img/04.png" alt="Focus Evolve">
-                    <div class="gallery-card-overlay">
-                        <span class="card-tag">Tasks</span>
-                        <h4>Lavoro Immersivo</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="gallery-card" data-index="5">
-                <div class="gallery-card-glow"></div>
-                <div class="gallery-card-inner">
-                    <img src="iphone_img/05.png" alt="AI Coach Evolve">
-                    <div class="gallery-card-overlay">
-                        <span class="card-tag">AI Assistant</span>
-                        <h4>Coaching Mentale</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="gallery-card" data-index="6">
-                <div class="gallery-card-glow"></div>
-                <div class="gallery-card-inner">
-                    <img src="iphone_img/06.png" alt="Analytics Evolve">
-                    <div class="gallery-card-overlay">
-                        <span class="card-tag">Analytics</span>
-                        <h4>Statistiche di Crescita</h4>
-                    </div>
-                </div>
-            </div>
-            <div class="gallery-card" data-index="7">
-                <div class="gallery-card-glow"></div>
-                <div class="gallery-card-inner">
-                    <img src="iphone_img/07.png" alt="Themes Evolve">
-                    <div class="gallery-card-overlay">
-                        <span class="card-tag">Custom</span>
-                        <h4>Temi e Widget</h4>
-                    </div>
-                </div>
-            </div>
+            
+            <button class="gallery-arrow arrow-right" id="gallery-next" aria-label="Screenshot Successivo"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+
+        <!-- Indicatore della barra di scorrimento -->
+        <div class="gallery-scroll-bar-container">
+            <div class="gallery-scroll-bar-progress" id="gallery-progress"></div>
         </div>
     </section>
 

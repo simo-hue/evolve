@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     initMobileMenu();
     initFeatureScroll();
     init3DTilt();
+    initGallerySlider();
     initLightbox();
     initPhilosophyAnimation();
     initFaqAccordion();
@@ -198,6 +199,105 @@ function setupTiltEffect(container, targetElement, glowElement) {
             glowElement.style.transition = "opacity 0.6s ease";
         }
     });
+}
+
+/* ==========================================================================
+   3.5. GALLERY SLIDER (DRAGGABLE + NAVIGATION + PROGRESS)
+   ========================================================================== */
+function initGallerySlider() {
+    const track = document.getElementById("gallery-track");
+    const prevBtn = document.getElementById("gallery-prev");
+    const nextBtn = document.getElementById("gallery-next");
+    const progressBar = document.getElementById("gallery-progress");
+    
+    if (!track) return;
+
+    // --- 1. FUNZIONALITÀ CLICK FRECCE ---
+    const getScrollAmount = () => {
+        const firstCard = track.querySelector(".gallery-card");
+        if (firstCard) {
+            // Scorri di una larghezza card + gap
+            return firstCard.offsetWidth + 35; 
+        }
+        return 300;
+    };
+
+    if (prevBtn) {
+        prevBtn.addEventListener("click", () => {
+            track.scrollBy({ left: -getScrollAmount(), behavior: "smooth" });
+        });
+    }
+
+    if (nextBtn) {
+        nextBtn.addEventListener("click", () => {
+            track.scrollBy({ left: getScrollAmount(), behavior: "smooth" });
+        });
+    }
+
+    // --- 2. FUNZIONALITÀ TRASCINAMENTO MOUSE (DRAG-TO-SCROLL) ---
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+    let dragMoveActive = false; // per distinguere il drag dal click su lightbox
+
+    track.addEventListener("mousedown", (e) => {
+        isDown = true;
+        dragMoveActive = false;
+        track.classList.add("dragging");
+        startX = e.pageX - track.offsetLeft;
+        scrollLeft = track.scrollLeft;
+    });
+
+    track.addEventListener("mouseleave", () => {
+        isDown = false;
+        track.classList.remove("dragging");
+    });
+
+    track.addEventListener("mouseup", (e) => {
+        isDown = false;
+        track.classList.remove("dragging");
+    });
+
+    track.addEventListener("mousemove", (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - track.offsetLeft;
+        const walk = (x - startX) * 2; // fattore velocità
+        
+        // Se il movimento è reale, segnalalo
+        if (Math.abs(walk) > 5) {
+            dragMoveActive = true;
+        }
+        
+        track.scrollLeft = scrollLeft - walk;
+    });
+
+    // Previeni click accidentali che aprono la Lightbox se stiamo trascinando
+    track.querySelectorAll(".gallery-card").forEach(card => {
+        card.addEventListener("click", (e) => {
+            if (dragMoveActive) {
+                e.stopPropagation();
+                e.preventDefault();
+            }
+        }, { capture: true });
+    });
+
+    // --- 3. BARRA DI PROGRESSO DELLO SCROLL ---
+    const updateProgressBar = () => {
+        const maxScroll = track.scrollWidth - track.clientWidth;
+        if (maxScroll <= 0) {
+            progressBar.style.width = "0%";
+            return;
+        }
+        const percentage = (track.scrollLeft / maxScroll) * 100;
+        progressBar.style.width = `${Math.min(100, Math.max(0, percentage))}%`;
+    };
+
+    track.addEventListener("scroll", updateProgressBar);
+    window.addEventListener("resize", updateProgressBar);
+    
+    // Inizializza al caricamento
+    setTimeout(updateProgressBar, 100);
 }
 
 /* ==========================================================================

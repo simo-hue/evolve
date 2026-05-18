@@ -38,6 +38,11 @@ The objective is to design and develop a premium, highly immersive, and modern w
     - Updated `index.html` structure to place screenshot images directly within `.screenshot-showcase` divs in the Hero section and Sticky Scroll features container, keeping internal elements like `.iphone-glare` overlays intact.
     - Updated target elements in `script.js` to run the 3D-tilt calculations on `.screenshot-showcase` containers.
     - Swapped `border: 3px solid #1a1a24;` on `.perspective-img` in the download card for an elegant `1px solid var(--border-color)` card border.
-
-
-
+- **2026-05-18 15:05**: Interactive Gallery Slider Overhaul
+  - *Details*: Redesigned the "Galleria dell'evoluzione" section to resolve layout asymmetry and misalignment. The previous grid system attempted to space 7 vertical screenshots across 4 columns, creating an uneven bottom row (4 cards on top, 3 cards on bottom) and overlapping staggered offsets which clipped bottom cards. Replaced the grid with a luxurious horizontal draggable slider, providing perfect alignment and full viewport overflow.
+  - *Tech Notes*:
+    - Replaced `gallery-grid` structure in `index.html` with a `gallery-slider-wrapper` containing touch-friendly, drag-to-scroll `.gallery-track` containing all 7 screenshot cards.
+    - Added glowing, blur-backed premium glassmorphic navigation arrows (`#gallery-prev` and `#gallery-next`) for step-by-step navigation.
+    - Incorporated a sleek, gradient progress bar at the bottom (`#gallery-progress`) that reflects live track scroll percentage.
+    - Wrote full mouse drag-to-scroll logic in `script.js` (grab-to-drag, release-to-snap) that automatically filters drag movements from accidental lightbox modal triggers.
+    - Integrated tablet and mobile-responsive breakpoints in `style.css` that hide navigation arrows on smaller devices (favoring native multi-touch swipe mechanics) and scale down card flex sizes from 280px to 210px to fit gracefully.
