@@ -119,91 +119,8 @@
                             </div>
                         </div>
                         
-                        <!-- App Content Container -->
-                        <div class="app-container">
-                            <div class="app-header">
-                                <div class="user-profile">
-                                    <div class="avatar">S</div>
-                                    <div class="user-text">
-                                        <span class="greeting">Ciao, Simo</span>
-                                        <span class="date">Lunedì, 18 Maggio</span>
-                                    </div>
-                                </div>
-                                <div class="streak-badge">
-                                    <span class="streak-icon">🔥</span>
-                                    <span class="streak-count" id="hero-streak">14</span>
-                                </div>
-                            </div>
-                            
-                            <!-- Daily Progress Wheel -->
-                            <div class="progress-card">
-                                <div class="progress-wheel-container">
-                                    <svg class="progress-svg" viewBox="0 0 100 100">
-                                        <circle class="progress-track" cx="50" cy="50" r="40" />
-                                        <circle class="progress-bar" id="hero-progress-bar" cx="50" cy="50" r="40" stroke-dasharray="251.2" stroke-dashoffset="50.2" />
-                                    </svg>
-                                    <div class="progress-text-overlay">
-                                        <span class="percent" id="hero-progress-percent">80%</span>
-                                        <span class="percent-lbl">Completato</span>
-                                    </div>
-                                </div>
-                                <div class="progress-info">
-                                    <h3>Abitudini di Oggi</h3>
-                                    <p>Tocca per completare l'ultima abitudine ed evolvere!</p>
-                                </div>
-                            </div>
-
-                            <!-- Interactive Habit List inside iPhone -->
-                            <div class="habit-list">
-                                <!-- Habit 1 (Done) -->
-                                <div class="habit-item done">
-                                    <div class="habit-icon-box">🧘</div>
-                                    <div class="habit-details">
-                                        <h4>Meditazione</h4>
-                                        <span>15 min • Focus mentale</span>
-                                    </div>
-                                    <div class="habit-check">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                    </div>
-                                </div>
-
-                                <!-- Habit 2 (Done) -->
-                                <div class="habit-item done">
-                                    <div class="habit-icon-box">📚</div>
-                                    <div class="habit-details">
-                                        <h4>Lettura</h4>
-                                        <span>10 pag • Crescita</span>
-                                    </div>
-                                    <div class="habit-check">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                    </div>
-                                </div>
-
-                                <!-- Habit 3 (Pending - Interactive!) -->
-                                <div class="habit-item pending" id="interactive-habit-item">
-                                    <div class="habit-icon-box">🏋️</div>
-                                    <div class="habit-details">
-                                        <h4>Allenamento</h4>
-                                        <span>Sessione Forza • Corpo</span>
-                                    </div>
-                                    <div class="habit-check-interactive" id="hero-habit-checkbox">
-                                        <svg class="check-svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                    </div>
-                                </div>
-
-                                <!-- Habit 4 (Done) -->
-                                <div class="habit-item done">
-                                    <div class="habit-icon-box">💧</div>
-                                    <div class="habit-details">
-                                        <h4>Bere Acqua</h4>
-                                        <span>2 Litri • Salute</span>
-                                    </div>
-                                    <div class="habit-check">
-                                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <!-- Real App Store Screenshot (Dashboard Home) -->
+                        <img src="iphone_img/01.png" alt="Evolve Dashboard - App Store Screenshot" class="app-screenshot">
 
                         <!-- iPhone Home Indicator -->
                         <div class="home-indicator"></div>
@@ -265,11 +182,9 @@
                     </ul>
                 </div>
             </div>
-        </div>
     </section>
 
     <!-- INTERACTIVE SHOWCASE (MAIN WORKFLOW HIGHLIGHT) -->
-    <section class="interactive-showcase" id="interactive-showcase">
         <div class="container showcase-container">
             <div class="showcase-info animate-on-scroll">
                 <span class="section-tag">Interattività dal vivo</span>
@@ -287,29 +202,56 @@
                     </button>
 
                     <!-- Tab 2 -->
-                    <button class="showcase-tab" data-target="screen-stats">
+                    <button class="showcase-tab" data-target="screen-calendar">
                         <div class="tab-indicator-bar"></div>
                         <div class="tab-content">
-                            <h4>Analisi & Grafici Radar</h4>
-                            <p>Osserva l'equilibrio delle aree della tua vita e scopri come l'attività fisica e il sonno correlano con il tuo livello di produttività.</p>
+                            <h4>Storico & Calendario</h4>
+                            <p>Osserva la tua costanza nel tempo. Una griglia annuale e un diario dettagliato per non perdere mai il ritmo delle tue abitudini.</p>
                         </div>
                     </button>
 
                     <!-- Tab 3 -->
-                    <button class="showcase-tab" data-target="screen-mood">
+                    <button class="showcase-tab" data-target="screen-goals">
                         <div class="tab-indicator-bar"></div>
                         <div class="tab-content">
-                            <h4>Mood & Wellness</h4>
-                            <p>Traccia lo stato d'animo giornaliero per incrociare i dati con le tue abitudini ed evitare stress e sovraccarico.</p>
+                            <h4>Macro Obiettivi</h4>
+                            <p>Pianifica a lungo termine. Suddividi i grandi traguardi di vita in piccoli step quotidiani realizzabili e tracciabili.</p>
                         </div>
                     </button>
 
                     <!-- Tab 4 -->
+                    <button class="showcase-tab" data-target="screen-stats">
+                        <div class="tab-indicator-bar"></div>
+                        <div class="tab-content">
+                            <h4>Statistiche Avanzate</h4>
+                            <p>Scopri correlazioni invisibili. Osserva come le tue abitudini ed attività influenzano direttamente il tuo benessere fisico e mentale.</p>
+                        </div>
+                    </button>
+
+                    <!-- Tab 5 -->
+                    <button class="showcase-tab" data-target="screen-mood">
+                        <div class="tab-indicator-bar"></div>
+                        <div class="tab-content">
+                            <h4>Mood & Wellness</h4>
+                            <p>Traccia lo stato d'animo giornaliero per incrociare i dati con le tue abitudini ed evitare stress, ansia o sovraccarico.</p>
+                        </div>
+                    </button>
+
+                    <!-- Tab 6 -->
                     <button class="showcase-tab" data-target="screen-memento">
                         <div class="tab-indicator-bar"></div>
                         <div class="tab-content">
                             <h4>Life View (Memento Mori)</h4>
                             <p>Visualizza il tempo vissuto e quello futuro in una griglia di settimane. Uno strumento visivo eccezionale per vivere con intenzione.</p>
+                        </div>
+                    </button>
+
+                    <!-- Tab 7 -->
+                    <button class="showcase-tab" data-target="screen-premium">
+                        <div class="tab-indicator-bar"></div>
+                        <div class="tab-content">
+                            <h4>Evolve Pro & Privacy</h4>
+                            <p>Sblocca tutte le funzioni esclusive, sincronizza i tuoi dati in cloud e mantieni la tua riservatezza protetta al 100%.</p>
                         </div>
                     </button>
                 </div>
@@ -332,208 +274,39 @@
 
                         <!-- IPHONE INTERACTIVE SCREEN CONTAINER -->
                         <div class="app-viewport">
-                            
                             <!-- SCREEN 1: DASHBOARD -->
                             <div class="iphone-screen-content active" id="screen-dashboard">
-                                <div class="app-header">
-                                    <div class="user-profile">
-                                        <div class="avatar">S</div>
-                                        <div class="user-text">
-                                            <span class="greeting">Ciao, Simo</span>
-                                            <span class="date">Lunedì, 18 Maggio</span>
-                                        </div>
-                                    </div>
-                                    <div class="streak-badge">
-                                        <span>🔥 14</span>
-                                    </div>
-                                </div>
-                                
-                                <div class="mini-progress-card">
-                                    <div class="radial-ring">
-                                        <svg viewBox="0 0 36 36" class="circular-chart green">
-                                            <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                            <path class="circle" stroke-dasharray="75, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831" />
-                                        </svg>
-                                        <div class="radial-text">75%</div>
-                                    </div>
-                                    <div class="mini-progress-txt">
-                                        <h5>Routine a Buon Punto</h5>
-                                        <p>3 di 4 completate oggi</p>
-                                    </div>
-                                </div>
-
-                                <div class="habit-list mini">
-                                    <div class="habit-item done">
-                                        <div class="habit-icon-box">🧘</div>
-                                        <div class="habit-details">
-                                            <h4>Meditazione</h4>
-                                            <span>15 min • Focus</span>
-                                        </div>
-                                        <div class="habit-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
-                                    </div>
-                                    <div class="habit-item done">
-                                        <div class="habit-icon-box">📚</div>
-                                        <div class="habit-details">
-                                            <h4>Lettura</h4>
-                                            <span>10 pag • Crescita</span>
-                                        </div>
-                                        <div class="habit-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
-                                    </div>
-                                    <div class="habit-item pending">
-                                        <div class="habit-icon-box">🏋️</div>
-                                        <div class="habit-details">
-                                            <h4>Allenamento</h4>
-                                            <span>Sessione Forza</span>
-                                        </div>
-                                        <div class="habit-check"><span class="bullet"></span></div>
-                                    </div>
-                                    <div class="habit-item done">
-                                        <div class="habit-icon-box">💧</div>
-                                        <div class="habit-details">
-                                            <h4>Bere Acqua</h4>
-                                            <span>2 Litri • Salute</span>
-                                        </div>
-                                        <div class="habit-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"></polyline></svg></div>
-                                    </div>
-                                </div>
+                                <img src="iphone_img/01.png" alt="Evolve Dashboard - App Store Screenshot" class="app-screenshot">
                             </div>
 
-                            <!-- SCREEN 2: STATS & RADAR -->
+                            <!-- SCREEN 2: STORICO & CALENDARIO -->
+                            <div class="iphone-screen-content" id="screen-calendar">
+                                <img src="iphone_img/02.png" alt="Evolve Calendario e Storico - App Store Screenshot" class="app-screenshot">
+                            </div>
+
+                            <!-- SCREEN 3: MACRO OBIETTIVI -->
+                            <div class="iphone-screen-content" id="screen-goals">
+                                <img src="iphone_img/03.png" alt="Evolve Macro Obiettivi - App Store Screenshot" class="app-screenshot">
+                            </div>
+
+                            <!-- SCREEN 4: STATISTICHE AVANZATE -->
                             <div class="iphone-screen-content" id="screen-stats">
-                                <div class="subpage-header">
-                                    <h3>Analisi e Trend</h3>
-                                    <span>Statistiche</span>
-                                </div>
-                                
-                                <div class="radar-card">
-                                    <span class="card-subtitle">AREE DI VITA (RADAR)</span>
-                                    <div class="radar-chart-container">
-                                        <!-- Custom CSS/SVG styled Radar Chart -->
-                                        <svg viewBox="0 0 100 100" class="radar-svg">
-                                            <!-- Web Grid lines -->
-                                            <polygon points="50,10 88,38 73,82 27,82 12,38" class="radar-grid" />
-                                            <polygon points="50,23 78,44 67,76 33,76 22,44" class="radar-grid" />
-                                            <polygon points="50,37 69,51 61,70 39,70 31,51" class="radar-grid" />
-                                            <!-- Axis lines -->
-                                            <line x1="50" y1="50" x2="50" y2="10" class="radar-axis" />
-                                            <line x1="50" y1="50" x2="88" y2="38" class="radar-axis" />
-                                            <line x1="50" y1="50" x2="73" y2="82" class="radar-axis" />
-                                            <line x1="50" y1="50" x2="27" y2="82" class="radar-axis" />
-                                            <line x1="50" y1="50" x2="12" y2="38" class="radar-axis" />
-                                            <!-- Labels -->
-                                            <text x="50" y="7" class="radar-label" text-anchor="middle">Mente</text>
-                                            <text x="91" y="38" class="radar-label" text-anchor="start">Corpo</text>
-                                            <text x="76" y="90" class="radar-label" text-anchor="start">Social</text>
-                                            <text x="24" y="90" class="radar-label" text-anchor="end">Soldi</text>
-                                            <text x="8" y="38" class="radar-label" text-anchor="end">Crescita</text>
-                                            <!-- Data Polygon -->
-                                            <polygon points="50,20 78,44 61,70 39,76 22,44" class="radar-area" />
-                                            <!-- Dots on data points -->
-                                            <circle cx="50" cy="20" r="2.5" class="radar-point" />
-                                            <circle cx="78" cy="44" r="2.5" class="radar-point" />
-                                            <circle cx="61" cy="70" r="2.5" class="radar-point" />
-                                            <circle cx="39" cy="76" r="2.5" class="radar-point" />
-                                            <circle cx="22" cy="44" r="2.5" class="radar-point" />
-                                        </svg>
-                                    </div>
-                                </div>
-
-                                <div class="correlation-card">
-                                    <div class="correlation-header">
-                                        <span class="badge success">⚡ Correlazione</span>
-                                        <h5>Wellness vs Output</h5>
-                                    </div>
-                                    <p class="correlation-txt">L'algoritmo rileva un <strong>+18%</strong> di costanza lavorativa nei giorni successivi ad una meditazione.</p>
-                                    <div class="wellness-index">
-                                        <span>Indice Bilanciamento</span>
-                                        <strong>8.7 / 10</strong>
-                                    </div>
-                                </div>
+                                <img src="iphone_img/04.png" alt="Evolve Statistiche Avanzate - App Store Screenshot" class="app-screenshot">
                             </div>
 
-                            <!-- SCREEN 3: MOOD TRACKER -->
+                            <!-- SCREEN 5: MOOD & BENESSERE -->
                             <div class="iphone-screen-content" id="screen-mood">
-                                <div class="subpage-header">
-                                    <h3>Consapevolezza</h3>
-                                    <span>Mood Tracker</span>
-                                </div>
-                                <div class="mood-prompt-box">
-                                    <h4>Come ti senti oggi?</h4>
-                                    <p>Metti in relazione le emozioni e la produttività.</p>
-                                    
-                                    <div class="mood-emojis-grid">
-                                        <button class="mood-btn" data-mood="super">
-                                            <span class="emoji">🤩</span>
-                                            <span class="lbl">Super</span>
-                                        </button>
-                                        <button class="mood-btn" data-mood="bene">
-                                            <span class="emoji">🙂</span>
-                                            <span class="lbl">Bene</span>
-                                        </button>
-                                        <button class="mood-btn" data-mood="normale">
-                                            <span class="emoji">😐</span>
-                                            <span class="lbl">Okay</span>
-                                        </button>
-                                        <button class="mood-btn" data-mood="teso">
-                                            <span class="emoji">😰</span>
-                                            <span class="lbl">Teso</span>
-                                        </button>
-                                        <button class="mood-btn" data-mood="no">
-                                            <span class="emoji">😢</span>
-                                            <span class="lbl">Giù</span>
-                                        </button>
-                                    </div>
-                                    
-                                    <div class="mood-status-message" id="mood-feedback">Seleziona un'emozione sopra</div>
-                                </div>
-                                
-                                <div class="mood-history-mini">
-                                    <span class="card-subtitle">STORICO SETTIMANALE</span>
-                                    <div class="mood-bar-chart">
-                                        <div class="bar-col"><div class="bar val-80"></div><span>L</span></div>
-                                        <div class="bar col"><div class="bar val-60"></div><span>M</span></div>
-                                        <div class="bar col"><div class="bar val-40"></div><span>M</span></div>
-                                        <div class="bar col"><div class="bar val-70"></div><span>G</span></div>
-                                        <div class="bar col"><div class="bar val-90"></div><span>V</span></div>
-                                        <div class="bar col"><div class="bar val-80"></div><span>S</span></div>
-                                        <div class="bar col"><div class="bar val-100 animate-pulse"></div><span>D</span></div>
-                                    </div>
-                                </div>
+                                <img src="iphone_img/05.png" alt="Evolve Mood & Benessere - App Store Screenshot" class="app-screenshot">
                             </div>
 
-                            <!-- SCREEN 4: MEMENTO MORI -->
+                            <!-- SCREEN 6: LIFE VIEW (MEMENTO MORI) -->
                             <div class="iphone-screen-content" id="screen-memento">
-                                <div class="subpage-header">
-                                    <h3>Memento Mori</h3>
-                                    <span>Life View</span>
-                                </div>
-                                <div class="memento-grid-card">
-                                    <div class="memento-header">
-                                        <h4>Le tue settimane di vita</h4>
-                                        <span class="percent-label">35.4%</span>
-                                    </div>
-                                    <p class="memento-desc">Ogni punto rappresenta una settimana di una vita di 80 anni.</p>
-                                    
-                                    <div class="iphone-memento-dots" id="memento-dots-preview">
-                                        <!-- Mini grid rendered with JavaScript or CSS for placeholder -->
-                                        <!-- Will generate around 200 dots in the iframe mockup -->
-                                    </div>
-                                    
-                                    <div class="memento-stats-footer">
-                                        <div class="stat">
-                                            <span class="num">1,472</span>
-                                            <span>Vissute</span>
-                                        </div>
-                                        <div class="stat">
-                                            <span class="num">2,688</span>
-                                            <span>Rimanenti</span>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="memento-quote">
-                                    <p>"Non è che abbiamo poco tempo, è che ne perdiamo molto."</p>
-                                    <span>– Seneca</span>
-                                </div>
+                                <img src="iphone_img/06.png" alt="Evolve Memento Mori Life View - App Store Screenshot" class="app-screenshot">
+                            </div>
+
+                            <!-- SCREEN 7: PREMIUM & PRIVACY -->
+                            <div class="iphone-screen-content" id="screen-premium">
+                                <img src="iphone_img/07.png" alt="Evolve Premium & Impostazioni - App Store Screenshot" class="app-screenshot">
                             </div>
                         </div>
 
@@ -829,12 +602,8 @@
                     <div class="iphone-border"></div>
                     <div class="iphone-screen">
                         <div class="dynamic-island"></div>
-                        <div class="app-compact-screen">
-                            <div class="compact-logo">📈</div>
-                            <h3>Evolve Pro</h3>
-                            <p>"Become who you're meant to be."</p>
-                            <div class="compact-streak">🔥 14 Giorni di Streak</div>
-                        </div>
+                        <!-- Real App Store Screenshot (Evolve Premium) -->
+                        <img src="iphone_img/07.png" alt="Evolve Pro Screen - App Store Screenshot" class="app-screenshot">
                     </div>
                 </div>
             </div>

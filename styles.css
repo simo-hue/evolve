@@ -1011,7 +1011,7 @@ h1, h2, h3, h4, h5, h6 {
 .app-viewport {
     height: 100%;
     position: relative;
-    padding: 52px 0 24px 0;
+    padding: 0; /* Full edge-to-edge layout */
     display: flex;
     flex-direction: column;
     overflow: hidden;
@@ -1019,11 +1019,11 @@ h1, h2, h3, h4, h5, h6 {
 
 .iphone-screen-content {
     position: absolute;
-    top: 52px;
+    top: 0;
     left: 0;
     width: 100%;
-    height: calc(100% - 76px); /* Leave room for header/home bar */
-    padding: 0 18px;
+    height: 100%;
+    padding: 0;
     display: flex;
     flex-direction: column;
     opacity: 0;
@@ -1032,7 +1032,7 @@ h1, h2, h3, h4, h5, h6 {
     transition: 
         opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
         transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    overflow-y: auto;
+    overflow: hidden;
 }
 
 .iphone-screen-content::-webkit-scrollbar {
@@ -1043,7 +1043,16 @@ h1, h2, h3, h4, h5, h6 {
     opacity: 1;
     transform: translateY(0);
     pointer-events: all;
-    position: relative;
+    z-index: 10;
+}
+
+/* APP SCREENSHOT STYLE */
+.app-screenshot {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    pointer-events: none;
 }
 
 /* STYLES FOR MINI SUBPAGES INSIDE PHONE VIEWPORT */
