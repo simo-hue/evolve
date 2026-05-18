@@ -5,7 +5,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     initLiveClocks();
     initHeroInteractivity();
-    initShowcaseSwitcher();
+    initScrollCoverflow();
     initMoodCheckIn();
     initMementoMoriCalculator();
     initFAQAccordion();
@@ -87,31 +87,98 @@ function initHeroInteractivity() {
 }
 
 /* ==========================================================================
-   3. SHOWCASE SCREEN SWITCHER
+   3. STICKY SCROLL COVERFLOW PRESENTATION CAROUSEL
    ========================================================================== */
-function initShowcaseSwitcher() {
-    const tabs = document.querySelectorAll('.showcase-tab');
-    const screens = document.querySelectorAll('.iphone-screen-content');
-
-    tabs.forEach(tab => {
-        tab.addEventListener('click', () => {
-            const targetScreenId = tab.getAttribute('data-target');
-
-            // Deactivate all tabs
-            tabs.forEach(t => t.classList.remove('active'));
-            // Activate current tab
-            tab.classList.add('active');
-
-            // Fade out previous screens and fade in current screen
-            screens.forEach(screen => {
-                if (screen.id === targetScreenId) {
-                    screen.classList.add('active');
+function initScrollCoverflow() {
+    const section = document.getElementById('interactive-showcase');
+    const track = document.getElementById('coverflow-track');
+    const slides = document.querySelectorAll('.coverflow-slide');
+    const progressFill = document.getElementById('coverflow-progress-fill');
+    
+    if (!section || !track || slides.length === 0) return;
+    
+    // Set active slide initially
+    updateCoverflow();
+    
+    window.addEventListener('scroll', updateCoverflow);
+    window.addEventListener('resize', updateCoverflow);
+    
+    function updateCoverflow() {
+        const rect = section.getBoundingClientRect();
+        const sectionHeight = rect.height;
+        const windowHeight = window.innerHeight;
+        
+        // Calculate progress (0 when section top enters viewport, 1 when section bottom leaves viewport)
+        const sectionTop = section.offsetTop;
+        const totalScrollable = sectionHeight - windowHeight;
+        
+        // Current scroll position relative to the section start
+        const scrollYRelative = window.scrollY - sectionTop;
+        
+        // Normalize progress between 0 and 1
+        let progress = scrollYRelative / totalScrollable;
+        if (progress < 0) progress = 0;
+        if (progress > 1) progress = 1;
+        
+        // Fill progress bar
+        if (progressFill) progressFill.style.width = `${progress * 100}%`;
+        
+        // Query current slide dimensions (responsive width)
+        const slideWidth = slides[0].offsetWidth;
+        const viewportWidth = window.innerWidth;
+        
+        // Gap: 6vw on desktop, 8vw on mobile
+        const gapPercent = viewportWidth > 768 ? 0.06 : 0.08;
+        const gap = viewportWidth * gapPercent;
+        const totalSlideWidth = slideWidth + gap;
+        
+        const numSlides = slides.length;
+        const maxShift = (numSlides - 1) * totalSlideWidth;
+        const currentShift = progress * maxShift;
+        
+        // Apply horizontal sweep translation to the track
+        track.style.transform = `translateX(${-currentShift}px) translateZ(0)`;
+        
+        // Apply 3D scale, tilt (Y-rotation), depth (Z-translation), and opacity based on active center focus
+        slides.forEach((slide, idx) => {
+            const targetIdx = progress * (numSlides - 1);
+            const distance = idx - targetIdx; // How far is this slide from center (-6 to 6)
+            const absDistance = Math.abs(distance);
+            
+            // 1. Scale: 1.15 in center, down to 0.75 on sides
+            const scale = Math.max(0.75, 1.15 - (absDistance * 0.18));
+            
+            // 2. Opacity: 1 in center, down to 0.25 on sides
+            const opacity = Math.max(0.25, 1 - (absDistance * 0.3));
+            
+            // 3. 3D Rotation (Coverflow Cover angles)
+            let rotateY = -distance * 22;
+            if (rotateY > 32) rotateY = 32;
+            if (rotateY < -32) rotateY = -32;
+            
+            // 4. Translate Z (pop out in 3D space when in focus)
+            const translateZ = Math.max(0, 100 - (absDistance * 70));
+            
+            // Apply high-performance transform styles
+            slide.style.transform = `scale(${scale}) rotateY(${rotateY}deg) translateZ(${translateZ}px)`;
+            slide.style.opacity = opacity;
+            slide.style.zIndex = Math.round(100 - absDistance * 10);
+            
+            // Show caption stoic card only for the focused slide
+            const caption = slide.querySelector('.slide-caption');
+            if (caption) {
+                if (absDistance < 0.48) {
+                    caption.style.opacity = '1';
+                    caption.style.transform = 'translateY(0) translateZ(80px)';
+                    caption.style.pointerEvents = 'all';
                 } else {
-                    screen.classList.remove('active');
+                    caption.style.opacity = '0';
+                    caption.style.transform = 'translateY(15px) translateZ(0)';
+                    caption.style.pointerEvents = 'none';
                 }
-            });
+            }
         });
-    });
+    }
 }
 
 /* ==========================================================================

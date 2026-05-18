@@ -187,211 +187,127 @@
             </div>
     </section>
 
-    <!-- INTERACTIVE SHOWCASE (MAIN WORKFLOW HIGHLIGHT) -->
-        <div class="container showcase-container">
-            <div class="showcase-info animate-on-scroll">
-                <span class="section-tag">Interattività dal vivo</span>
-                <h2 class="section-title">Esplora l'esperienza <span class="gradient-text">Evolve</span></h2>
-                <p class="showcase-desc">Clicca sulle tab a lato per cambiare la schermata del nostro iPhone 17 Pro Max virtuale e scoprire le funzionalità principali dell'app dal vivo.</p>
-                
-                <div class="showcase-tabs">
-                    <!-- Tab 1 -->
-                    <button class="showcase-tab active" data-target="screen-dashboard">
-                        <div class="tab-indicator-bar"></div>
-                        <div class="tab-content">
-                            <h4>Dashboard Giornaliera</h4>
+    <!-- STICKY SCROLL COVERFLOW PRESENTATION SHOWCASE -->
+    <section class="scroll-showcase-section" id="interactive-showcase">
+        <div class="scroll-showcase-sticky">
+            <div class="scroll-showcase-header">
+                <span class="section-tag">Showcase Interattivo</span>
+                <h2 class="section-title">Esplora l'Interfaccia <span class="gradient-text">Evolve</span></h2>
+                <p class="section-subtitle">Scorri verso il basso per sfogliare l'applicazione in una straordinaria presentazione 3D fluida.</p>
+            </div>
+            
+            <div class="coverflow-viewport">
+                <div class="coverflow-track" id="coverflow-track">
+                    <!-- Slide 1: Dashboard -->
+                    <div class="coverflow-slide" data-index="0">
+                        <div class="slide-phone-frame">
+                            <div class="iphone-bezel-wrapper">
+                                <div class="iphone-micro-island"></div>
+                                <img src="iphone_img/01.png" alt="Evolve Dashboard" class="slide-img">
+                                <div class="slide-shine"></div>
+                            </div>
+                        </div>
+                        <div class="slide-caption">
+                            <h3>Dashboard Giornaliera</h3>
                             <p>Le tue abitudini quotidiane, il tracking delle serie e i progressi ad anello, in un'interfaccia premium che rispetta la tua attenzione.</p>
                         </div>
-                    </button>
+                    </div>
 
-                    <!-- Tab 2 -->
-                    <button class="showcase-tab" data-target="screen-calendar">
-                        <div class="tab-indicator-bar"></div>
-                        <div class="tab-content">
-                            <h4>Storico & Calendario</h4>
-                            <p>Osserva la tua costanza nel tempo. Una griglia annuale e un diario dettagliato per non perdere mai il ritmo delle tue abitudini.</p>
-                        </div>
-                    </button>
-
-                    <!-- Tab 3 -->
-                    <button class="showcase-tab" data-target="screen-goals">
-                        <div class="tab-indicator-bar"></div>
-                        <div class="tab-content">
-                            <h4>Macro Obiettivi</h4>
-                            <p>Pianifica a lungo termine. Suddividi i grandi traguardi di vita in piccoli step quotidiani realizzabili e tracciabili.</p>
-                        </div>
-                    </button>
-
-                    <!-- Tab 4 -->
-                    <button class="showcase-tab" data-target="screen-stats">
-                        <div class="tab-indicator-bar"></div>
-                        <div class="tab-content">
-                            <h4>Statistiche Avanzate</h4>
-                            <p>Scopri correlazioni invisibili. Osserva come le tue abitudini ed attività influenzano direttamente il tuo benessere fisico e mentale.</p>
-                        </div>
-                    </button>
-
-                    <!-- Tab 5 -->
-                    <button class="showcase-tab" data-target="screen-mood">
-                        <div class="tab-indicator-bar"></div>
-                        <div class="tab-content">
-                            <h4>Mood & Wellness</h4>
-                            <p>Traccia lo stato d'animo giornaliero per incrociare i dati con le tue abitudini ed evitare stress, ansia o sovraccarico.</p>
-                        </div>
-                    </button>
-
-                    <!-- Tab 6 -->
-                    <button class="showcase-tab" data-target="screen-memento">
-                        <div class="tab-indicator-bar"></div>
-                        <div class="tab-content">
-                            <h4>Life View (Memento Mori)</h4>
-                            <p>Visualizza il tempo vissuto e quello futuro in una griglia di settimane. Uno strumento visivo eccezionale per vivere con intenzione.</p>
-                        </div>
-                    </button>
-
-                    <!-- Tab 7 -->
-                    <button class="showcase-tab" data-target="screen-premium">
-                        <div class="tab-indicator-bar"></div>
-                        <div class="tab-content">
-                            <h4>Evolve Pro & Privacy</h4>
-                            <p>Sblocca tutte le funzioni esclusive, sincronizza i tuoi dati in cloud e mantieni la tua riservatezza protetta al 100%.</p>
-                        </div>
-                    </button>
-                </div>
-            </div>
-
-            <!-- THE INTERACTIVE IPHONE -->
-            <div class="showcase-mockup animate-on-scroll">
-                <div class="phone-glow"></div>
-                <div class="iphone-mockup" id="interactive-iphone">
-                    <div class="iphone-border"></div>
-                    <div class="iphone-screen">
-                        <div class="dynamic-island"></div>
-                        <div class="iphone-status-bar">
-                            <span class="time" id="interactive-iphone-time">09:41</span>
-                            <div class="status-icons">
-                                <svg class="icon-wifi" viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M12 21a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm8-7.5a11 11 0 0 0-16 0 1.5 1.5 0 0 0 2.1 2.1 8 8 0 0 1 11.8 0 1.5 1.5 0 0 0 2.1-2.1zm3.5-3.5a16 16 0 0 0-23 0 1.5 1.5 0 0 0 2.1 2.1 13 13 0 0 1 18.8 0 1.5 1.5 0 0 0 2.1-2.1z"/></svg>
-                                <svg class="icon-battery" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17 5H3a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3zm4 4v6h1.5a1.5 1.5 0 0 0 1.5-1.5v-3A1.5 1.5 0 0 0 21 9z"/></svg>
+                    <!-- Slide 2: Storico & Calendario -->
+                    <div class="coverflow-slide" data-index="1">
+                        <div class="slide-phone-frame">
+                            <div class="iphone-bezel-wrapper">
+                                <div class="iphone-micro-island"></div>
+                                <img src="iphone_img/02.png" alt="Evolve Storico e Calendario" class="slide-img">
+                                <div class="slide-shine"></div>
                             </div>
                         </div>
+                        <div class="slide-caption">
+                            <h3>Storico & Calendario</h3>
+                            <p>Osserva l'andamento del tuo tempo. Monitora i giorni di piena coerenza stoica e analizza la tua costanza nel lungo termine.</p>
+                        </div>
+                    </div>
 
-                        <!-- IPHONE INTERACTIVE SCREEN CONTAINER -->
-                        <div class="app-viewport">
-                            <!-- SCREEN 1: DASHBOARD -->
-                            <div class="iphone-screen-content active" id="screen-dashboard">
-                                <img src="iphone_img/01.png" alt="Evolve Dashboard - App Store Screenshot" class="app-screenshot">
-                                <!-- Hotspot 1: Streak -->
-                                <div class="hotspot" style="top: 14%; left: 86%;">
-                                    <span class="pulse-ring"></span>
-                                    <span class="hotspot-icon">+</span>
-                                    <div class="hotspot-tooltip">
-                                        <h5>Streak Stoica</h5>
-                                        <p>Mantieni alta la disciplina quotidiana con il contatore visivo delle tue serie consecutive.</p>
-                                    </div>
-                                </div>
-                                <!-- Hotspot 2: Progress ring -->
-                                <div class="hotspot" style="top: 26%; left: 24%;">
-                                    <span class="pulse-ring"></span>
-                                    <span class="hotspot-icon">+</span>
-                                    <div class="hotspot-tooltip">
-                                        <h5>Anello Progressi</h5>
-                                        <p>Visualizzazione ad anello minimale che si completa man mano che archivi le tue abitudini stoiche.</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- SCREEN 2: STORICO & CALENDARIO -->
-                            <div class="iphone-screen-content" id="screen-calendar">
-                                <img src="iphone_img/02.png" alt="Evolve Calendario e Storico - App Store Screenshot" class="app-screenshot">
-                                <!-- Hotspot: Calendar Grid -->
-                                <div class="hotspot" style="top: 45%; left: 50%;">
-                                    <span class="pulse-ring"></span>
-                                    <span class="hotspot-icon">+</span>
-                                    <div class="hotspot-tooltip">
-                                        <h5>Griglia di Costanza</h5>
-                                        <p>Mappa visiva annuale completa per analizzare a colpo d'occhio la tua costanza nei mesi passati.</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- SCREEN 3: MACRO OBIETTIVI -->
-                            <div class="iphone-screen-content" id="screen-goals">
-                                <img src="iphone_img/03.png" alt="Evolve Macro Obiettivi - App Store Screenshot" class="app-screenshot">
-                                <!-- Hotspot: Goals scomposition -->
-                                <div class="hotspot" style="top: 36%; left: 50%;">
-                                    <span class="pulse-ring"></span>
-                                    <span class="hotspot-icon">+</span>
-                                    <div class="hotspot-tooltip">
-                                        <h5>Scomposizione Step</h5>
-                                        <p>Dividi i macro-obiettivi in compiti quotidiani azionabili per avanzare senza alcuna procrastinazione.</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- SCREEN 4: STATISTICHE AVANZATE -->
-                            <div class="iphone-screen-content" id="screen-stats">
-                                <img src="iphone_img/04.png" alt="Evolve Statistiche Avanzate - App Store Screenshot" class="app-screenshot">
-                                <!-- Hotspot: Radar chart -->
-                                <div class="hotspot" style="top: 40%; left: 50%;">
-                                    <span class="pulse-ring"></span>
-                                    <span class="hotspot-icon">+</span>
-                                    <div class="hotspot-tooltip">
-                                        <h5>Radar delle Aree</h5>
-                                        <p>Monitora l'armonia tra mente, corpo, finanze, relazioni e crescita con l'algoritmo di bilanciamento.</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- SCREEN 5: MOOD & BENESSERE -->
-                            <div class="iphone-screen-content" id="screen-mood">
-                                <img src="iphone_img/05.png" alt="Evolve Mood & Benessere - App Store Screenshot" class="app-screenshot">
-                                <!-- Hotspot: Mood prompt -->
-                                <div class="hotspot" style="top: 32%; left: 50%;">
-                                    <span class="pulse-ring"></span>
-                                    <span class="hotspot-icon">+</span>
-                                    <div class="hotspot-tooltip">
-                                        <h5>Mood Logger</h5>
-                                        <p>Registra le tue emozioni ed associale all'attività quotidiana per tracciare le fonti reali del tuo benessere.</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- SCREEN 6: LIFE VIEW (MEMENTO MORI) -->
-                            <div class="iphone-screen-content" id="screen-memento">
-                                <img src="iphone_img/06.png" alt="Evolve Memento Mori Life View - App Store Screenshot" class="app-screenshot">
-                                <!-- Hotspot: Weeks grid -->
-                                <div class="hotspot" style="top: 48%; left: 50%;">
-                                    <span class="pulse-ring"></span>
-                                    <span class="hotspot-icon">+</span>
-                                    <div class="hotspot-tooltip">
-                                        <h5>Weekly Grid</h5>
-                                        <p>Visualizza graficamente il tuo tempo vissuto ed il futuro rimanente per massimizzare il valore di oggi.</p>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- SCREEN 7: PREMIUM & PRIVACY -->
-                            <div class="iphone-screen-content" id="screen-premium">
-                                <img src="iphone_img/07.png" alt="Evolve Premium & Impostazioni - App Store Screenshot" class="app-screenshot">
-                                <!-- Hotspot: iCloud Sync -->
-                                <div class="hotspot" style="top: 65%; left: 50%;">
-                                    <span class="pulse-ring"></span>
-                                    <span class="hotspot-icon">+</span>
-                                    <div class="hotspot-tooltip">
-                                        <h5>Crittografia iCloud</h5>
-                                        <p>Sicurezza al 100%. I tuoi dati personali ed abitudini sono sincronizzati esclusivamente sul tuo account Apple.</p>
-                                    </div>
-                                </div>
+                    <!-- Slide 3: Macro Obiettivi -->
+                    <div class="coverflow-slide" data-index="2">
+                        <div class="slide-phone-frame">
+                            <div class="iphone-bezel-wrapper">
+                                <div class="iphone-micro-island"></div>
+                                <img src="iphone_img/03.png" alt="Evolve Macro Obiettivi" class="slide-img">
+                                <div class="slide-shine"></div>
                             </div>
                         </div>
+                        <div class="slide-caption">
+                            <h3>Macro Obiettivi</h3>
+                            <p>Scomponi i grandi traguardi in abitudini e micro-passi quotidiani azionabili per eliminare del tutto la procrastinazione.</p>
+                        </div>
+                    </div>
 
-                        <!-- Specular Shine Reflection Layer -->
-                        <div class="specular-shine"></div>
+                    <!-- Slide 4: Statistiche Avanzate -->
+                    <div class="coverflow-slide" data-index="3">
+                        <div class="slide-phone-frame">
+                            <div class="iphone-bezel-wrapper">
+                                <div class="iphone-micro-island"></div>
+                                <img src="iphone_img/04.png" alt="Evolve Statistiche Avanzate" class="slide-img">
+                                <div class="slide-shine"></div>
+                            </div>
+                        </div>
+                        <div class="slide-caption">
+                            <h3>Statistiche Avanzate</h3>
+                            <p>Il motore analitico correla il tuo umore giornaliero con il livello di produttività delle tue sessioni per prevenire il burnout.</p>
+                        </div>
+                    </div>
 
-                        <!-- iPhone Home Indicator -->
-                        <div class="home-indicator"></div>
+                    <!-- Slide 5: Mood & Benessere -->
+                    <div class="coverflow-slide" data-index="4">
+                        <div class="slide-phone-frame">
+                            <div class="iphone-bezel-wrapper">
+                                <div class="iphone-micro-island"></div>
+                                <img src="iphone_img/05.png" alt="Evolve Mood & Benessere" class="slide-img">
+                                <div class="slide-shine"></div>
+                            </div>
+                        </div>
+                        <div class="slide-caption">
+                            <h3>Mood & Benessere</h3>
+                            <p>Registra il tuo stato d'animo ed evidenzia i momenti e le abitudini quotidiane che ne influenzano l'andamento generale.</p>
+                        </div>
+                    </div>
+
+                    <!-- Slide 6: Life View (Memento Mori) -->
+                    <div class="coverflow-slide" data-index="5">
+                        <div class="slide-phone-frame">
+                            <div class="iphone-bezel-wrapper">
+                                <div class="iphone-micro-island"></div>
+                                <img src="iphone_img/06.png" alt="Evolve Life View Memento Mori" class="slide-img">
+                                <div class="slide-shine"></div>
+                            </div>
+                        </div>
+                        <div class="slide-caption">
+                            <h3>Life View (Memento Mori)</h3>
+                            <p>La griglia stoica di settimane. Uno specchio potente per darti la carica quotidiana e massimizzare ogni singolo secondo.</p>
+                        </div>
+                    </div>
+
+                    <!-- Slide 7: Evolve Pro & iCloud -->
+                    <div class="coverflow-slide" data-index="6">
+                        <div class="slide-phone-frame">
+                            <div class="iphone-bezel-wrapper">
+                                <div class="iphone-micro-island"></div>
+                                <img src="iphone_img/07.png" alt="Evolve Pro & iCloud Privacy" class="slide-img">
+                                <div class="slide-shine"></div>
+                            </div>
+                        </div>
+                        <div class="slide-caption">
+                            <h3>Evolve Pro & iCloud</h3>
+                            <p>Sincronizzazione in tempo reale sicura ed crittografata al 100% solo sul tuo archivio personale Apple.</p>
+                        </div>
                     </div>
                 </div>
+            </div>
+            
+            <!-- Progress indicator bar at the bottom -->
+            <div class="coverflow-progress-container">
+                <div class="coverflow-progress-fill" id="coverflow-progress-fill"></div>
             </div>
         </div>
     </section>
