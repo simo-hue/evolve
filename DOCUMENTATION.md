@@ -2,6 +2,13 @@
 
 ## Recent Changes
 
+- [2026-05-18 14:28]: **Sticky 3D Scroll Coverflow Presentation Carousel**
+  - *Details*: Replaced the static vertical-tab-based showcase with a jaw-dropping, scroll-driven Coverflow timeline. Screenshots glide dynamically from right to left, scaling up in focus, tilting in 3D, and shifting depth, with descriptive cards fading in/out automatically.
+  - *Tech Notes*:
+    - **Sticky Viewport Locking**: Set up a `380vh` scroll block container with `position: sticky` and `height: 100vh` to lock the viewport during the sweep animation.
+    - **Responsive 3D Coverflow Algorithm**: Coded an algorithm in `app.js` that tracks normalized vertical progress ($0$ to $1$) and translates the `.coverflow-track` horizontally, while applying 3D transformations (`scale`, `rotateY`, `translateZ`, `opacity`) to individual slides relative to their distance from the viewport's center focus.
+    - **Adaptive Layout Specs**: Configured responsive CSS media blocks for tablets and mobile devices ($200px$ width and scaled tilt angles) for flawless performance on all form factors.
+
 - [2026-05-18 14:26]: **Hotfix: Resolved Accent Variable Typos & Restored Memento Grid Visibility**
   - *Details*: Fixed a stylesheet bug where an undefined CSS variable `var(--accent-color)` caused interactive features, hotspot pins, and weeks dots to render as completely black/invisible.
   - *Tech Notes*:
