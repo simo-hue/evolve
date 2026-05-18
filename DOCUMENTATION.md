@@ -46,3 +46,21 @@ The objective is to design and develop a premium, highly immersive, and modern w
     - Incorporated a sleek, gradient progress bar at the bottom (`#gallery-progress`) that reflects live track scroll percentage.
     - Wrote full mouse drag-to-scroll logic in `script.js` (grab-to-drag, release-to-snap) that automatically filters drag movements from accidental lightbox modal triggers.
     - Integrated tablet and mobile-responsive breakpoints in `style.css` that hide navigation arrows on smaller devices (favoring native multi-touch swipe mechanics) and scale down card flex sizes from 280px to 210px to fit gracefully.
+- **2026-05-18 15:15**: Professional & Cohesive Legal Pages Creation
+  - *Details*: Designed and implemented beautiful, professional, and architecturally cohesive legal pages (`privacy.html`, `terms.html`, `cookie.html`) for Evolve. These documents fully reflect the real mobile application architecture (Supabase Auth/DB, PostgreSQL Row Level Security, OpenAI GPT-4o-mini via serverless Edge Functions, Isar/Hive offline-first caches, and Apple/Google sign-in) while maintaining identical dark mode branding, color tokens, typography (`Outfit` & `Plus Jakarta Sans`), and glassmorphism styling.
+  - *Tech Notes*:
+    - **UI & Layout**: Integrated a dual-column layout on desktop consisting of a sticky Table of Contents sidebar and a massive glassmorphic card housing the legal text, complete with styled sub-headings, lists with custom bullet bullet-points, info boxes, and custom responsive tables.
+    - **Responsive Design**: Added media queries in `style.css` collapsing the sidebar to a stacked block on tablets and mobiles while adjusting content card paddings and font scale factors for maximum readability on devices.
+    - **Interactive ScrollSpy**: Integrated lightweight, high-performance JS scroll trackers in each legal page that monitor viewport scroll positions and dynamically highlight the corresponding Table of Contents index link as the user reads.
+    - **Footer Routing**: Updated the footer in `index.html` to direct the "Legale" navigation items directly to their newly created static files instead of empty `#` anchors.
+- **2026-05-18 15:20**: Personal Branding Footer Integration
+  - *Details*: Integrated Simone's personal links directly into the footer across all pages of the Evolve showcase (`index.html`, `privacy.html`, `terms.html`, and `cookie.html`), replacing standard placeholder social networks.
+  - *Tech Notes*:
+    - **Links Updated**: Integrated LinkedIn (`https://www.linkedin.com/in/simonemattioli2003/`), Personal Website (`https://simo-hue.github.io`), and Instagram (`https://www.instagram.com/simo___one/`).
+    - **Best Practices**: Added `target="_blank" rel="noopener"` attributes to ensure secure navigation to external tabs.
+    - **UI Elements**: Configured a Globe icon (`fa-solid fa-globe`) for the personal web project and updated accessibility aria-labels.
+- **2026-05-18 15:25**: Brand Logo Integration
+  - *Details*: Replaced the generic placeholder wind icon logo with the newly provided premium brand mark `logo.png` across the header and footer branding elements of all 4 website pages (`index.html`, `privacy.html`, `terms.html`, and `cookie.html`).
+  - *Tech Notes*:
+    - **CSS Sizing**: Added a `.logo-img` CSS rule in `style.css` establishing a sleek proportional height limit of `36px` to fit seamlessly inside both the sticky navbar container and the brand column of the main footer.
+    - **HTML Updates**: Injected `<img src="logo.png" ...>` tags inside all header `.logo` and footer `.logo` links, preserving clean flex alignment and typography.
