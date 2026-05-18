@@ -2,6 +2,18 @@
 
 ## Recent Changes
 
+- [2026-05-18 14:17]: **App Store Professional Screenshots Integration**
+  - *Details*: Swapped the custom-styled mock screens inside the iPhone mockups with your professional App Store screenshots located in the `iphone_img` directory.
+  - *Tech Notes*:
+    - **index.html**:
+      - Replaced the mockup HTML inside the **Hero iPhone** with `iphone_img/01.png` (Dashboard) for instant authenticity.
+      - Expanded the **Interactive Showcase** to **7 tabs** (Dashboard, Storico & Calendario, Macro Obiettivi, Statistiche Avanzate, Mood & Benessere, Life View, and Evolve Pro & Privacy) mapping exactly to your 7 screenshots (`01.png` to `07.png`).
+      - Loaded the gorgeous premium settings overview (`iphone_img/07.png`) inside the bottom diagonal 3D angled iPhone.
+      - Maintained interactive clock syncing on top of the screenshots for a high-fidelity live hardware feel.
+    - **styles.css**:
+      - Configured `.app-viewport` and `.iphone-screen-content` to render at `100%` height and `0` padding, allowing native edge-to-edge screenshot fits.
+      - Added the `.app-screenshot` class to handle `object-fit: cover` rendering with smooth corners.
+
 - [2026-05-18 14:14]: **iPhone 17 Pro Max Next-Gen Upgrade**
   - *Details*: Redesigned the pure CSS virtual device mockup to represent the future/latest flagship **iPhone 17 Pro Max** with high-fidelity visuals.
   - *Tech Notes*:
