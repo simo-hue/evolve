@@ -64,3 +64,13 @@ The objective is to design and develop a premium, highly immersive, and modern w
   - *Tech Notes*:
     - **CSS Sizing**: Added a `.logo-img` CSS rule in `style.css` establishing a sleek proportional height limit of `36px` to fit seamlessly inside both the sticky navbar container and the brand column of the main footer.
     - **HTML Updates**: Injected `<img src="logo.png" ...>` tags inside all header `.logo` and footer `.logo` links, preserving clean flex alignment and typography.
+- **2026-05-18 15:30**: AI Coach Data Processing Policy Correction
+  - *Details*: Corrected the Evolve AI Coach data privacy policy in `privacy.html` to accurately disclose standard OpenAI developer API transmission instead of customized enterprise contracts. Added an explicit, transparent product roadmap declaration highlighting future on-device, local LLM execution to eliminate external data transfer.
+  - *Tech Notes*:
+    - **API Transmission Disclosure**: Clarified that prompt context (recent 30-day notes) is temporarily transmitted to external cloud systems (OpenAI standard APIs) with non-training assurances.
+    - **Local LLM Roadmap**: Integrated a bold, highly encouraging vision statement regarding upcoming local model hosting natively on the user's phone, aligning with Evolve's offline-first values.
+- **2026-05-18 15:35**: Generalization & Modularization of AI Provider References
+  - *Details*: Updated the AI Coach data policy in `privacy.html` to be completely supplier-neutral. Removed all explicit mentions of "OpenAI" and "GPT-4o-mini" and replaced them with general, modular terms.
+  - *Tech Notes*:
+    - **Supplier-Neutral Disclosures**: Used terms such as "Fornitori terzi di modelli di linguaggio (LLM)" and "Provider Leader di Modelli di Linguaggio". This allows switching the API provider (e.g., to Anthropic, Gemini, or DeepSeek) at any time on the backend without requiring revisions of the legal pages.
+    - **Policy Alignment**: Maintained strict developer API non-training criteria and standard GDPR responsibilities under the new generalized partner format.
