@@ -2,6 +2,15 @@
 
 ## Recent Changes
 
+- [2026-05-18 14:23]: **AAA Premium Interactivity Rewrite (Maximum UX & Jaw-Dropping Aesthetics)**
+  - *Details*: Upgraded the entire landing page with high-end, immersive, and sensory interactive features that deliver an Apple-level product showcase experience.
+  - *Tech Notes*:
+    - **Ambient Cursor Light Focus**: Implemented a global mouse tracker (`--mouse-x`, `--mouse-y`) that drives an elegant indigo/green gradient orb behind elements, following the mouse organically.
+    - **3D Tilt & Specular Shine**: Programmed dynamic coordinate tracking on all iPhone 17 Pro Max mockups. Hovering over a device triggers realistic **3D parallax tilting** and sweeps a **specular shine glass reflection** based on the cursor position.
+    - **Glowing Interactive Hotspots**: Integrated glowing hotspot pins (`+` buttons with ripple-ring wave animations) overlaying the real screenshots. Hovering reveals glassmorphic iOS-style tooltips explaining key app features.
+    - **Delegated Weeks Grid Tooltips**: Refactored the 4,160 weeks calculator grid with optimized **event delegation**. A single floating card dynamically maps current coordinates, displaying weekly count, age, and state (Lived/Current/Future) at 60fps.
+    - **Interactive Analytics Chart**: Transformed the static SVG chart into a live dashboard. Moving the cursor sweeps a vertical guide line and highlights daily correlation metrics (Wellness Score & Productivity gains) on a floating stat card.
+
 - [2026-05-18 14:17]: **App Store Professional Screenshots Integration**
   - *Details*: Swapped the custom-styled mock screens inside the iPhone mockups with your professional App Store screenshots located in the `iphone_img` directory.
   - *Tech Notes*:
