@@ -11,6 +11,8 @@ document.addEventListener('DOMContentLoaded', () => {
     initFAQAccordion();
     initScrollAnimations();
     initMobileMenu();
+    initIPhone3DTilt();
+    initInteractiveAnalyticsChart();
 });
 
 /* ==========================================================================
@@ -207,6 +209,46 @@ function initMementoMoriCalculator() {
                 fragment.appendChild(dot);
             }
             gridContainer.appendChild(fragment);
+
+            // Append dynamic hover card tooltip inside grid container
+            const hoverCard = document.createElement('div');
+            hoverCard.className = 'memento-hover-card';
+            gridContainer.appendChild(hoverCard);
+
+            // Register lightweight event delegation for hover tooltips
+            gridContainer.addEventListener('mouseover', (e) => {
+                const dot = e.target.closest('.dot-cell');
+                if (!dot) return;
+                
+                const cells = Array.from(gridContainer.querySelectorAll('.dot-cell'));
+                const idx = cells.indexOf(dot);
+                if (idx === -1) return;
+                
+                const weekNum = idx + 1;
+                const age = (idx / 52).toFixed(1);
+                
+                let state = "Futura";
+                if (dot.classList.contains('lived')) state = "Vissuta";
+                if (dot.classList.contains('current')) state = "Attuale";
+                
+                hoverCard.innerHTML = `Settimana ${weekNum.toLocaleString()} (Età ${age}) — <span style="color: ${state === 'Vissuta' ? 'var(--accent-color)' : '#fbbf24'}">${state}</span>`;
+                
+                const dotRect = dot.getBoundingClientRect();
+                const gridRect = gridContainer.getBoundingClientRect();
+                
+                const topOffset = dotRect.top - gridRect.top - 40;
+                const leftOffset = dotRect.left - gridRect.left + (dotRect.width / 2);
+                
+                hoverCard.style.top = `${topOffset}px`;
+                hoverCard.style.left = `${leftOffset}px`;
+                hoverCard.style.opacity = '1';
+                hoverCard.style.transform = 'translateX(-50%) translateY(0)';
+            });
+            
+            gridContainer.addEventListener('mouseleave', () => {
+                hoverCard.style.opacity = '0';
+                hoverCard.style.transform = 'translateX(-50%) translateY(5px)';
+            });
         }
 
         // Render mini preview grid inside phone screen 4
@@ -335,3 +377,126 @@ function initMobileMenu() {
         }
     });
 }
+
+/* ==========================================================================
+   9. INTERACTIVE 3D TILT & GLASS SHINE ENGINE
+   ========================================================================== */
+function initIPhone3DTilt() {
+    const mockups = document.querySelectorAll('.iphone-mockup, .phone-skewed');
+    
+    mockups.forEach(mockup => {
+        mockup.addEventListener('mousemove', (e) => {
+            const rect = mockup.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            // Calculate normalized coordinate percentages (-0.5 to 0.5)
+            const normX = (x / rect.width) - 0.5;
+            const normY = (y / rect.height) - 0.5;
+            
+            // Limit degrees of rotation (tilt max 8 degrees)
+            const rotX = -normY * 8;
+            const rotY = normX * 8;
+            
+            if (mockup.classList.contains('phone-skewed')) {
+                // Skewed phone preserves base tilted angles with micro-rotations
+                mockup.style.transform = `perspective(1000px) rotateX(${rotX - 10}deg) rotateY(${rotY + 25}deg) rotateZ(-10deg) scale(1.03)`;
+            } else {
+                mockup.style.transform = `perspective(1000px) rotateX(${rotX}deg) rotateY(${rotY}deg) scale(1.02)`;
+            }
+            
+            // Shift specular shine gradient light reflection coordinates
+            const shineX = (x / rect.width) * 100;
+            const shineY = (y / rect.height) * 100;
+            mockup.style.setProperty('--shine-x', `${shineX}%`);
+            mockup.style.setProperty('--shine-y', `${shineY}%`);
+        });
+        
+        mockup.addEventListener('mouseleave', () => {
+            // Revert gently to baseline state
+            if (mockup.classList.contains('phone-skewed')) {
+                mockup.style.transform = `perspective(1000px) rotateX(-10deg) rotateY(25deg) rotateZ(-10deg) scale(1)`;
+            } else {
+                mockup.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) scale(1)`;
+            }
+            mockup.style.setProperty('--shine-x', `50%`);
+            mockup.style.setProperty('--shine-y', `50%`);
+        });
+    });
+}
+
+/* ==========================================================================
+   10. INTERACTIVE ANALYTICS CHART OVERLAY DETECTOR
+   ========================================================================== */
+function initInteractiveAnalyticsChart() {
+    const chart = document.querySelector('.analytics-chart');
+    if (!chart) return;
+    
+    let guideLine = chart.querySelector('.chart-guide-line');
+    if (!guideLine) {
+        guideLine = document.createElement('div');
+        guideLine.className = 'chart-guide-line';
+        chart.appendChild(guideLine);
+    }
+    
+    let statsCard = chart.querySelector('.chart-active-stats');
+    if (!statsCard) {
+        statsCard = document.createElement('div');
+        statsCard.className = 'chart-active-stats';
+        statsCard.innerHTML = `
+            <span class="day-label">Lunedì</span>
+            <div class="stats-row">
+                <span>🧠 Umore: <strong class="wellness-val">6.2/10</strong></span>
+                <span>⚡ Produttività: <strong class="output-val">+5%</strong></span>
+            </div>
+        `;
+        chart.appendChild(statsCard);
+    }
+    
+    const days = ["Lunedì", "Martedì", "Mercoledì", "Giovedì", "Venerdì", "Sabato", "Domenica"];
+    const dataset = [
+        { mood: "6.5/10", output: "+8%", desc: "Inizio serie" },
+        { mood: "7.2/10", output: "+14%", desc: "Focus attivo" },
+        { mood: "8.9/10", output: "+22%", desc: "Picco Stoico" },
+        { mood: "7.8/10", output: "+12%", desc: "Equilibrio" },
+        { mood: "9.5/10", output: "+28%", desc: "Sintonia totale" },
+        { mood: "8.6/10", output: "+19%", desc: "Riflessione" },
+        { mood: "8.2/10", output: "+15%", desc: "Pianificazione" }
+    ];
+    
+    chart.addEventListener('mousemove', (e) => {
+        const rect = chart.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        
+        const pct = x / rect.width;
+        let idx = Math.floor(pct * 7);
+        if (idx < 0) idx = 0;
+        if (idx > 6) idx = 6;
+        
+        const guideLeft = (idx / 6) * (rect.width - 48) + 24;
+        guideLine.style.left = `${guideLeft}px`;
+        guideLine.style.opacity = '1';
+        
+        statsCard.querySelector('.day-label').textContent = `${days[idx]} — ${dataset[idx].desc}`;
+        statsCard.querySelector('.wellness-val').textContent = dataset[idx].mood;
+        statsCard.querySelector('.output-val').textContent = dataset[idx].output;
+        
+        statsCard.style.opacity = '1';
+        if (idx > 3) {
+            statsCard.style.left = `${guideLeft - 200}px`;
+        } else {
+            statsCard.style.left = `${guideLeft + 20}px`;
+        }
+    });
+    
+    chart.addEventListener('mouseleave', () => {
+        guideLine.style.opacity = '0';
+        statsCard.style.opacity = '0';
+    });
+}
+
+// 11. AMBIENT GLOW MOUSE TRACKER
+document.addEventListener('mousemove', (e) => {
+    document.body.style.setProperty('--mouse-x', `${e.clientX}px`);
+    document.body.style.setProperty('--mouse-y', `${e.clientY}px`);
+});

@@ -2370,3 +2370,230 @@ h1, h2, h3, h4, h5, h6 {
         align-items: stretch;
     }
 }
+
+/* ==========================================================================
+   INTERACTIVE MASTERPIECE & STOIC USER EXPERIENCE STYLES
+   ========================================================================== */
+
+/* 1. BODY CURSOR FOCUS GLOW */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(600px circle at var(--mouse-x, 0px) var(--mouse-y, 0px), rgba(99, 102, 241, 0.04) 0%, rgba(16, 185, 129, 0.02) 40%, transparent 80%);
+    pointer-events: none;
+    z-index: 9999;
+    transition: opacity 0.5s ease;
+}
+
+/* 2. SPECULAR SHINE GRAPHIC FOR IPHONE */
+.specular-shine {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    mix-blend-mode: overlay;
+    z-index: 30;
+    background: radial-gradient(circle at var(--shine-x, 50%) var(--shine-y, 50%), rgba(255, 255, 255, 0.15) 0%, transparent 60%);
+    transition: background 0.15s ease-out;
+}
+
+/* 3. GLOWING HOTSPOTS ON SCREENSHOTS */
+.hotspot {
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 40;
+    box-shadow: 0 0 10px var(--accent-color);
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+.hotspot:hover {
+    transform: scale(1.2);
+}
+.hotspot .pulse-ring {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    border: 2px solid var(--accent-color);
+    animation: hotspot-pulse 2s infinite;
+}
+@keyframes hotspot-pulse {
+    0% { transform: scale(1); opacity: 1; }
+    100% { transform: scale(2.2); opacity: 0; }
+}
+.hotspot-icon {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 1;
+    pointer-events: none;
+}
+.hotspot-tooltip {
+    position: absolute;
+    bottom: 34px;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    width: 220px;
+    padding: 12px 14px;
+    background: rgba(9, 10, 15, 0.95);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 14px;
+    color: #fff;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+    z-index: 50;
+}
+.hotspot-tooltip h5 {
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--accent-color);
+    background: linear-gradient(135deg, var(--accent-color) 0%, #10b981 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.hotspot-tooltip p {
+    font-size: 11px;
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 0;
+    white-space: normal;
+}
+.hotspot:hover .hotspot-tooltip {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* 4. INTERACTIVE ANALYTICS GRAPH OVERLAYS */
+.analytics-chart {
+    position: relative;
+    overflow: hidden;
+}
+.chart-guide-line {
+    position: absolute;
+    top: 24px;
+    bottom: 24px;
+    width: 1px;
+    background: linear-gradient(to bottom, rgba(59, 130, 246, 0.5), transparent);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.2s ease, left 0.1s ease-out;
+    z-index: 2;
+}
+.chart-active-stats {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    padding: 10px 14px;
+    background: rgba(10, 11, 16, 0.85);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    opacity: 0;
+    transition: opacity 0.2s ease;
+    pointer-events: none;
+    z-index: 3;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+}
+.chart-active-stats .day-label {
+    font-size: 12px;
+    font-weight: 700;
+    color: #fff;
+}
+.chart-active-stats .stats-row {
+    display: flex;
+    gap: 12px;
+    font-size: 11px;
+}
+.chart-active-stats .stats-row span {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    color: rgba(255, 255, 255, 0.7);
+}
+.chart-active-stats .stats-row strong {
+    font-weight: 700;
+}
+.chart-active-stats .stats-row .wellness-val {
+    color: #10b981;
+}
+.chart-active-stats .stats-row .output-val {
+    color: #3b82f6;
+}
+
+/* 5. INTERACTIVE 3D TRANSFORMS ON MOCKUPS */
+.iphone-mockup {
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-style: preserve-3d;
+}
+
+/* 6. MEMENTO MORI GRID UPGRADES */
+.dot-cell {
+    position: relative;
+    transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275), background-color 0.3s ease;
+    cursor: pointer;
+}
+.dot-cell:hover {
+    transform: scale(2);
+    z-index: 100;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+}
+.dot-cell.lived {
+    background-color: var(--accent-color);
+    box-shadow: inset 0 0 2px rgba(255, 255, 255, 0.1);
+}
+.dot-cell.current {
+    background: radial-gradient(circle, #fbbf24 0%, #d97706 100%);
+    box-shadow: 0 0 10px #fbbf24;
+}
+.dot-cell.future {
+    background-color: rgba(255, 255, 255, 0.08);
+}
+.dot-cell.future:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Memento Mori Hover Card */
+.memento-hover-card {
+    position: absolute;
+    top: -50px;
+    left: 50%;
+    transform: translateX(-50%) translateY(5px);
+    background: rgba(9, 10, 15, 0.95);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: 8px;
+    padding: 6px 10px;
+    color: #fff;
+    font-size: 10px;
+    font-weight: 700;
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    z-index: 200;
+}
+.dot-cell:hover .memento-hover-card {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
