@@ -2,6 +2,16 @@
 
 ## Recent Changes
 
+- [2026-05-18 14:14]: **iPhone 17 Pro Max Next-Gen Upgrade**
+  - *Details*: Redesigned the pure CSS virtual device mockup to represent the future/latest flagship **iPhone 17 Pro Max** with high-fidelity visuals.
+  - *Tech Notes*:
+    - **index.html**: Updated copy and text structures to explicitly reference the flagship iPhone 17 Pro Max virtual hardware.
+    - **styles.css**:
+      - Upgraded bezel physics by implementing ultra-thin screen borders (`border: 1.5px solid #000`) representing Apple's next-generation screen-to-body ratios.
+      - Styled the casing shell with a premium specular gradient to simulate highly polished liquid-titanium metal casing.
+      - Reconfigured the Dynamic Island into a next-generation **Micro-Island** punch-hole under-display camera (38px width, 14px height) that dynamically grows and responds to hover triggers (scaling up to 85px status pill on phone hover).
+      - Scaled up overall dimensions to represent the wider, taller 6.9" Pro Max flagship posture.
+
 - [2026-05-18 14:15]: **Initial Landing Page Architecture & Core Implementation**
   - *Details*: Designed and implemented a high-performance, premium landing page for the native iOS application **Evolve**. Created an interactive, fully responsive experience in Italian, showcasing Evolve's core philosophical and analytical pillars.
   - *Tech Notes*:
