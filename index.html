@@ -3,655 +3,473 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Evolve: lo strumento di crescita personale definitivo per iOS. Costruisci abitudini solide, traccia gli obiettivi e analizza benessere e produttività con un design minimale Apple-style.">
-    <meta name="keywords" content="abitudini, obiettivi, tracker, routine, streak, produttività, crescita, mindset, memento mori, mood tracking, benessere, ios app">
-    <meta name="author" content="Evolve App">
+    <title>Evolve - Migliora ogni giorno, diventa chi sei destinato ad essere</title>
     
-    <!-- Open Graph / Facebook -->
+    <!-- Meta Tags SEO -->
+    <meta name="description" content="Evolve è l'applicazione iPhone definitiva per il tracciamento delle abitudini, la crescita personale e l'ottimizzazione del proprio tempo. Realizza il tuo potenziale ogni giorno.">
+    <meta name="keywords" content="Evolve app, crescita personale, habit tracker, produttività iPhone, routine quotidiane, intelligenza artificiale coach, sviluppo personale">
+    <meta name="author" content="Evolve">
+    <meta property="og:title" content="Evolve - La tua crescita personale quotidiana">
+    <meta property="og:description" content="Migliora ogni giorno, diventa chi sei destinato ad essere. Traccia abitudini, organizza task e consulta il tuo coach AI.">
+    <meta property="og:image" content="iphone_img/01.png">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Evolve - Costruisci Routine e Cresci Ogni Giorno">
-    <meta property="og:description" content="Supera la procrastinazione e migliora te stesso un giorno alla volta. Interfaccia premium, statistiche avanzate, mood tracking e Memento Mori.">
-    <meta property="og:image" content="assets/og-image.jpg">
-
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="Evolve - Daily Habits & Goals">
-    <meta property="twitter:description" content="Tracker di abitudini ed obiettivi Apple-style con algoritmo Wellness vs Output e visualizzatore Memento Mori.">
-
-    <title>Evolve - Build Routines & Grow Daily</title>
-
+    
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome per icone moderne -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Stili Custom -->
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <!-- NAV BAR -->
-    <header class="navbar" id="main-header">
-        <div class="nav-container">
-            <a href="#" class="logo">
-                <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M13 5L20 12L13 19M4 12H20" stroke="url(#logo-grad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                    <defs>
-                        <linearGradient id="logo-grad" x1="4" y1="12" x2="20" y2="12" gradientUnits="userSpaceOnUse">
-                            <stop stop-color="#3b82f6"/>
-                            <stop offset="1" stop-color="#10b981"/>
-                        </linearGradient>
-                    </defs>
-                </svg>
-                <span>Evolve</span>
+    <!-- Sfondo Animato Ambientale -->
+    <div class="ambient-glow" id="ambient-glow"></div>
+    <div class="gradient-ball ball-1"></div>
+    <div class="gradient-ball ball-2"></div>
+    <div class="gradient-ball ball-3"></div>
+
+    <!-- Header / Navigazione Glassmorphism -->
+    <header class="navbar">
+        <div class="navbar-container">
+            <a href="#" class="logo" id="nav-logo">
+                <span class="logo-icon"><i class="fa-solid fa-wind"></i></span>
+                <span class="logo-text">Evolve</span>
             </a>
             
-            <nav class="nav-links" id="nav-menu">
-                <a href="#features" class="nav-link">Caratteristiche</a>
-                <a href="#interactive-showcase" class="nav-link">Anteprima Live</a>
-                <a href="#insights-section" class="nav-link">Statistiche</a>
-                <a href="#memento-mori" class="nav-link">Memento Mori</a>
-                <a href="#pricing" class="nav-link">Premium</a>
-                <a href="#faq" class="nav-link">FAQ</a>
+            <nav class="nav-links">
+                <a href="#features" class="nav-link" id="link-features">Funzionalità</a>
+                <a href="#showcase" class="nav-link" id="link-showcase">Screenshots</a>
+                <a href="#philosophy" class="nav-link" id="link-philosophy">Filosofia</a>
+                <a href="#download" class="btn btn-secondary btn-sm" id="btn-nav-download">Scarica Ora</a>
             </nav>
-
-            <div class="nav-actions">
-                <a href="#download" class="btn btn-primary btn-sm">Scarica Ora</a>
-                <button class="mobile-toggle" id="menu-toggle" aria-label="Apri menu">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </button>
-            </div>
+            
+            <button class="mobile-menu-toggle" id="menu-toggle" aria-label="Apri menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
         </div>
     </header>
 
-    <!-- HERO SECTION -->
-    <section class="hero" id="hero-section">
-        <div class="hero-bg-glow"></div>
-        <div class="container hero-container">
+    <!-- Menu Mobile Mobile Overlay -->
+    <div class="mobile-menu" id="mobile-menu">
+        <nav class="mobile-nav-links">
+            <a href="#features" class="mobile-link" id="mob-link-features">Funzionalità</a>
+            <a href="#showcase" class="mobile-link" id="mob-link-showcase">Screenshots</a>
+            <a href="#philosophy" class="mobile-link" id="mob-link-philosophy">Filosofia</a>
+            <a href="#download" class="btn btn-primary" id="mob-btn-download">Scarica Evolve</a>
+        </nav>
+    </div>
+
+    <!-- Sezione HERO -->
+    <section class="hero" id="hero">
+        <div class="hero-container">
             <div class="hero-content">
-                <div class="badge-container">
-                    <span class="hero-badge">✨ Novità: Memento Mori Widget</span>
+                <div class="badge" id="hero-badge">
+                    <span class="badge-icon"><i class="fa-solid fa-sparkles"></i></span>
+                    <span class="badge-text">App Store Feature del Mese</span>
                 </div>
-                <h1 class="hero-title">Migliora ogni giorno, diventa chi sei <span class="gradient-text">destinato ad essere.</span></h1>
-                <p class="hero-subtitle">Costruisci abitudini solide, definisci obiettivi chiari e analizza il tuo percorso quotidiano con un'applicazione minimale, Apple-style e priva di distrazioni.</p>
-                
-                <div class="hero-actions">
-                    <a href="#download" class="btn btn-primary btn-lg">
-                        <svg class="btn-icon" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 22C14.32 22.05 13.89 21.24 12.37 21.24C10.84 21.24 10.37 21.97 9.1 22C7.79 22.05 6.8 20.68 5.96 19.48C4.25 17 2.94 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.1 16.67C20.08 16.74 19.67 18.11 18.71 19.5ZM15.97 4.17C16.63 3.37 17.07 2.28 16.95 1C15.85 1.04 14.51 1.73 13.73 2.64C13.07 3.41 12.49 4.52 12.64 5.78C13.87 5.87 15.12 5.17 15.97 4.17Z"/>
-                        </svg>
-                        Scarica su App Store
+                <h1 class="hero-title" id="hero-main-title">
+                    Migliora ogni giorno, <br>
+                    <span class="text-gradient">diventa chi sei</span> <br>
+                    destinato ad essere.
+                </h1>
+                <p class="hero-subtitle" id="hero-sub">
+                    Evolve trasforma la tua routine quotidiana in un viaggio di crescita consapevole. Traccia le tue abitudini, pianifica i tuoi obiettivi e sblocca il tuo potenziale con il supporto del tuo Coach AI.
+                </p>
+                <div class="hero-buttons" id="hero-ctas">
+                    <a href="#download" class="btn btn-primary btn-lg" id="btn-hero-appstore">
+                        <i class="fa-brands fa-apple"></i>
+                        <span>
+                            <small>Disponibile su</small>
+                            App Store
+                        </span>
                     </a>
-                    <a href="#interactive-showcase" class="btn btn-secondary btn-lg">Esplora le Funzioni</a>
+                    <a href="#features" class="btn btn-outline btn-lg" id="btn-hero-explore">
+                        Esplora Funzionalità <i class="fa-solid fa-arrow-down-long"></i>
+                    </a>
                 </div>
                 
-                <div class="hero-stats-row">
-                    <div class="hero-stat-item">
-                        <span class="stat-num">5.0 ★</span>
-                        <span class="stat-label">Valutazione</span>
+                <div class="hero-stats" id="hero-rating-stats">
+                    <div class="stat-item">
+                        <span class="stat-val">4.9<i class="fa-solid fa-star text-star"></i></span>
+                        <span class="stat-lbl">Valutazione</span>
                     </div>
-                    <div class="hero-stat-item">
-                        <span class="stat-num">100%</span>
-                        <span class="stat-label">Senza Pubblicità</span>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-val">50k+</span>
+                        <span class="stat-lbl">Download</span>
                     </div>
-                    <div class="hero-stat-item">
-                        <span class="stat-num">Sicuro</span>
-                        <span class="stat-label">Sincronizzazione Cloud</span>
+                    <div class="stat-divider"></div>
+                    <div class="stat-item">
+                        <span class="stat-val">98%</span>
+                        <span class="stat-lbl">Tasso di Crescita</span>
                     </div>
                 </div>
             </div>
-
-            <!-- HERO STYLIZED IPHONE MOCKUP -->
-            <div class="hero-mockup-wrapper">
+            
+            <div class="hero-visual" id="hero-visual-phone">
                 <div class="phone-glow"></div>
-                <div class="iphone-mockup" id="hero-iphone">
-                    <!-- Hardware details -->
-                    <div class="iphone-border"></div>
-                    <div class="iphone-screen">
-                        <div class="dynamic-island"></div>
-                        <div class="iphone-status-bar">
-                            <span class="time" id="iphone-time">09:41</span>
-                            <div class="status-icons">
-                                <svg class="icon-wifi" viewBox="0 0 24 24" fill="currentColor" width="14" height="14"><path d="M12 21a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm8-7.5a11 11 0 0 0-16 0 1.5 1.5 0 0 0 2.1 2.1 8 8 0 0 1 11.8 0 1.5 1.5 0 0 0 2.1-2.1zm3.5-3.5a16 16 0 0 0-23 0 1.5 1.5 0 0 0 2.1 2.1 13 13 0 0 1 18.8 0 1.5 1.5 0 0 0 2.1-2.1z"/></svg>
-                                <svg class="icon-battery" viewBox="0 0 24 24" fill="currentColor" width="16" height="16"><path d="M17 5H3a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h14a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3zm4 4v6h1.5a1.5 1.5 0 0 0 1.5-1.5v-3A1.5 1.5 0 0 0 21 9z"/></svg>
-                            </div>
-                        </div>
-                        
-                        <!-- Real App Store Screenshot (Dashboard Home) -->
-                        <img src="iphone_img/01.png" alt="Evolve Dashboard - App Store Screenshot" class="app-screenshot">
-                        
-                        <!-- Specular Shine Reflection Layer -->
-                        <div class="specular-shine"></div>
-
-                        <!-- iPhone Home Indicator -->
-                        <div class="home-indicator"></div>
+                <!-- Screenshot Hero con 3D Tilt -->
+                <div class="iphone-container-tilt" id="hero-phone-tilt">
+                    <div class="screenshot-showcase">
+                        <img src="iphone_img/01.png" alt="Evolve App Dashboard" class="phone-screen-img active">
+                        <div class="iphone-glare"></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- CORE FEATURES SECTION -->
-    <section class="features" id="features">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Caratteristiche uniche</span>
-                <h2 class="section-title">Progettato per la crescita, <span class="gradient-text">raffinato per iOS</span></h2>
-                <p class="section-subtitle">Dimentica i complessi fogli di calcolo o i tracker caotici. Evolve unisce design minimale e algoritmi di livello scientifico per dare direzione e costanza alle tue giornate.</p>
-            </div>
-
-            <div class="features-grid">
-                <!-- Feature Card 1 -->
-                <div class="feature-card animate-on-scroll">
-                    <div class="feature-icon-wrapper">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14M22 4L12 14.01l-3-3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    </div>
-                    <h3>Tracciamento Abitudini Apple-Style</h3>
-                    <p>Configura i tuoi traguardi visivamente con grafiche splendide. Ricevi notifiche interattive ed eseguibili direttamente dalla schermata di blocco di iOS, senza dover aprire l'applicazione.</p>
-                    <ul class="feature-bullets">
-                        <li>Notifiche push flessibili e singole</li>
-                        <li>Registrazione immediata da blocco schermo</li>
-                        <li>Streak dinamiche ed andamenti annuali</li>
-                    </ul>
-                </div>
-
-                <!-- Feature Card 2 -->
-                <div class="feature-card animate-on-scroll">
-                    <div class="feature-icon-wrapper">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    </div>
-                    <h3>Obiettivi Chiari e Mappe Radar</h3>
-                    <p>Suddividi i macro-obiettivi in piccoli step realizzabili. Visualizza l'equilibrio complessivo della tua vita grazie a innovativi grafici radar che bilanciano le tue diverse aree di crescita.</p>
-                    <ul class="feature-bullets">
-                        <li>Scomposizione in sotto-obiettivi</li>
-                        <li>Grafici radar per bilanciare le aree di vita</li>
-                        <li>Storico delle performance e stagionalità</li>
-                    </ul>
-                </div>
-
-                <!-- Feature Card 3 -->
-                <div class="feature-card animate-on-scroll">
-                    <div class="feature-icon-wrapper">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21.21 15.89A10 10 0 1 1 8 2.83M22 2v6h-6M22 2l-7.6 7.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    </div>
-                    <h3>Analisi Statistica di Livello Scientifico</h3>
-                    <p>Il nostro algoritmo proprietario correla il tuo benessere emotivo (Mood) con la tua produttività giornaliera (Output), aiutandoti ad identificare la routine ideale per evitare il burnout.</p>
-                    <ul class="feature-bullets">
-                        <li>Algoritmo Wellness vs Output</li>
-                        <li>Motore di analisi delle correlazioni</li>
-                        <li>Avvisi predittivi di rischio interruzione serie</li>
-                    </ul>
-                </div>
-            </div>
-    </section>
-
-    <!-- STICKY SCROLL COVERFLOW PRESENTATION SHOWCASE -->
-    <section class="scroll-showcase-section" id="interactive-showcase">
-        <div class="scroll-showcase-sticky">
-            <div class="scroll-showcase-header">
-                <span class="section-tag">Showcase Interattivo</span>
-                <h2 class="section-title">Esplora l'Interfaccia <span class="gradient-text">Evolve</span></h2>
-                <p class="section-subtitle">Scorri verso il basso per sfogliare l'applicazione in una straordinaria presentazione 3D fluida.</p>
-            </div>
+    <!-- Sezione SCROLL ANIMATION (Showcase delle Funzionalità) -->
+    <section class="features-scroll" id="features">
+        <div class="features-scroll-wrapper">
             
-            <div class="coverflow-viewport">
-                <div class="coverflow-track" id="coverflow-track">
-                    <!-- Slide 1: Dashboard -->
-                    <div class="coverflow-slide" data-index="0">
-                        <div class="slide-phone-frame">
-                            <div class="iphone-bezel-wrapper">
-                                <div class="iphone-micro-island"></div>
-                                <img src="iphone_img/01.png" alt="Evolve Dashboard" class="slide-img">
-                                <div class="slide-shine"></div>
-                            </div>
-                        </div>
-                        <div class="slide-caption">
-                            <h3>Dashboard Giornaliera</h3>
-                            <p>Le tue abitudini quotidiane, il tracking delle serie e i progressi ad anello, in un'interfaccia premium che rispetta la tua attenzione.</p>
-                        </div>
-                    </div>
-
-                    <!-- Slide 2: Storico & Calendario -->
-                    <div class="coverflow-slide" data-index="1">
-                        <div class="slide-phone-frame">
-                            <div class="iphone-bezel-wrapper">
-                                <div class="iphone-micro-island"></div>
-                                <img src="iphone_img/02.png" alt="Evolve Storico e Calendario" class="slide-img">
-                                <div class="slide-shine"></div>
-                            </div>
-                        </div>
-                        <div class="slide-caption">
-                            <h3>Storico & Calendario</h3>
-                            <p>Osserva l'andamento del tuo tempo. Monitora i giorni di piena coerenza stoica e analizza la tua costanza nel lungo termine.</p>
-                        </div>
-                    </div>
-
-                    <!-- Slide 3: Macro Obiettivi -->
-                    <div class="coverflow-slide" data-index="2">
-                        <div class="slide-phone-frame">
-                            <div class="iphone-bezel-wrapper">
-                                <div class="iphone-micro-island"></div>
-                                <img src="iphone_img/03.png" alt="Evolve Macro Obiettivi" class="slide-img">
-                                <div class="slide-shine"></div>
-                            </div>
-                        </div>
-                        <div class="slide-caption">
-                            <h3>Macro Obiettivi</h3>
-                            <p>Scomponi i grandi traguardi in abitudini e micro-passi quotidiani azionabili per eliminare del tutto la procrastinazione.</p>
-                        </div>
-                    </div>
-
-                    <!-- Slide 4: Statistiche Avanzate -->
-                    <div class="coverflow-slide" data-index="3">
-                        <div class="slide-phone-frame">
-                            <div class="iphone-bezel-wrapper">
-                                <div class="iphone-micro-island"></div>
-                                <img src="iphone_img/04.png" alt="Evolve Statistiche Avanzate" class="slide-img">
-                                <div class="slide-shine"></div>
-                            </div>
-                        </div>
-                        <div class="slide-caption">
-                            <h3>Statistiche Avanzate</h3>
-                            <p>Il motore analitico correla il tuo umore giornaliero con il livello di produttività delle tue sessioni per prevenire il burnout.</p>
-                        </div>
-                    </div>
-
-                    <!-- Slide 5: Mood & Benessere -->
-                    <div class="coverflow-slide" data-index="4">
-                        <div class="slide-phone-frame">
-                            <div class="iphone-bezel-wrapper">
-                                <div class="iphone-micro-island"></div>
-                                <img src="iphone_img/05.png" alt="Evolve Mood & Benessere" class="slide-img">
-                                <div class="slide-shine"></div>
-                            </div>
-                        </div>
-                        <div class="slide-caption">
-                            <h3>Mood & Benessere</h3>
-                            <p>Registra il tuo stato d'animo ed evidenzia i momenti e le abitudini quotidiane che ne influenzano l'andamento generale.</p>
-                        </div>
-                    </div>
-
-                    <!-- Slide 6: Life View (Memento Mori) -->
-                    <div class="coverflow-slide" data-index="5">
-                        <div class="slide-phone-frame">
-                            <div class="iphone-bezel-wrapper">
-                                <div class="iphone-micro-island"></div>
-                                <img src="iphone_img/06.png" alt="Evolve Life View Memento Mori" class="slide-img">
-                                <div class="slide-shine"></div>
-                            </div>
-                        </div>
-                        <div class="slide-caption">
-                            <h3>Life View (Memento Mori)</h3>
-                            <p>La griglia stoica di settimane. Uno specchio potente per darti la carica quotidiana e massimizzare ogni singolo secondo.</p>
-                        </div>
-                    </div>
-
-                    <!-- Slide 7: Evolve Pro & iCloud -->
-                    <div class="coverflow-slide" data-index="6">
-                        <div class="slide-phone-frame">
-                            <div class="iphone-bezel-wrapper">
-                                <div class="iphone-micro-island"></div>
-                                <img src="iphone_img/07.png" alt="Evolve Pro & iCloud Privacy" class="slide-img">
-                                <div class="slide-shine"></div>
-                            </div>
-                        </div>
-                        <div class="slide-caption">
-                            <h3>Evolve Pro & iCloud</h3>
-                            <p>Sincronizzazione in tempo reale sicura ed crittografata al 100% solo sul tuo archivio personale Apple.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Progress indicator bar at the bottom -->
-            <div class="coverflow-progress-container">
-                <div class="coverflow-progress-fill" id="coverflow-progress-fill"></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- WELLNESS VS OUTPUT SECTION -->
-    <section class="insights-section" id="insights-section">
-        <div class="container grid-2">
-            <div class="insights-visual animate-on-scroll">
-                <div class="visual-card glassmorphic">
-                    <div class="visual-header">
-                        <span class="badge indigo">⚙️ Motore Analytics</span>
-                        <h4> Wellness vs Output Correlation</h4>
-                    </div>
-                    <div class="analytics-chart">
-                        <!-- CSS line chart simulator -->
-                        <div class="chart-legend">
-                            <span class="legend-item"><span class="dot primary"></span>Produttività</span>
-                            <span class="legend-item"><span class="dot success"></span>Umore</span>
-                        </div>
-                        <div class="chart-lines">
-                            <!-- Draw beautiful modern SVG representing the correlation -->
-                            <svg viewBox="0 0 300 120" class="line-chart-svg">
-                                <defs>
-                                    <linearGradient id="grad-output" x1="0" y1="0" x2="0" y2="1">
-                                        <stop offset="0%" stop-color="#3b82f6" stop-opacity="0.3"/>
-                                        <stop offset="100%" stop-color="#3b82f6" stop-opacity="0"/>
-                                    </linearGradient>
-                                    <linearGradient id="grad-wellness" x1="0" y1="0" x2="0" y2="1">
-                                        <stop offset="0%" stop-color="#10b981" stop-opacity="0.3"/>
-                                        <stop offset="100%" stop-color="#10b981" stop-opacity="0"/>
-                                    </linearGradient>
-                                </defs>
-                                <!-- Grid Lines -->
-                                <line x1="0" y1="30" x2="300" y2="30" stroke="#272730" stroke-dasharray="3"/>
-                                <line x1="0" y1="60" x2="300" y2="60" stroke="#272730" stroke-dasharray="3"/>
-                                <line x1="0" y1="90" x2="300" y2="90" stroke="#272730" stroke-dasharray="3"/>
-                                
-                                <!-- Area Output -->
-                                <path d="M 0 100 Q 50 80 100 40 T 200 90 T 300 20 L 300 120 L 0 120 Z" fill="url(#grad-output)" />
-                                <!-- Line Output -->
-                                <path d="M 0 100 Q 50 80 100 40 T 200 90 T 300 20" fill="none" stroke="#3b82f6" stroke-width="3" />
-                                
-                                <!-- Area Wellness -->
-                                <path d="M 0 90 Q 50 70 100 50 T 200 70 T 300 35 L 300 120 L 0 120 Z" fill="url(#grad-wellness)" />
-                                <!-- Line Wellness -->
-                                <path d="M 0 90 Q 50 70 100 50 T 200 70 T 300 35" fill="none" stroke="#10b981" stroke-width="3" />
-                                
-                                <!-- Intersect highlight -->
-                                <circle cx="100" cy="45" r="5" fill="#fafafa" stroke="#3b82f6" stroke-width="2" />
-                            </svg>
-                        </div>
-                        <div class="chart-axes">
-                            <span>Lunedì</span>
-                            <span>Mercoledì</span>
-                            <span>Venerdì</span>
-                            <span>Domenica</span>
-                        </div>
-                    </div>
-                    <div class="visual-footer">
-                        <p>💡 <strong>Scoperta scientifica:</strong> La tua produttività tocca il picco nei giorni successivi ad un alto livello di benessere. Evolve ti avvisa prima di entrare in burnout.</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="insights-content animate-on-scroll">
-                <span class="section-tag">Prevenzione del Burnout</span>
-                <h2 class="section-title">Comprendi il legame tra <span class="gradient-text">salute e successo</span></h2>
-                <p class="section-desc">Evolve non è solo una lista di cose da fare. È un consulente per il tuo benessere. L'algoritmo analizza le correlazioni per identificare le abitudini che supportano davvero la tua crescita e ti segnala quando una routine positiva sta per interrompersi.</p>
+            <!-- Lato Sinistro: Testo che scorre -->
+            <div class="features-text-container">
                 
-                <div class="insights-features">
-                    <div class="insight-feat-item">
-                        <div class="icon">📈</div>
-                        <div class="text">
-                            <h5>Avvisi Predittivi</h5>
-                            <p>Ricevi un avviso intelligente quando rischi di interrompere una serie positiva, permettendoti di intervenire prima di perdere il ritmo.</p>
-                        </div>
-                    </div>
-                    <div class="insight-feat-item">
-                        <div class="icon">🧩</div>
-                        <div class="text">
-                            <h5>Motore di Correlazione</h5>
-                            <p>Scopri l'impatto invisibile delle tue abitudini. Ad esempio, analizza come la qualità del sonno incida sulla produttività del giorno dopo.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- MEMENTO MORI PHILOSOPHY SECTION -->
-    <section class="memento-mori-section" id="memento-mori">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Life View</span>
-                <h2 class="section-title">Ogni settimana è un dono. <span class="gradient-text">Non sprecarla.</span></h2>
-                <p class="section-subtitle">Visualizza l'intera durata della tua vita in un widget visivo basato sulla tua data di nascita. Le settimane passate, la settimana attuale che pulsa, e il futuro da vivere.</p>
-            </div>
-
-            <!-- Interattore Memento Mori -->
-            <div class="memento-simulator-box glassmorphic animate-on-scroll">
-                <div class="simulator-input-area">
-                    <h4>Simula la tua griglia Memento Mori</h4>
-                    <p>Inserisci la tua data di nascita per calcolare e visualizzare all'istante le tue settimane vissute e future.</p>
-                    <div class="dob-input-row">
-                        <div class="input-group">
-                            <label for="birth-date">Data di Nascita</label>
-                            <input type="date" id="birth-date" value="1998-05-18" max="2026-05-18">
-                        </div>
-                        <button class="btn btn-primary" id="calculate-memento-btn">Calcola Griglia</button>
-                    </div>
-                    <div class="simulator-stats" id="memento-stats-container">
-                        <div class="sim-stat">
-                            <span class="label">Settimane Vissute</span>
-                            <span class="value" id="weeks-lived-val">1,460</span>
-                        </div>
-                        <div class="sim-stat">
-                            <span class="label">Settimane Rimanenti</span>
-                            <span class="value" id="weeks-remaining-val">2,700</span>
-                        </div>
-                        <div class="sim-stat">
-                            <span class="label">Percentuale Vissuta</span>
-                            <span class="value" id="percent-lived-val">35.1%</span>
-                        </div>
-                    </div>
+                <!-- Feature 1 -->
+                <div class="feature-text-block active" data-index="1" id="feature-1">
+                    <div class="feature-icon-wrapper block-1"><i class="fa-solid fa-chart-simple"></i></div>
+                    <h2>Dashboard Quotidiana</h2>
+                    <h3>Tutto sotto controllo in un'unica schermata.</h3>
+                    <p>Inizia la tua giornata con chiarezza assoluta. La dashboard principale di Evolve unisce le tue abitudini, i tuoi compiti prioritari e il tuo focus giornaliero. Un design minimale studiato appositamente per eliminare il rumore di fondo e farti concentrare solo su ciò che conta davvero oggi.</p>
                 </div>
                 
-                <div class="simulator-grid-area">
-                    <div class="memento-grid-legend">
-                        <span><span class="dot lived"></span> Passato</span>
-                        <span><span class="dot current pulse"></span> Questa Settimana</span>
-                        <span><span class="dot future"></span> Futuro</span>
+                <!-- Feature 2 -->
+                <div class="feature-text-block" data-index="2" id="feature-2">
+                    <div class="feature-icon-wrapper block-2"><i class="fa-solid fa-repeat"></i></div>
+                    <h2>Habit Tracker Intelligente</h2>
+                    <h3>Costruisci abitudini solide e durature.</h3>
+                    <p>La costanza è il segreto del successo. Monitora i tuoi progressi giornalieri con serie storiche (streaks) motivanti e grafici ad anello. Evolve ti invia promemoria intelligenti basati sulla tua routine e rende l'atto di completare un'abitudine un gesto estremamente gratificante.</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="feature-text-block" data-index="3" id="feature-3">
+                    <div class="feature-icon-wrapper block-3"><i class="fa-solid fa-list-check"></i></div>
+                    <h2>Routine Personalizzate</h2>
+                    <h3>Crea la tua routine ideale di successo.</h3>
+                    <p>Organizza le tue giornate strutturandole in blocchi orari personalizzati. Definisci rituali mattutini potenzianti, routine pomeridiane focalizzate e abitudini serali rilassanti. Evolve ti guida passo dopo passo, facendoti entrare nello stato di flusso perfetto.</p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="feature-text-block" data-index="4" id="feature-4">
+                    <div class="feature-icon-wrapper block-4"><i class="fa-solid fa-bullseye"></i></div>
+                    <h2>Focus & Task Manager</h2>
+                    <h3>Gestisci e realizza i tuoi obiettivi.</h3>
+                    <p>Non le solite to-do list caotiche. Assegna priorità ai tuoi task e usa la funzione Focus per avviare sessioni di lavoro immersivo. Grazie all'integrazione di tecniche di time-boxing, rimarrai produttivo senza mai rischiare il burnout.</p>
+                </div>
+                
+                <!-- Feature 5 -->
+                <div class="feature-text-block" data-index="5" id="feature-5">
+                    <div class="feature-icon-wrapper block-5"><i class="fa-solid fa-brain"></i></div>
+                    <h2>Evolve AI Coach</h2>
+                    <h3>Un mentore personale in tasca, 24/7.</h3>
+                    <p>Hai un blocco creativo o un momento di calo motivazionale? Parla con il tuo Coach AI integrato. Analizza le tue risposte, ti aiuta a ristrutturare i tuoi pensieri negativi, ti consiglia strategie personalizzate e monitora il tuo benessere mentale in tempo reale.</p>
+                </div>
+                
+                <!-- Feature 6 -->
+                <div class="feature-text-block" data-index="6" id="feature-6">
+                    <div class="feature-icon-wrapper block-6"><i class="fa-solid fa-chart-line"></i></div>
+                    <h2>Analisi & Statistiche Profonde</h2>
+                    <h3>Misura visivamente il tuo cambiamento.</h3>
+                    <p>I dati non mentono. Accedi a report dettagliati settimanali, mensili e annuali. Comprendi quali abitudini influiscono positivamente sul tuo umore e sulla tua produttività e ottimizza le tue giornate grazie a statistiche basate su dati scientifici.</p>
+                </div>
+                
+                <!-- Feature 7 -->
+                <div class="feature-text-block" data-index="7" id="feature-7">
+                    <div class="feature-icon-wrapper block-7"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                    <h2>Evolve Plus & Customization</h2>
+                    <h3>Sblocca il tuo potenziale illimitato.</h3>
+                    <p>Rendi l'applicazione un riflesso della tua identità. Personalizza interamente l'aspetto grafico con una collezione di temi eleganti, icone esclusive e widget per la schermata home del tuo iPhone. Con Evolve Plus, i tuoi dati sono al sicuro nel cloud, sincronizzati su tutti i tuoi dispositivi.</p>
+                </div>
+                
+            </div>
+            
+            <!-- Lato Destro: Screenshot Sticky con le immagini che cambiano -->
+            <div class="features-phone-container">
+                <div class="sticky-phone-wrapper">
+                    <div class="dynamic-glow-bg" id="dynamic-glow-bg"></div>
+                    <div class="screenshot-showcase" id="scroll-iphone">
+                        <img src="iphone_img/01.png" alt="Evolve Screen 01" class="scroll-screen-img active" data-index="1">
+                        <img src="iphone_img/02.png" alt="Evolve Screen 02" class="scroll-screen-img" data-index="2">
+                        <img src="iphone_img/03.png" alt="Evolve Screen 03" class="scroll-screen-img" data-index="3">
+                        <img src="iphone_img/04.png" alt="Evolve Screen 04" class="scroll-screen-img" data-index="4">
+                        <img src="iphone_img/05.png" alt="Evolve Screen 05" class="scroll-screen-img" data-index="5">
+                        <img src="iphone_img/06.png" alt="Evolve Screen 06" class="scroll-screen-img" data-index="6">
+                        <img src="iphone_img/07.png" alt="Evolve Screen 07" class="scroll-screen-img" data-index="7">
+                        <div class="iphone-glare"></div>
                     </div>
                     
-                    <!-- Beautiful CSS Scrollable Grid Container representing 80 years * 52 weeks = 4160 dots -->
-                    <div class="memento-dots-scrollable-grid" id="memento-interactive-grid">
-                        <!-- Generated by Javascript -->
+                    <!-- Indicatori di Progresso laterali al telefono -->
+                    <div class="scroll-progress-indicator">
+                        <div class="progress-dot active" data-index="1"></div>
+                        <div class="progress-dot" data-index="2"></div>
+                        <div class="progress-dot" data-index="3"></div>
+                        <div class="progress-dot" data-index="4"></div>
+                        <div class="progress-dot" data-index="5"></div>
+                        <div class="progress-dot" data-index="6"></div>
+                        <div class="progress-dot" data-index="7"></div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- PREMIUM SUBSCRIPTION / PRICING SECTION -->
-    <section class="pricing" id="pricing">
-        <div class="container">
-            <div class="section-header">
-                <span class="section-tag">Nessun tracciamento. Nessuna pubblicità.</span>
-                <h2 class="section-title">Un unico abbonamento, <span class="gradient-text">tutte le funzioni</span></h2>
-                <p class="section-subtitle">Crediamo in uno strumento pulito e privo di distrazioni. Prova Evolve gratis e sblocca la potenza dell'analisi e del Memento Mori con Evolve Pro.</p>
-            </div>
-
-            <div class="pricing-cards-container">
-                <!-- Tier 1: Free -->
-                <div class="pricing-card animate-on-scroll">
-                    <div class="card-header">
-                        <h4>Evolve Base</h4>
-                        <p class="card-desc">L'essenziale per partire</p>
-                        <div class="price-box">
-                            <span class="currency">€</span>
-                            <span class="amount">0</span>
-                            <span class="period">/sempre</span>
-                        </div>
-                    </div>
-                    <ul class="pricing-bullets">
-                        <li>Fino a 3 abitudini attive</li>
-                        <li>Tracciamento Streak base</li>
-                        <li>Sotto-obiettivi (limite 3)</li>
-                        <li>Calendario storico mensile</li>
-                        <li>Sincronizzazione cloud sicura</li>
-                    </ul>
-                    <a href="#download" class="btn btn-secondary btn-full">Inizia Gratis</a>
-                </div>
-
-                <!-- Tier 2: Pro (Best Choice) -->
-                <div class="pricing-card pro active animate-on-scroll">
-                    <div class="popular-tag">RACCOMANDATO</div>
-                    <div class="card-header">
-                        <h4>Evolve Pro</h4>
-                        <p class="card-desc">Crescita consapevole illimitata</p>
-                        <div class="price-box">
-                            <span class="currency">€</span>
-                            <span class="amount">4.99</span>
-                            <span class="period">/mese</span>
-                        </div>
-                    </div>
-                    <ul class="pricing-bullets">
-                        <li>Abitudini attive <strong>illimitate</strong></li>
-                        <li>Notifiche interattive flessibili</li>
-                        <li><strong>Mappe Radar</strong> delle aree della vita</li>
-                        <li>Algoritmo <strong>Wellness vs Output</strong></li>
-                        <li>Avvisi Predittivi anti-interruzione</li>
-                        <li>Widget <strong>Memento Mori</strong> completo</li>
-                        <li>Analisi stagionali ed andamenti annuali</li>
-                    </ul>
-                    <a href="#download" class="btn btn-primary btn-full">Sblocca Evolve Pro</a>
                 </div>
             </div>
             
-            <div class="pricing-guarantees">
-                <div class="guarantee-item">🛡️ <strong>Zero Pubblicità:</strong> Non monetizziamo con i tuoi dati.</div>
-                <div class="guarantee-item">🔒 <strong>Privacy al Sicuro:</strong> Solo tu hai accesso alle tue abitudini ed emozioni.</div>
-                <div class="guarantee-item">🍎 <strong>Apple integration:</strong> Apple Sign-In e iCloud Sync.</div>
+        </div>
+    </section>
+
+    <!-- Sezione INTERACTIVE GRID / GALLERY -->
+    <section class="gallery-section" id="showcase">
+        <div class="section-header">
+            <h2 class="section-title">La galleria dell'evoluzione</h2>
+            <p class="section-subtitle">Esplora da vicino ogni dettaglio dell'interfaccia. Clicca su uno screenshot per ingrandirlo in altissima risoluzione.</p>
+        </div>
+        
+        <div class="gallery-grid" id="interactive-gallery">
+            <div class="gallery-card" data-index="1">
+                <div class="gallery-card-glow"></div>
+                <div class="gallery-card-inner">
+                    <img src="iphone_img/01.png" alt="Dashboard Evolve">
+                    <div class="gallery-card-overlay">
+                        <span class="card-tag">Dashboard</span>
+                        <h4>Focus Quotidiano</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-card" data-index="2">
+                <div class="gallery-card-glow"></div>
+                <div class="gallery-card-inner">
+                    <img src="iphone_img/02.png" alt="Habit Tracker Evolve">
+                    <div class="gallery-card-overlay">
+                        <span class="card-tag">Habits</span>
+                        <h4>Tracciamento Continuo</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-card" data-index="3">
+                <div class="gallery-card-glow"></div>
+                <div class="gallery-card-inner">
+                    <img src="iphone_img/03.png" alt="Routines Evolve">
+                    <div class="gallery-card-overlay">
+                        <span class="card-tag">Routine</span>
+                        <h4>Blocchi di Tempo</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-card" data-index="4">
+                <div class="gallery-card-glow"></div>
+                <div class="gallery-card-inner">
+                    <img src="iphone_img/04.png" alt="Focus Evolve">
+                    <div class="gallery-card-overlay">
+                        <span class="card-tag">Tasks</span>
+                        <h4>Lavoro Immersivo</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-card" data-index="5">
+                <div class="gallery-card-glow"></div>
+                <div class="gallery-card-inner">
+                    <img src="iphone_img/05.png" alt="AI Coach Evolve">
+                    <div class="gallery-card-overlay">
+                        <span class="card-tag">AI Assistant</span>
+                        <h4>Coaching Mentale</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-card" data-index="6">
+                <div class="gallery-card-glow"></div>
+                <div class="gallery-card-inner">
+                    <img src="iphone_img/06.png" alt="Analytics Evolve">
+                    <div class="gallery-card-overlay">
+                        <span class="card-tag">Analytics</span>
+                        <h4>Statistiche di Crescita</h4>
+                    </div>
+                </div>
+            </div>
+            <div class="gallery-card" data-index="7">
+                <div class="gallery-card-glow"></div>
+                <div class="gallery-card-inner">
+                    <img src="iphone_img/07.png" alt="Themes Evolve">
+                    <div class="gallery-card-overlay">
+                        <span class="card-tag">Custom</span>
+                        <h4>Temi e Widget</h4>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- FAQ SECTION (ACCORDION) -->
-    <section class="faq" id="faq">
-        <div class="container">
+    <!-- Modal per Zoom Screenshots (Lightbox) -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightbox-close" aria-label="Chiudi galleria"><i class="fa-solid fa-xmark"></i></button>
+        <button class="lightbox-nav prev" id="lightbox-prev" aria-label="Precedente"><i class="fa-solid fa-chevron-left"></i></button>
+        <div class="lightbox-content">
+            <img src="" alt="Zoomed Screenshot" id="lightbox-img">
+            <div class="lightbox-caption" id="lightbox-caption">Dettaglio Screenshot</div>
+        </div>
+        <button class="lightbox-nav next" id="lightbox-next" aria-label="Successivo"><i class="fa-solid fa-chevron-right"></i></button>
+    </div>
+
+    <!-- Sezione FILOSOFIA / MOTTO (Kinetic Scroll Typography) -->
+    <section class="philosophy-section" id="philosophy">
+        <div class="philosophy-container">
+            <div class="philosophy-badge"><i class="fa-solid fa-quote-left"></i> La nostra Filosofia</div>
+            <h2 class="philosophy-text" id="philosophy-trigger">
+                <!-- Verrà divisa in parole con JS per l'animazione di scorrimento -->
+                <span class="word">Migliora</span> 
+                <span class="word">ogni</span> 
+                <span class="word">giorno,</span> 
+                <span class="word text-accent">diventa</span> 
+                <span class="word text-accent">chi</span> 
+                <span class="word text-accent">sei</span> 
+                <span class="word">destinato</span> 
+                <span class="word">ad</span> 
+                <span class="word">essere.</span>
+            </h2>
+            <p class="philosophy-sub">Evolve non è solo uno strumento tecnologico. È una filosofia di vita che sostiene la costanza incrementale, il benessere psicofisico e l'auto-realizzazione consapevole.</p>
+        </div>
+    </section>
+
+    <!-- Sezione FAQ (Fisarmonica Interattiva) -->
+    <section class="faq-section" id="faq">
+        <div class="faq-container">
             <div class="section-header">
-                <span class="section-tag">Risposte veloci</span>
-                <h2 class="section-title">Domande <span class="gradient-text">Frequenti</span></h2>
+                <h2 class="section-title">Domande Frequenti</h2>
+                <p class="section-subtitle">Tutto quello che c'è da sapere su Evolve per iniziare al meglio.</p>
             </div>
-
-            <div class="faq-accordion-container">
-                <!-- FAQ 1 -->
-                <div class="faq-item">
+            
+            <div class="faq-list">
+                <div class="faq-item" id="faq-item-1">
                     <button class="faq-question">
-                        <span>Come funziona l'algoritmo Wellness vs Output?</span>
-                        <span class="faq-icon">+</span>
+                        <span>Evolve è disponibile solo per iPhone?</span>
+                        <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
                     </button>
                     <div class="faq-answer">
-                        <p>Evolve incrocia i dati del tuo mood tracker giornaliero con la percentuale di completamento delle tue abitudini e obiettivi. Attraverso analisi di regressione semplici ma efficaci, scopre quali azioni generano benefici emotivi concreti e quale livello di attività previene il sovraccarico di stress (burnout).</p>
+                        <p>Attualmente Evolve è nativamente ottimizzata per iOS e disponibile esclusivamente su iPhone per sfruttare al meglio i widget di sistema, le scorciatoie di Siri e l'integrazione con Apple Health. Stiamo valutando lo sviluppo per altre piattaforme in futuro.</p>
                     </div>
                 </div>
-
-                <!-- FAQ 2 -->
-                <div class="faq-item">
+                
+                <div class="faq-item" id="faq-item-2">
                     <button class="faq-question">
-                        <span>Che cos'è la Life View (Memento Mori)?</span>
-                        <span class="faq-icon">+</span>
+                        <span>Come funziona l'AI Coach integrato?</span>
+                        <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
                     </button>
                     <div class="faq-answer">
-                        <p>Ispirata alla filosofia stoica, la Life View è una rappresentazione visuale della tua vita espressa in settimane (ipotizzando una longevità media di 80 anni). Ti aiuta a visualizzare con chiarezza il valore del tempo trascorso, incoraggiando ad agire oggi con maggiore intenzione e gratitudine.</p>
+                        <p>Il Coach AI di Evolve utilizza modelli di linguaggio avanzati addestrati su principi di terapia cognitivo-comportamentale (CBT) e metodologie di coaching aziendale/personale. Fornisce spunti riflessivi, risponde in tempo reale e ti aiuta a superare i momenti di calo della motivazione. I tuoi dati di chat sono completamente crittografati.</p>
                     </div>
                 </div>
-
-                <!-- FAQ 3 -->
-                <div class="faq-item">
+                
+                <div class="faq-item" id="faq-item-3">
                     <button class="faq-question">
-                        <span>I miei dati sono protetti?</span>
-                        <span class="faq-icon">+</span>
+                        <span>I miei dati personali sono al sicuro?</span>
+                        <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
                     </button>
                     <div class="faq-answer">
-                        <p>Assolutamente sì. I tuoi dati personali, il mood tracker e le abitudini sono protetti. La sincronizzazione avviene in modo sicuro in tempo reale grazie all'integrazione di Firebase/Supabase e l'autenticazione cifrata protetta da Apple Sign-In. Non vendiamo i tuoi dati a terze parti.</p>
+                        <p>La privacy è un nostro valore fondante. Evolve memorizza i dati localmente sul tuo dispositivo e utilizza iCloud protetto da crittografia end-to-end per la sincronizzazione opzionale. Non vendiamo e non analizzeremo mai i tuoi dati per scopi pubblicitari.</p>
                     </div>
                 </div>
-
-                <!-- FAQ 4 -->
-                <div class="faq-item">
+                
+                <div class="faq-item" id="faq-item-4">
                     <button class="faq-question">
-                        <span>Come funzionano le notifiche push interattive?</span>
-                        <span class="faq-icon">+</span>
+                        <span>Esiste una versione gratuita di Evolve?</span>
+                        <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
                     </button>
                     <div class="faq-answer">
-                        <p>Con iOS di Apple, quando ricevi un promemoria per un'abitudine, puoi tenere premuta la notifica o fare swipe per espanderla. Troverai un pulsante "Completato" che ti permette di registrare l'abitudine al volo, senza dover sbloccare il telefono e aprire l'applicazione.</p>
+                        <p>Sì, Evolve offre un piano base gratuito che ti permette di monitorare fino a 5 abitudini contemporaneamente, creare task ed esplorare le funzionalità principali. Con il piano Evolve Plus sblocchi abitudini illimitate, il Coach AI completo, statistiche avanzate e temi grafici esclusivi.</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- DOWNLOAD / CALL TO ACTION SECTION -->
+    <!-- Sezione DOWNLOAD / CTA FINALE -->
     <section class="download-section" id="download">
-        <div class="container download-container glassmorphic animate-on-scroll">
-            <div class="download-glow"></div>
+        <div class="download-card">
+            <div class="download-card-glow"></div>
             <div class="download-content">
-                <h2 class="section-title">Inizia a scrivere la tua <span class="gradient-text">nuova storia oggi.</span></h2>
-                <p>Scarica Evolve su iOS. Nessuna registrazione complessa necessaria. Sfrutta il potere dell'Apple Sign-In ed evolvi giorno dopo giorno.</p>
-                <div class="download-badges">
-                    <a href="#" class="app-store-badge">
-                        <!-- App Store badge simulation with high premium CSS & SVG -->
-                        <div class="badge-content">
-                            <svg class="badge-apple-logo" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5C17.88 20.74 17 21.95 15.66 22C14.32 22.05 13.89 21.24 12.37 21.24C10.84 21.24 10.37 21.97 9.1 22C7.79 22.05 6.8 20.68 5.96 19.48C4.25 17 2.94 12.45 4.7 9.39C5.57 7.87 7.13 6.91 8.82 6.88C10.1 6.86 11.32 7.75 12.11 7.75C12.89 7.75 14.37 6.68 15.92 6.84C16.57 6.87 18.39 7.1 19.56 8.82C19.47 8.88 17.39 10.1 17.41 12.63C17.44 15.65 20.06 16.66 20.1 16.67C20.08 16.74 19.67 18.11 18.71 19.5ZM15.97 4.17C16.63 3.37 17.07 2.28 16.95 1C15.85 1.04 14.51 1.73 13.73 2.64C13.07 3.41 12.49 4.52 12.64 5.78C13.87 5.87 15.12 5.17 15.97 4.17Z"/></svg>
-                            <div class="badge-text">
-                                <span class="badge-download">Scarica su</span>
-                                <span class="badge-store">App Store</span>
-                            </div>
-                        </div>
+                <h2 class="download-title">Pronto ad evolvere?</h2>
+                <p class="download-subtitle">Unisciti a migliaia di persone che hanno già rivoluzionato la propria vita, un giorno alla volta.</p>
+                
+                <div class="download-ctas">
+                    <a href="#" class="btn btn-primary btn-lg btn-glow" id="btn-download-appstore">
+                        <i class="fa-brands fa-apple"></i>
+                        <span>
+                            <small>Scarica ora da</small>
+                            App Store
+                        </span>
                     </a>
                 </div>
+                
+                <div class="download-badge-row">
+                    <span class="badge-item"><i class="fa-solid fa-shield-halved"></i> Privacy Garantita</span>
+                    <span class="badge-item"><i class="fa-solid fa-circle-check"></i> Nessuna pubblicità</span>
+                    <span class="badge-item"><i class="fa-solid fa-star"></i> App Store 4.9/5</span>
+                </div>
             </div>
-            <div class="download-phone-image-wrapper">
-                <div class="phone-skewed">
-                    <!-- Stylized phone in diagonal 3D angle for CTA -->
-                    <div class="iphone-border"></div>
-                    <div class="iphone-screen">
-                        <div class="dynamic-island"></div>
-                        <!-- Real App Store Screenshot (Evolve Premium) -->
-                        <img src="iphone_img/07.png" alt="Evolve Pro Screen - App Store Screenshot" class="app-screenshot">
-                        
-                        <!-- Specular Shine Reflection Layer -->
-                        <div class="specular-shine"></div>
-                    </div>
+            
+            <div class="download-visual">
+                <!-- Doppia prospettiva di telefoni in background -->
+                <div class="phone-perspective">
+                    <img src="iphone_img/01.png" alt="Evolve Screen Primary" class="perspective-img img-main">
+                    <img src="iphone_img/02.png" alt="Evolve Screen Accent" class="perspective-img img-accent">
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- FOOTER -->
-    <footer class="footer">
-        <div class="container footer-grid">
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-container">
             <div class="footer-brand">
                 <a href="#" class="logo">
-                    <svg class="logo-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M13 5L20 12L13 19M4 12H20" stroke="url(#footer-logo-grad)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
-                        <defs>
-                            <linearGradient id="footer-logo-grad" x1="4" y1="12" x2="20" y2="12" gradientUnits="userSpaceOnUse">
-                                <stop stop-color="#3b82f6"/>
-                                <stop offset="1" stop-color="#10b981"/>
-                            </linearGradient>
-                        </defs>
-                    </svg>
-                    <span>Evolve</span>
+                    <span class="logo-icon"><i class="fa-solid fa-wind"></i></span>
+                    <span class="logo-text">Evolve</span>
                 </a>
-                <p>Evolve è un'applicazione proprietaria sviluppata per consentire una crescita personale profonda ed equilibrata. Nessun tracciamento, nessuna pubblicità, solo tu e la tua crescita quotidiana.</p>
-                <span class="copyright">© 2026 Evolve App. Tutti i diritti riservati.</span>
+                <p class="footer-motto">"Migliora ogni giorno, diventa chi sei destinato ad essere."</p>
+                <div class="footer-socials">
+                    <a href="#" aria-label="Instagram" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" aria-label="TikTok" class="social-link"><i class="fa-brands fa-tiktok"></i></a>
+                    <a href="#" aria-label="X / Twitter" class="social-link"><i class="fa-brands fa-x-twitter"></i></a>
+                    <a href="#" aria-label="LinkedIn" class="social-link"><i class="fa-brands fa-linkedin"></i></a>
+                </div>
             </div>
             
-            <div class="footer-links-col">
-                <h5>Prodotto</h5>
-                <a href="#features">Caratteristiche</a>
-                <a href="#interactive-showcase">Anteprima Live</a>
-                <a href="#insights-section">Analisi Dati</a>
-                <a href="#pricing">Prezzi Pro</a>
+            <div class="footer-links-grid">
+                <div class="links-col">
+                    <h4>Prodotto</h4>
+                    <a href="#features">Funzionalità</a>
+                    <a href="#showcase">Galleria</a>
+                    <a href="#download">Prezzi / Plus</a>
+                </div>
+                <div class="links-col">
+                    <h4>Risorse</h4>
+                    <a href="#faq">FAQ</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Supporto</a>
+                </div>
+                <div class="links-col">
+                    <h4>Legale</h4>
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Termini di Servizio</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
             </div>
-
-            <div class="footer-links-col">
-                <h5>Legale</h5>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Terms of Service</a>
-                <a href="#">Configurazione Auth</a>
-            </div>
-
-            <div class="footer-links-col">
-                <h5>Filosofia</h5>
-                <a href="#memento-mori">Memento Mori</a>
-                <a href="#insights-section">Wellness vs Output</a>
-                <a href="#">Stoicismo quotidiano</a>
-            </div>
+        </div>
+        
+        <div class="footer-bottom">
+            <p>&copy; 2026 Evolve App. Tutti i diritti riservati. Progettato con passione per l'evoluzione personale.</p>
         </div>
     </footer>
 
-    <!-- JavaScript -->
-    <script src="app.js"></script>
+    <!-- GSAP per le animazioni -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    
+    <!-- Script Custom -->
+    <script src="script.js"></script>
 </body>
 </html>

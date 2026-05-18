@@ -1,0 +1,1657 @@
+/* ==========================================================================
+   Evolve App Showcase CSS Styling
+   Aesthetics: Premium Dark Mode, Glassmorphism, Ambient Glow, High-Fidelity Mockups
+   ========================================================================== */
+
+/* --- Variabili & Design Tokens --- */
+:root {
+    --bg-dark: #07070a;
+    --bg-card: rgba(15, 15, 25, 0.6);
+    --bg-navbar: rgba(7, 7, 10, 0.7);
+    --border-color: rgba(255, 255, 255, 0.08);
+    
+    /* Palette Colori (HSL per manipolazione dinamica) */
+    --primary-h: 263;
+    --primary-s: 90%;
+    --primary-l: 65%;
+    --primary: hsl(var(--primary-h), var(--primary-s), var(--primary-l));
+    --primary-glow: hsla(var(--primary-h), var(--primary-s), var(--primary-l), 0.15);
+    
+    --accent-h: 325;
+    --accent-s: 85%;
+    --accent-l: 60%;
+    --accent: hsl(var(--accent-h), var(--accent-s), var(--accent-l));
+    --accent-glow: hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.15);
+    
+    --cyan-h: 188;
+    --cyan-s: 90%;
+    --cyan-l: 50%;
+    --cyan: hsl(var(--cyan-h), var(--cyan-s), var(--cyan-l));
+    
+    --text-main: #f3f4f6;
+    --text-muted: #9ca3af;
+    --text-dark: #1f2937;
+    
+    --font-heading: 'Outfit', sans-serif;
+    --font-body: 'Plus Jakarta Sans', sans-serif;
+    
+    --transition-smooth: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    --transition-fast: all 0.3s ease;
+    
+    --shadow-premium: 0 20px 40px -15px rgba(0, 0, 0, 0.7);
+    --shadow-glow: 0 0 50px -10px hsla(var(--primary-h), var(--primary-s), var(--primary-l), 0.3);
+}
+
+/* --- Reset Standard --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+/* --- Custom Scrollbar --- */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: var(--bg-dark);
+}
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    border: 2px solid var(--bg-dark);
+}
+::-webkit-scrollbar-thumb:hover {
+    background: var(--primary);
+}
+
+/* --- Sfondi e Sfere di Luce (Ambient Light) --- */
+.ambient-glow {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: -2;
+    background: radial-gradient(circle at 50% 50%, rgba(20, 10, 45, 0.6) 0%, rgba(7, 7, 10, 0) 70%);
+    transition: background 1.2s ease;
+}
+
+.gradient-ball {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.15;
+    z-index: -3;
+    pointer-events: none;
+    animation: drift 25s infinite alternate ease-in-out;
+}
+
+.ball-1 {
+    width: 400px;
+    height: 400px;
+    background: var(--primary);
+    top: 10%;
+    left: -10%;
+}
+
+.ball-2 {
+    width: 500px;
+    height: 500px;
+    background: var(--accent);
+    bottom: 10%;
+    right: -10%;
+    animation-delay: -5s;
+    animation-duration: 30s;
+}
+
+.ball-3 {
+    width: 300px;
+    height: 300px;
+    background: var(--cyan);
+    top: 50%;
+    left: 70%;
+    animation-delay: -12s;
+    animation-duration: 20s;
+}
+
+@keyframes drift {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(100px, 80px) scale(1.2); }
+    100% { transform: translate(-50px, 150px) scale(0.9); }
+}
+
+/* --- Classi Utilità e Tipografia --- */
+h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.text-gradient {
+    background: linear-gradient(135deg, #fff 30%, var(--primary) 70%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.text-accent {
+    color: var(--accent);
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-family: var(--font-body);
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: var(--transition-fast);
+    cursor: pointer;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    color: #fff;
+    padding: 16px 32px;
+    border: none;
+    box-shadow: 0 10px 25px -5px rgba(139, 92, 246, 0.4);
+}
+
+.btn-primary:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 30px -5px rgba(139, 92, 246, 0.6);
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    border: 1px solid var(--border-color);
+    backdrop-filter: blur(12px);
+    padding: 12px 24px;
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.btn-outline {
+    background: transparent;
+    color: #fff;
+    border: 2px solid var(--border-color);
+    padding: 14px 28px;
+}
+
+.btn-outline:hover {
+    border-color: var(--primary);
+    background: rgba(139, 92, 246, 0.05);
+    transform: translateY(-2px);
+}
+
+.btn-sm {
+    padding: 8px 18px;
+    font-size: 0.9rem;
+}
+
+.btn-lg {
+    padding: 18px 36px;
+    font-size: 1.1rem;
+}
+
+.btn-glow:hover {
+    box-shadow: var(--shadow-glow);
+}
+
+/* --- Header / Navbar --- */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100;
+    background: var(--bg-navbar);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border-color);
+    transition: var(--transition-fast);
+}
+
+.navbar.scrolled {
+    padding: 10px 0;
+    background: rgba(7, 7, 10, 0.85);
+}
+
+.navbar-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.5rem;
+    font-weight: 800;
+    font-family: var(--font-heading);
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    box-shadow: 0 8px 16px -4px rgba(139, 92, 246, 0.3);
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.nav-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: var(--transition-fast);
+    position: relative;
+    padding: 6px 0;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    transition: var(--transition-fast);
+}
+
+.nav-link:hover {
+    color: #fff;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.mobile-menu-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    z-index: 110;
+}
+
+.mobile-menu-toggle .bar {
+    width: 25px;
+    height: 2px;
+    background-color: #fff;
+    transition: var(--transition-fast);
+}
+
+/* --- Mobile Menu Overlay --- */
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100vh;
+    background: rgba(7, 7, 10, 0.95);
+    backdrop-filter: blur(25px);
+    z-index: 99;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: right 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.mobile-menu.open {
+    right: 0;
+}
+
+.mobile-nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.mobile-link {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 1.8rem;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    transition: var(--transition-fast);
+}
+
+.mobile-link:hover {
+    color: #fff;
+    transform: scale(1.05);
+}
+
+/* --- Hero Section --- */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 140px 40px 80px;
+    position: relative;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.hero-container {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 60px;
+    align-items: center;
+    width: 100%;
+}
+
+.hero-content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--border-color);
+    padding: 8px 16px;
+    border-radius: 100px;
+    margin-bottom: 24px;
+}
+
+.badge-icon {
+    color: var(--accent);
+    font-size: 0.9rem;
+}
+
+.badge-text {
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.hero-title {
+    font-size: 4rem;
+    line-height: 1.1;
+    margin-bottom: 24px;
+    font-weight: 800;
+}
+
+.hero-subtitle {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    max-width: 600px;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+}
+
+.hero-buttons .btn i {
+    font-size: 1.5rem;
+}
+
+.hero-buttons .btn span {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    line-height: 1.1;
+}
+
+.hero-buttons .btn span small {
+    font-size: 0.65rem;
+    opacity: 0.8;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.hero-stats {
+    display: flex;
+    gap: 30px;
+    align-items: center;
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+}
+
+.stat-val {
+    font-size: 1.8rem;
+    font-weight: 800;
+    font-family: var(--font-heading);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.text-star {
+    color: #FBBF24;
+    font-size: 1.2rem;
+}
+
+.stat-lbl {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.stat-divider {
+    width: 1px;
+    height: 40px;
+    background: var(--border-color);
+}
+
+.hero-visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.phone-glow {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.25) 0%, rgba(0,0,0,0) 70%);
+    z-index: -1;
+    filter: blur(50px);
+}
+
+/* --- High-Fidelity iPhone Mockup CSS --- */
+.iphone-container-tilt {
+    perspective: 1200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* --- Premium Screenshot Showcase (Senza mockup per evitare matrioska) --- */
+.screenshot-showcase {
+    position: relative;
+    width: 290px;
+    height: 590px;
+    background: #0a0b10;
+    border-radius: 28px;
+    border: 1px solid var(--border-color);
+    box-shadow: 
+        0 30px 60px -15px rgba(0, 0, 0, 0.8),
+        inset 0 0 1px 1px rgba(255, 255, 255, 0.1),
+        0 0 0 1px rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transform-style: preserve-3d;
+}
+
+.iphone-mockup {
+    position: relative;
+    width: 310px;
+    height: 630px;
+    background: #000;
+    border-radius: 46px;
+    border: 11px solid #1a1a1f;
+    box-shadow: 
+        0 30px 60px -15px rgba(0, 0, 0, 0.8),
+        inset 0 0 4px 2px rgba(255, 255, 255, 0.15),
+        0 0 0 1px rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: visible;
+    transform-style: preserve-3d;
+}
+
+/* Speaker auricolare */
+.iphone-speaker {
+    position: absolute;
+    top: 13px;
+    width: 40px;
+    height: 4px;
+    background: #2b2b36;
+    border-radius: 2px;
+    z-index: 10;
+}
+
+/* Telecamera interna */
+.iphone-camera {
+    position: absolute;
+    top: 10px;
+    right: 120px;
+    width: 10px;
+    height: 10px;
+    background: #0a0e14;
+    border-radius: 50%;
+    z-index: 10;
+    opacity: 0.8;
+}
+
+/* Dynamic Island */
+.iphone-island {
+    position: absolute;
+    top: 14px;
+    width: 90px;
+    height: 25px;
+    background: #000;
+    border-radius: 13px;
+    z-index: 9;
+    box-shadow: inset 0 0 2px rgba(255,255,255,0.05);
+}
+
+/* Tasti fisici laterali */
+.iphone-buttons {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}
+
+.btn-volume-up, .btn-volume-down, .btn-power {
+    position: absolute;
+    background: #1b1b22;
+    border-radius: 2px;
+}
+
+.btn-volume-up {
+    top: 120px;
+    left: -13px;
+    width: 3px;
+    height: 45px;
+}
+
+.btn-volume-down {
+    top: 180px;
+    left: -13px;
+    width: 3px;
+    height: 45px;
+}
+
+.btn-power {
+    top: 150px;
+    right: -13px;
+    width: 3px;
+    height: 60px;
+}
+
+/* Schermo interno dell'iPhone */
+.iphone-screen {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 36px;
+    overflow: hidden;
+    background: #0a0b10;
+}
+
+.phone-screen-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    pointer-events: none;
+    user-select: none;
+}
+
+.iphone-glare {
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        125deg,
+        rgba(255, 255, 255, 0.12) 0%,
+        rgba(255, 255, 255, 0.05) 30%,
+        rgba(255, 255, 255, 0) 40%
+    );
+    pointer-events: none;
+    z-index: 5;
+    border-radius: 36px;
+}
+
+/* --- Sezione SCROLL FEATURE WALKTHROUGH --- */
+.features-scroll {
+    position: relative;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background: var(--bg-dark);
+}
+
+.features-scroll-wrapper {
+    display: flex;
+    position: relative;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 40px;
+    gap: 40px;
+}
+
+/* Lato Sinistro: Testo */
+.features-text-container {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+}
+
+.feature-text-block {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 100px 0;
+    opacity: 0.2;
+    transform: translateY(60px);
+    transition: opacity 0.5s ease, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.feature-text-block.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.feature-icon-wrapper {
+    width: 60px;
+    height: 60px;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    margin-bottom: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.feature-icon-wrapper.block-1 { background: rgba(139, 92, 246, 0.15); color: var(--primary); }
+.feature-icon-wrapper.block-2 { background: rgba(236, 72, 153, 0.15); color: var(--accent); }
+.feature-icon-wrapper.block-3 { background: rgba(6, 182, 212, 0.15); color: var(--cyan); }
+.feature-icon-wrapper.block-4 { background: rgba(139, 92, 246, 0.15); color: var(--primary); }
+.feature-icon-wrapper.block-5 { background: rgba(236, 72, 153, 0.15); color: var(--accent); }
+.feature-icon-wrapper.block-6 { background: rgba(6, 182, 212, 0.15); color: var(--cyan); }
+.feature-icon-wrapper.block-7 { background: rgba(139, 92, 246, 0.15); color: var(--primary); }
+
+.feature-text-block h2 {
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--primary);
+    margin-bottom: 12px;
+}
+
+.feature-text-block h3 {
+    font-size: 2.6rem;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.feature-text-block p {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+}
+
+/* Lato Destro: Telefono Sticky */
+.features-phone-container {
+    width: 50%;
+    height: 100vh;
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none; /* Rende passante il mouse per non bloccare lo scroll */
+}
+
+.sticky-phone-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+}
+
+.dynamic-glow-bg {
+    position: absolute;
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    background: var(--primary);
+    filter: blur(140px);
+    opacity: 0.25;
+    z-index: -1;
+    transition: background-color 0.8s ease, transform 1s ease;
+}
+
+.features-phone-container .iphone-mockup,
+.features-phone-container .screenshot-showcase {
+    transform: scale(0.95);
+    background: #000;
+    pointer-events: auto; /* Riattiva eventi solo sul telefono/screenshot */
+}
+
+.scroll-screen-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transform: scale(1.08) translateY(20px);
+    transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 1;
+}
+
+.scroll-screen-img.active {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    z-index: 2;
+}
+
+/* Indicatori di Progresso */
+.scroll-progress-indicator {
+    position: absolute;
+    right: 40px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    pointer-events: auto;
+    z-index: 8;
+}
+
+.progress-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    transition: var(--transition-fast);
+}
+
+.progress-dot.active {
+    background: var(--primary);
+    transform: scale(1.6);
+    box-shadow: 0 0 10px var(--primary);
+}
+
+/* --- Sezione INTERACTIVE GRID GALLERY --- */
+.gallery-section {
+    padding: 120px 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.section-header {
+    text-align: center;
+    margin-bottom: 80px;
+}
+
+.section-title {
+    font-size: 3.2rem;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.section-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.gallery-card {
+    position: relative;
+    border-radius: 28px;
+    overflow: hidden;
+    cursor: pointer;
+    aspect-ratio: 1 / 2.05;
+    background: #0b0c10;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-premium);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.gallery-card-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    transform-style: preserve-3d;
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+}
+
+.gallery-card-glow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.2), transparent 70%);
+    opacity: 0;
+    z-index: 1;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+.gallery-card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 30px 24px;
+    background: linear-gradient(180deg, transparent 0%, rgba(7, 7, 10, 0.95) 80%);
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    opacity: 0;
+    transform: translateY(15px);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    z-index: 3;
+}
+
+.card-tag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--primary);
+}
+
+.gallery-card h4 {
+    font-size: 1.15rem;
+    color: #fff;
+    font-family: var(--font-body);
+    font-weight: 700;
+}
+
+/* Hover Effects su Gallery Card */
+.gallery-card:hover .gallery-card-inner {
+    transform: scale(1.02);
+}
+
+.gallery-card:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-card:hover .gallery-card-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.gallery-card:hover .gallery-card-glow {
+    opacity: 1;
+}
+
+/* Modulare la disposizione */
+.gallery-grid .gallery-card:nth-child(even) {
+    transform: translateY(30px);
+}
+
+/* --- Lightbox / Modal Zoom --- */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(4, 4, 6, 0.95);
+    backdrop-filter: blur(20px);
+    z-index: 200;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+}
+
+.lightbox.open {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.lightbox-content {
+    position: relative;
+    max-height: 80vh;
+    max-width: 90vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transform: scale(0.9);
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.lightbox.open .lightbox-content {
+    transform: scale(1);
+}
+
+.lightbox-content img {
+    max-height: 75vh;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 40px 100px rgba(0, 0, 0, 0.9);
+    object-fit: contain;
+}
+
+.lightbox-caption {
+    margin-top: 20px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-fast);
+}
+
+.lightbox-close:hover {
+    background: rgba(255,255,255,0.15);
+    transform: rotate(90deg);
+}
+
+.lightbox-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition-fast);
+}
+
+.lightbox-nav:hover {
+    background: rgba(255,255,255,0.15);
+    color: var(--primary);
+}
+
+.lightbox-nav.prev { left: 40px; }
+.lightbox-nav.next { right: 40px; }
+
+/* --- Sezione FILOSOFIA (Kinetic Typography) --- */
+.philosophy-section {
+    padding: 180px 40px;
+    background: radial-gradient(circle at 50% 50%, rgba(15, 10, 35, 0.4) 0%, rgba(7, 7, 10, 0) 60%);
+    text-align: center;
+    position: relative;
+    border-top: 1px solid var(--border-color);
+}
+
+.philosophy-container {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.philosophy-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--accent);
+    font-size: 0.95rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 40px;
+}
+
+.philosophy-text {
+    font-size: 4.2rem;
+    line-height: 1.25;
+    margin-bottom: 40px;
+    font-weight: 800;
+    color: rgba(255, 255, 255, 0.15);
+}
+
+.philosophy-text .word {
+    display: inline-block;
+    transition: color 0.3s ease;
+}
+
+.philosophy-text .word.highlighted {
+    color: #fff;
+    text-shadow: 0 0 30px hsla(var(--primary-h), var(--primary-s), var(--primary-l), 0.3);
+}
+
+.philosophy-text .word.highlighted.text-accent {
+    color: var(--accent);
+    text-shadow: 0 0 30px hsla(var(--accent-h), var(--accent-s), var(--accent-l), 0.3);
+}
+
+.philosophy-sub {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+/* --- Sezione FAQ (Fisarmonica) --- */
+.faq-section {
+    padding: 120px 40px;
+    max-width: 900px;
+    margin: 0 auto;
+    border-top: 1px solid var(--border-color);
+}
+
+.faq-list {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.faq-item {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    overflow: hidden;
+    backdrop-filter: blur(12px);
+    transition: var(--transition-fast);
+}
+
+.faq-item:hover {
+    border-color: rgba(255, 255, 255, 0.15);
+    background: rgba(20, 20, 35, 0.7);
+}
+
+.faq-question {
+    width: 100%;
+    padding: 24px 30px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-family: var(--font-body);
+    font-size: 1.15rem;
+    font-weight: 600;
+    text-align: left;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.faq-icon {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    transition: var(--transition-fast);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    padding: 0 30px;
+}
+
+.faq-answer p {
+    color: var(--text-muted);
+    padding-bottom: 24px;
+    line-height: 1.7;
+    font-size: 0.98rem;
+}
+
+/* Stili per FAQ aperte (tramite classe JS) */
+.faq-item.open {
+    border-color: var(--primary);
+    box-shadow: 0 10px 30px -10px rgba(139, 92, 246, 0.15);
+}
+
+.faq-item.open .faq-icon {
+    transform: rotate(45deg);
+    color: var(--primary);
+}
+
+.faq-item.open .faq-answer {
+    padding: 0 30px;
+}
+
+/* --- Sezione DOWNLOAD / CTA --- */
+.download-section {
+    padding: 120px 40px;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.download-card {
+    background: radial-gradient(circle at 10% 20%, rgba(20, 10, 50, 0.75) 0%, rgba(10, 10, 15, 0.9) 100%);
+    border: 1px solid var(--border-color);
+    border-radius: 40px;
+    padding: 80px 80px;
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 60px;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+    box-shadow: var(--shadow-premium);
+}
+
+.download-card-glow {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(139, 92, 246, 0.18) 0%, transparent 70%);
+    top: -200px;
+    right: -200px;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.download-content {
+    position: relative;
+    z-index: 2;
+}
+
+.download-title {
+    font-size: 3.6rem;
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+
+.download-subtitle {
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    max-width: 500px;
+}
+
+.download-ctas {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 40px;
+}
+
+.download-ctas .btn {
+    padding: 18px 36px;
+}
+
+.download-badge-row {
+    display: flex;
+    gap: 24px;
+    flex-wrap: wrap;
+}
+
+.badge-item {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 500;
+}
+
+.badge-item i {
+    color: var(--cyan);
+}
+
+.download-visual {
+    position: relative;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.phone-perspective {
+    position: relative;
+    width: 100%;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.perspective-img {
+    width: 200px;
+    height: auto;
+    position: absolute;
+    border-radius: 28px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.6);
+    border: 1px solid var(--border-color);
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.img-main {
+    transform: rotate(-10deg) translate(-40px, -20px) scale(1);
+    z-index: 2;
+}
+
+.img-accent {
+    transform: rotate(10deg) translate(80px, 20px) scale(0.9);
+    opacity: 0.8;
+    z-index: 1;
+}
+
+.download-card:hover .img-main {
+    transform: rotate(-5deg) translate(-30px, -10px) scale(1.03);
+}
+
+.download-card:hover .img-accent {
+    transform: rotate(15deg) translate(100px, 10px) scale(0.93);
+    opacity: 0.95;
+}
+
+/* --- Footer --- */
+.main-footer {
+    background: #050508;
+    border-top: 1px solid var(--border-color);
+    padding: 80px 40px 40px;
+}
+
+.footer-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 80px;
+    margin-bottom: 60px;
+}
+
+.footer-brand {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.footer-motto {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    font-style: italic;
+}
+
+.footer-socials {
+    display: flex;
+    gap: 16px;
+}
+
+.social-link {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid var(--border-color);
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    transition: var(--transition-fast);
+    text-decoration: none;
+}
+
+.social-link:hover {
+    color: #fff;
+    background: var(--primary);
+    border-color: var(--primary);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(139, 92, 246, 0.2);
+}
+
+.footer-links-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+}
+
+.links-col {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.links-col h4 {
+    font-size: 1.05rem;
+    color: #fff;
+    font-family: var(--font-body);
+    font-weight: 700;
+}
+
+.links-col a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: var(--transition-fast);
+}
+
+.links-col a:hover {
+    color: #fff;
+    transform: translateX(4px);
+}
+
+.footer-bottom {
+    max-width: 1400px;
+    margin: 0 auto;
+    border-top: 1px solid var(--border-color);
+    padding-top: 30px;
+    text-align: center;
+}
+
+.footer-bottom p {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+/* ==========================================================================
+   MEDIA QUERIES (Responsive Design)
+   ========================================================================== */
+
+/* --- Tablet / Desktop Piccolo --- */
+@media (max-width: 1199px) {
+    .hero-title {
+        font-size: 3.2rem;
+    }
+    .download-card {
+        padding: 60px;
+    }
+    .download-title {
+        font-size: 3rem;
+    }
+    .gallery-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    .gallery-grid .gallery-card:nth-child(4n) {
+        display: none; /* Nascondiamo la quarta per mantenere la griglia bilanciata su 3 colonne */
+    }
+    .gallery-grid .gallery-card:nth-child(even) {
+        transform: none; /* Eliminiamo lo scalettamento */
+    }
+    .gallery-grid {
+        gap: 20px;
+    }
+}
+
+/* --- Mobile / Layout Verticale --- */
+@media (max-width: 991px) {
+    .navbar-container {
+        padding: 15px 24px;
+    }
+    .nav-links {
+        display: none; /* Nascondi i link su desktop */
+    }
+    .mobile-menu-toggle {
+        display: flex; /* Mostra icona hamburger */
+    }
+    
+    .hero {
+        padding-top: 120px;
+        padding-bottom: 60px;
+    }
+    
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: 50px;
+        text-align: center;
+    }
+    
+    .hero-content {
+        align-items: center;
+    }
+    
+    .hero-subtitle {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    
+    .hero-buttons {
+        justify-content: center;
+    }
+    
+    .hero-stats {
+        justify-content: center;
+    }
+    
+    /* --- Disattivazione dello Sticky Split Screen su Mobile --- */
+    .features-scroll-wrapper {
+        flex-direction: column-reverse; /* Mostra prima il telefono poi il testo */
+        padding: 0 24px;
+    }
+    
+    .features-text-container {
+        width: 100%;
+    }
+    
+    .feature-text-block {
+        min-height: auto;
+        padding: 60px 0;
+        opacity: 1;
+        transform: none;
+        border-bottom: 1px solid var(--border-color);
+    }
+    
+    .feature-text-block h3 {
+        font-size: 1.8rem;
+    }
+    
+    .features-phone-container {
+        width: 100%;
+        height: 500px;
+        position: sticky;
+        top: 80px;
+        margin-bottom: 40px;
+        z-index: 5;
+        background: radial-gradient(circle, rgba(139, 92, 246, 0.15) 0%, rgba(7,7,10,0.9) 70%);
+        border-radius: 30px;
+    }
+    
+    .sticky-phone-wrapper {
+        height: 100%;
+    }
+    
+    .features-phone-container .iphone-mockup,
+    .features-phone-container .screenshot-showcase {
+        transform: scale(0.7); /* Rimpicciolisci il telefono/screenshot su mobile */
+    }
+    
+    .scroll-progress-indicator {
+        display: none; /* Nascondiamo i pallini su mobile */
+    }
+    
+    /* Galleria */
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .gallery-grid .gallery-card:nth-child(4n) {
+        display: block; /* Ripristina */
+    }
+    
+    /* Download */
+    .download-card {
+        grid-template-columns: 1fr;
+        padding: 40px;
+        text-align: center;
+    }
+    
+    .download-title {
+        font-size: 2.5rem;
+    }
+    
+    .download-ctas {
+        justify-content: center;
+    }
+    
+    .download-badge-row {
+        justify-content: center;
+    }
+    
+    .phone-perspective {
+        height: 300px;
+        margin-top: 40px;
+    }
+    
+    .perspective-img {
+        width: 140px;
+    }
+    
+    .img-main {
+        transform: rotate(-10deg) translate(-20px, -10px);
+    }
+    
+    .img-accent {
+        transform: rotate(10deg) translate(50px, 10px);
+    }
+    
+    /* Footer */
+    .footer-container {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+    
+    .footer-brand {
+        align-items: center;
+        text-align: center;
+    }
+    
+    .footer-links-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+    
+    .links-col {
+        align-items: center;
+        text-align: center;
+    }
+}
+
+/* --- Mobile Stretto --- */
+@media (max-width: 576px) {
+    .hero-title {
+        font-size: 2.4rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .hero-buttons .btn {
+        width: 100%;
+    }
+    
+    .features-phone-container {
+        height: 400px;
+    }
+    
+    .features-phone-container .iphone-mockup,
+    .features-phone-container .screenshot-showcase {
+        transform: scale(0.55);
+    }
+    
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .philosophy-text {
+        font-size: 2.2rem;
+    }
+    
+    .footer-links-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+    
+    .lightbox-nav {
+        display: none; /* Nascondiamo le frecce sui telefoni piccoli */
+    }
+    
+    .lightbox-close {
+        top: 20px;
+        right: 20px;
+    }
+}
