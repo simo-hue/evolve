@@ -74,3 +74,15 @@ The objective is to design and develop a premium, highly immersive, and modern w
   - *Tech Notes*:
     - **Supplier-Neutral Disclosures**: Used terms such as "Fornitori terzi di modelli di linguaggio (LLM)" and "Provider Leader di Modelli di Linguaggio". This allows switching the API provider (e.g., to Anthropic, Gemini, or DeepSeek) at any time on the backend without requiring revisions of the legal pages.
     - **Policy Alignment**: Maintained strict developer API non-training criteria and standard GDPR responsibilities under the new generalized partner format.
+- **2026-05-18 21:40**: Privacy Policy Legal Compliance Update
+  - *Details*: Fully aligned the Privacy Policy in `privacy.html` with GDPR requirements for mobile app environments. Disclosed Simone Mattioli as the Titolare, clarified email-based authentication and user-inserted data (habits, goals, mood), established Esecuzione di Contratto and Consenso as primary legal bases, introduced Sentry as a sub-processor for crash logs, and highlighted direct in-app settings tools for exercising GDPR rights.
+  - *Tech Notes*:
+    - **Titolare Details**: Specified Simone Mattioli as Titolare with contact email `mattioli.simone.10@gmail.com` for exercising user rights.
+    - **Sub-processors**: Detailed Supabase for authentication and database management, and added Sentry as an optional crash reporting sub-processor.
+    - **Legal Bases**: Explicitly mapped contractual performance for essential services and consent for optional services (Sentry logs, AI Coach, Life View widget).
+    - **User Control**: Highlighted that access, rectification, cancellation, and consent revocation can be exercised autonomously directly from the app's settings.
+- **2026-05-19 09:30**: Subscription Naming Alignment (Evolve Pro)
+  - *Details*: Performed an audit of the local website files in the marketing and legal pages to ensure strict alignment with Apple's App Review findings and Guideline 3.1.2. Discovered and corrected a critical nomenclature mismatch where the website referred to the premium subscription as **Evolve Plus** while the mobile app calls it **Evolve Pro**.
+  - *Tech Notes*:
+    - **Naming Correction**: Replaced all occurrences of `Evolve Plus` and `Prezzi / Plus` with `Evolve Pro` and `Prezzi / Pro` across `index.html`, `terms.html`, `privacy.html`, and `cookie.html`.
+    - **Script Integration**: Updated `script.js` color mapping logs from `Plus` to `Pro` for architectural cohesion.

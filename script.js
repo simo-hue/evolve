@@ -71,7 +71,7 @@ function initFeatureScroll() {
         4: "#3B82F6", // Blue (Tasks)
         5: "#D946EF", // Deep Magenta (AI Coach)
         6: "#10B981", // Emerald (Analytics)
-        7: "#FBBF24"  // Gold (Plus / Custom)
+        7: "#FBBF24"  // Gold (Pro / Custom)
     };
 
     // Funzione per aggiornare la schermata attiva, il pallino e lo sfondo glow

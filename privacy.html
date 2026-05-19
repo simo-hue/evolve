@@ -102,9 +102,9 @@
                         <p>Benvenuto su <strong>Evolve</strong> ("l'Applicazione" o "il Servizio"). Rispettiamo profondamente la tua privacy e consideriamo la tutela dei tuoi dati personali un pilastro portante dell'intero ecosistema di crescita di Evolve. Il design e l'architettura tecnica stessa dell'applicazione sono progettati per ridurre al minimo indispensabile i dati raccolti.</p>
                         
                         <div class="info-box">
-                            <p><strong>Titolare del Trattamento:</strong> Evolve App di Simone Mattioli.<br>
+                            <p><strong>Titolare del Trattamento:</strong> Simone Mattioli<br>
                             <strong>Sede Operativa:</strong> Italia / Unione Europea.<br>
-                            <strong>Contatto Email di Supporto:</strong> mattioli.simone.10@gmail.com</p>
+                            <strong>Indirizzo Email di Contatto:</strong> <a href="mailto:mattioli.simone.10@gmail.com" class="legal-link">mattioli.simone.10@gmail.com</a> (per l'esercizio dei diritti degli interessati)</p>
                         </div>
                         
                         <p><strong>I nostri principi cardine:</strong></p>
@@ -118,20 +118,20 @@
                         <h2><i class="fa-solid fa-database"></i> 2. Tipologia di Dati Personali Raccolti</h2>
                         <p>A seconda di come interagisci con Evolve, l'applicazione raccoglie differenti tipologie di dati tecnici e personali necessari a fornirti un'esperienza di tracciamento e sincronizzazione affidabile:</p>
                         
-                        <h3>A. Dati di Registrazione e Profilo</h3>
+                        <h3>A. Dati di Registrazione e Autenticazione</h3>
                         <p>Per creare un account e abilitare la sincronizzazione cloud sicura, raccogliamo:</p>
                         <ul>
-                            <li><strong>Indirizzo Email:</strong> Fornito direttamente in fase di registrazione tramite Supabase Auth, oppure trasmesso in modo sicuro tramite i sistemi di autenticazione integrati di <strong>Apple Sign-In</strong> o <strong>Google Sign-In</strong>.</li>
+                            <li><strong>Indirizzo Email:</strong> Raccolto ed elaborato **esclusivamente per le finalità di autenticazione**, gestione degli accessi e protezione dell'account utente. Viene fornito direttamente in fase di registrazione tramite Supabase Auth, oppure trasmesso in modo sicuro tramite i sistemi di autenticazione integrati di <strong>Apple Sign-In</strong> o <strong>Google Sign-In</strong>.</li>
                             <li><strong>Dati di Profilo opzionali:</strong> Nome utente o nickname, preferenze della lingua, impostazioni del tema grafico dell'applicazione, e l'immagine del profilo caricata volontariamente dall'utente (archiviata su Supabase Storage in modo protetto).</li>
                         </ul>
                         
-                        <h3>B. Dati di Crescita Personale, Abitudini e Consapevolezza (Dati di Utilizzo)</h3>
-                        <p>L'essenza di Evolve si basa sulle informazioni che inserisci per monitorare i tuoi obiettivi. Queste includono:</p>
+                        <h3>B. Dati inseriti dall'Utente (Crescita Personale, Abitudini e Mood)</h3>
+                        <p>L'essenza di Evolve si basa sulle informazioni che inserisci volontariamente per monitorare i tuoi progressi. Raccogliamo i seguenti dati inseriti direttamente da te:</p>
                         <ul>
+                            <li><strong>Abitudini (Habits):</strong> Routine create, frequenza impostata, orari di notifica, cronologia di completamento e serie storiche consecutive (streak).</li>
                             <li><strong>Macro Obiettivi (Macro Goals):</strong> Titoli dei traguardi impostati, aree di vita associate (es. Salute, Lavoro, Finanze), date di scadenza, colori personalizzati e percentuali di avanzamento.</li>
-                            <li><strong>Abitudini (Habits):</strong> Routine create, frequenza impostata, orari di notifica indipendenti, cronologia di spunta del completamento, e serie storiche consecutive (streak).</li>
-                            <li><strong>Registri Giornalieri (Daily Logs & Mood):</strong> Stato d'animo emotivo quotidiano (mood tracking su scala numerica/emoticon) e note o pensieri personali scritti nel diario per correlare il benessere emotivo all'output produttivo.</li>
-                            <li><strong>Memento Mori / Life View:</strong> Data di nascita indicata dall'utente. Questo dato viene inserito unicamente per calcolare e renderizzare il widget visuale delle settimane di vita trascorse. Viene memorizzato in sicurezza e non è utilizzato per nessun altro scopo.</li>
+                            <li><strong>Mood e Registri Giornalieri (Daily Logs & Mood):</strong> Stato d'animo emotivo quotidiano (mood tracking su scala numerica o emoticon) e note o pensieri personali scritti nel diario per correlare il benessere emotivo all'output produttivo.</li>
+                            <li><strong>Memento Mori / Life View (Opzionale):</strong> Data di nascita inserita unicamente per calcolare e renderizzare il widget delle settimane di vita. Viene memorizzata in sicurezza e non usata per altri scopi.</li>
                         </ul>
                         
                         <h3>C. Dati Tecnici, Sincronizzazione e Diagnostica</h3>
@@ -143,7 +143,7 @@
                     
                     <section id="finalita">
                         <h2><i class="fa-solid fa-bullseye"></i> 3. Finalità del Trattamento</h2>
-                        <p>I dati raccolti vengono utilizzati esclusivamente per le seguenti finalità legittime ed operative:</p>
+                        <p>I dati raccolti vengono utilizzati <strong>esclusivamente per fornire il servizio dell'applicazione Evolve</strong> (come la gestione dell'account, la sincronizzazione dei dati e il corretto funzionamento dell'app). Garantiamo al 100% che <strong>i tuoi dati personali non vengono in alcun caso ceduti, venduti o trasferiti a terzi</strong> per finalità commerciali, pubblicitarie o di marketing.</p>
                         
                         <table>
                             <thead>
@@ -156,23 +156,28 @@
                             <tbody>
                                 <tr>
                                     <td>Dati di Registrazione (Email)</td>
-                                    <td>Creazione dell'account, verifica dell'identità e protezione degli accessi.</td>
-                                    <td>Esecuzione del contratto</td>
+                                    <td>Autenticazione dell'utente, creazione dell'account, verifica dell'identità e protezione degli accessi.</td>
+                                    <td>Esecuzione di un contratto</td>
                                 </tr>
                                 <tr>
-                                    <td>Obiettivi, Abitudini, Daily Logs</td>
-                                    <td>Erogazione delle funzionalità dell'App: calcolo streak, grafici radar, andamento annuale e mood analysis.</td>
-                                    <td>Esecuzione del contratto</td>
+                                    <td>Dati inseriti dall'utente (Abitudini, Obiettivi, Mood)</td>
+                                    <td>Erogazione delle funzionalità del servizio: calcolo delle statistiche, streak, grafici di andamento e diario del mood.</td>
+                                    <td>Esecuzione di un contratto</td>
                                 </tr>
                                 <tr>
-                                    <td>Interazioni AI Coach</td>
-                                    <td>Generazione di suggerimenti motivazionali e analisi dei trend comportamentali degli ultimi 30 giorni.</td>
+                                    <td>Interazioni AI Coach (Opzionale)</td>
+                                    <td>Generazione di suggerimenti motivazionali personalizzati basati sulle note dell'utente.</td>
                                     <td>Consenso esplicito</td>
                                 </tr>
                                 <tr>
-                                    <td>Data di Nascita</td>
-                                    <td>Calcolo e rendering grafico del widget di consapevolezza "Life View" (Memento Mori).</td>
+                                    <td>Data di Nascita (Opzionale)</td>
+                                    <td>Calcolo e rendering del widget "Life View" (Memento Mori).</td>
                                     <td>Consenso esplicito</td>
+                                </tr>
+                                <tr>
+                                    <td>Dati Diagnostici di Crash (Opzionale)</td>
+                                    <td>Monitoraggio della stabilità dell'app e risoluzione rapida di bug o crash improvvisi.</td>
+                                    <td>Consenso esplicito (Sentry)</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -180,11 +185,17 @@
                     
                     <section id="basi-giuridiche">
                         <h2><i class="fa-solid fa-section"></i> 4. Basi Giuridiche del Trattamento</h2>
-                        <p>Trattiamo i tuoi dati personali nel pieno rispetto delle normative europee (GDPR) e internazionali su una o più delle seguenti basi legali:</p>
+                        <p>Trattiamo i tuoi dati personali nel pieno rispetto delle normative europee (GDPR) e internazionali. Il trattamento dei dati si basa sulle seguenti basi giuridiche principali:</p>
                         <ul>
-                            <li><strong>Esecuzione di un Contratto:</strong> Necessario per fornirti l'applicazione Evolve e le sue funzionalità principali (es. sincronizzazione cloud dei tuoi dati personali salvati).</li>
-                            <li><strong>Il tuo Consenso Esplicito:</strong> Richiesto per l'abilitazione di funzionalità speciali come l'elaborazione transitoria tramite l'AI Coach delle note personali, o l'inserimento della data di nascita per il rendering del widget "Life View".</li>
-                            <li><strong>Adempimento di Obblighi di Legge:</strong> Nei rari casi in cui siamo tenuti a rispettare normative fiscali (es. fatturazione degli acquisti in-app tramite Apple Store) o richieste formali delle autorità giudiziarie.</li>
+                            <li><strong>Esecuzione di un Contratto:</strong> È la base giuridica principale che ci consente di trattare l'indirizzo email (per l'autenticazione) e i dati inseriti attivamente dall'utente (abitudini, obiettivi, mood) per l'erogazione delle funzionalità essenziali e del servizio dell'applicazione Evolve.</li>
+                            <li><strong>Consenso dell'Interessato:</strong> È la base giuridica necessaria per l'abilitazione di funzionalità facoltative e accessorie dell'applicazione. In particolare, il consenso viene richiesto per:
+                                <ul>
+                                    <li>L'invio facoltativo dei crash log e dati diagnostici tramite il servizio <strong>Sentry</strong> per il miglioramento dell'affidabilità dell'app.</li>
+                                    <li>L'elaborazione dei testi del diario da parte dell'AI Coach per generare report di crescita.</li>
+                                    <li>Il calcolo del widget "Life View" basato sulla data di nascita.</li>
+                                </ul>
+                            </li>
+                            <li><strong>Adempimento di Obblighi di Legge:</strong> Nei rari casi in cui siamo tenuti a rispettare normative fiscali o richieste formali da parte delle autorità competenti.</li>
                         </ul>
                     </section>
                     
@@ -213,14 +224,14 @@
                     </section>
                     
                     <section id="terze-parti">
-                        <h2><i class="fa-solid fa-handshake"></i> 7. Servizi di Terze Parti & Trasferimento Dati</h2>
-                        <p>Per erogare il Servizio ci avvaliamo di partner tecnologici leader del settore che agiscono in qualità di Responsabili esterni del Trattamento, ciascuno selezionato per il massimo rispetto degli standard di sicurezza:</p>
+                        <h2><i class="fa-solid fa-handshake"></i> 7. Responsabili del Trattamento (Sub-processors)</h2>
+                        <p>Per l'erogazione dei servizi dell'app, ci avvaliamo di partner tecnologici selezionati di prim'ordine che agiscono in veste di Responsabili esterni del Trattamento (Sub-processors) in conformità all'art. 28 GDPR:</p>
                         
                         <ul>
-                            <li><strong>Supabase Inc. (infrastruttura ospitata su AWS in Europa):</strong> Hosting del database relazionale PostgreSQL, gestione degli storage delle immagini profilo, autenticazione Supabase Auth ed esecuzione delle Supabase Edge Functions. I dati degli utenti europei risiedono in server ubicati a Francoforte, Germania.</li>
-                            <li><strong>Provider Leader di Modelli di Linguaggio (LLM / Intelligenza Artificiale):</strong> Fornitori esterni leader di mercato che erogano servizi di intelligenza artificiale tramite API per sviluppatori conformi al GDPR, incaricati dell'elaborazione transitoria delle note ed analisi dell'AI Coach e vincolati all'esclusione dall'addestramento dei modelli commerciali.</li>
-                            <li><strong>Apple Inc. (App Store Purchases & Sign-In):</strong> Gestione degli abbonamenti Premium (Evolve Plus) e del login Apple. Evolve non ha accesso ai dati della tua carta di credito o ai tuoi dati finanziari, gestiti interamente da Apple.</li>
-                            <li><strong>Google LLC (Google Sign-In):</strong> Gestione delle credenziali di login fornite dall'utente.</li>
+                            <li><strong>Supabase, Inc.:</strong> È il nostro provider cloud per il database e l'autenticazione. Gestisce la memorizzazione sicura di tutti i dati inseriti dall'utente, l'archiviazione dei profili (Supabase Storage) e il sistema di autenticazione sicuro (Supabase Auth). I dati degli utenti dell'UE sono ospitati su infrastrutture AWS situate a Francoforte (Germania).</li>
+                            <li><strong>Sentry (Functional Software, Inc.):</strong> Servizio utilizzato per monitorare la stabilità dell'applicazione, intercettare i crash e migliorare costantemente l'esperienza utente. L'invio di questi dati di diagnostica è **totalmente facoltativo** e si basa sul **consenso preventivo** dell'utente, che può essere attivato o disattivato in qualsiasi momento all'interno delle impostazioni dell'app.</li>
+                            <li><strong>Fornitori Leader di Modelli di Linguaggio (LLM):</strong> Provider esterni leader di mercato che erogano servizi di intelligenza artificiale tramite API protette e conformi al GDPR, per l'elaborazione temporanea e sicura dei testi utili all'AI Coach. I dati non vengono utilizzati per addestrare i modelli commerciali.</li>
+                            <li><strong>Apple Inc. & Google LLC:</strong> Gestori dei canali di autenticazione sicura (Sign-In) ed eventuali abbonamenti in-app.</li>
                         </ul>
                     </section>
                     
@@ -237,17 +248,22 @@
                     </section>
                     
                     <section id="diritti">
-                        <h2><i class="fa-solid fa-user-shield"></i> 9. Diritti degli Utenti (GDPR / CCPA)</h2>
+                        <h2><i class="fa-solid fa-user-shield"></i> 9. Diritti degli Utenti (GDPR / CCPA) & Esercizio dei Diritti</h2>
                         <p>In conformità al Regolamento Generale sulla Protezione dei Dati (GDPR) dell'Unione Europea, possiedi i seguenti diritti inalienabili in relazione ai tuoi dati personali:</p>
                         
                         <ul>
-                            <li><strong>Diritto di Accesso:</strong> Puoi richiedere una copia completa dei dati memorizzati sui server in formato strutturato.</li>
-                            <li><strong>Diritto di Rettifica:</strong> Puoi correggere in autonomia qualsiasi dato errato o incompleto direttamente dal tuo profilo nell'app.</li>
-                            <li><strong>Diritto alla Cancellazione (Oblio):</strong> La cancellazione del tuo account dal menu impostazioni comporta l'immediata eliminazione di ogni dato.</li>
-                            <li><strong>Diritto alla Portabilità:</strong> Puoi scaricare ed esportare le tue statistiche e i tuoi dati personali.</li>
-                            <li><strong>Diritto di Opposizione e Limitazione:</strong> Puoi revocare in qualsiasi momento il consenso all'uso delle notifiche push, all'uso della data di nascita o all'uso delle analisi dell'AI Coach disattivando le relative impostazioni.</li>
+                            <li><strong>Diritto di Accesso:</strong> Ottenere la conferma che sia o meno in corso un trattamento di dati che ti riguardano e ottenere una copia strutturata di tali dati.</li>
+                            <li><strong>Diritto di Rettifica:</strong> Correggere o integrare dati inesatti o incompleti.</li>
+                            <li><strong>Diritto alla Cancellazione (Diritto all'Oblio):</strong> Ottenere l'eliminazione definitiva e irreversibile di tutti i dati memorizzati sui server relativi al tuo account.</li>
+                            <li><strong>Diritto alla Limitazione e Opposizione (Revoca del Consenso):</strong> Revocare in qualsiasi momento i consensi precedentemente accordati per funzionalità facoltative.</li>
+                            <li><strong>Diritto alla Portabilità:</strong> Ricevere in formato strutturato, di uso comune e leggibile da dispositivo automatico i dati che ti riguardano per trasferirli a un altro titolare.</li>
                         </ul>
-                        <p>Per esercitare uno qualsiasi di questi diritti o in caso di domande relative alla presente Informativa, puoi contattarci liberamente all'indirizzo email: <a href="mailto:mattioli.simone.10@gmail.com">mattioli.simone.10@gmail.com</a>.</p>
+                        
+                        <div class="info-box accent-box">
+                            <p><i class="fa-solid fa-circle-check"></i> <strong>Esercizio Diretto in-App:</strong> Per garantirti il massimo livello di controllo e rispetto della tua privacy, **tutti questi diritti (incluso l'accesso ai dati, la rettifica, la cancellazione/diritto all'oblio e la revoca del consenso) sono esercitabili direttamente e in totale autonomia all'interno della schermata delle Impostazioni dell'applicazione Evolve**, senza la necessità di compilare moduli o attendere tempi di elaborazione manuale.</p>
+                        </div>
+                        
+                        <p>Per qualsiasi ulteriore chiarimento, richiesta di supporto o per l'esercizio manuale dei tuoi diritti legali, puoi contattare il Titolare del Trattamento scrivendo direttamente all'indirizzo email: <a href="mailto:mattioli.simone.10@gmail.com">mattioli.simone.10@gmail.com</a>.</p>
                     </section>
                     
                 </div>
@@ -277,7 +293,7 @@
                     <h4>Prodotto</h4>
                     <a href="index.html#features">Funzionalità</a>
                     <a href="index.html#showcase">Galleria</a>
-                    <a href="index.html#download">Prezzi / Plus</a>
+                    <a href="index.html#download">Prezzi / Pro</a>
                 </div>
                 <div class="links-col">
                     <h4>Risorse</h4>
