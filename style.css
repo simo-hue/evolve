@@ -308,14 +308,14 @@ h1, h2, h3, h4 { font-family: var(--font-heading); font-weight: 700; letter-spac
 
 .gallery-slider-wrapper { position: relative; display: flex; align-items: center; gap: 20px; }
 .gallery-track {
-    display: flex; gap: 30px; overflow-x: auto; scroll-snap-type: x mandatory; scrollbar-width: none; padding: 40px 10px;
-    -webkit-overflow-scrolling: touch; scroll-behavior: smooth; cursor: grab;
+    display: flex; gap: 30px; overflow-x: auto; scrollbar-width: none; padding: 40px 10px;
+    -webkit-overflow-scrolling: touch; scroll-behavior: auto; cursor: grab;
 }
 .gallery-track::-webkit-scrollbar { display: none; }
 .gallery-track.dragging { cursor: grabbing; scroll-behavior: auto; }
 
 .gallery-card {
-    flex: 0 0 auto; width: 300px; height: 600px; scroll-snap-align: center; position: relative; border-radius: 32px;
+    flex: 0 0 auto; width: 300px; height: 600px; position: relative; border-radius: 32px;
     transform-style: preserve-3d; cursor: pointer;
 }
 .gallery-card-inner {

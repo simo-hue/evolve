@@ -100,3 +100,9 @@ The objective is to design and develop a premium, highly immersive, and modern w
   - *Tech Notes*:
     - **Script Update**: Updated `initGallerySlider` in `script.js` to use `setInterval` for advancing the gallery every 3.5 seconds.
     - **UX Enhancements**: Automatically pauses the interval on `mouseenter` or `touchstart` and resumes on `mouseleave`/`touchend` to prevent fighting with user drag inputs.
+
+- **2026-05-21 12:04**: Continuous Gallery Auto-Scroll Refinement
+  - *Details*: Refined the auto-scroll to be smooth and continuous instead of moving in discrete steps.
+  - *Tech Notes*:
+    - **CSS**: Removed `scroll-snap-type: x mandatory` and `scroll-snap-align` to prevent the browser from snapping and jittering during continuous movement.
+    - **JS**: Replaced `setInterval` with a `requestAnimationFrame` loop advancing the scroll position by fractions of a pixel for buttery smooth 60fps scrolling.

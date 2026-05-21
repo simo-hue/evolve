@@ -202,25 +202,35 @@ function initGallerySlider() {
     let isDown = false;
     let startX;
     let scrollLeft;
-    let autoScrollTimer;
+    let autoScrollAnimationId;
+    let isAutoScrolling = false;
+    let autoScrollSpeed = 0.8; // Pixel per frame
 
-    // Funzione per l'auto-scroll automatico
+    // Funzione per l'auto-scroll continuo
     const startAutoScroll = () => {
-        stopAutoScroll();
-        autoScrollTimer = setInterval(() => {
+        if (isAutoScrolling) return;
+        isAutoScrolling = true;
+        
+        const scrollStep = () => {
+            if (!isAutoScrolling) return;
+            
             if (!isDown) {
-                // Se siamo alla fine, torna all'inizio, altrimenti scorri avanti
-                if (track.scrollLeft >= track.scrollWidth - track.clientWidth - 10) {
-                    track.scrollTo({ left: 0, behavior: "smooth" });
-                } else {
-                    scrollNext();
+                track.scrollLeft += autoScrollSpeed;
+                
+                // Torna all'inizio in modo fluido quando si raggiunge la fine
+                if (track.scrollLeft >= track.scrollWidth - track.clientWidth - 1) {
+                    track.scrollLeft = 0;
                 }
             }
-        }, 3500); // Scorre automaticamente ogni 3.5 secondi
+            autoScrollAnimationId = requestAnimationFrame(scrollStep);
+        };
+        
+        autoScrollAnimationId = requestAnimationFrame(scrollStep);
     };
 
     const stopAutoScroll = () => {
-        if (autoScrollTimer) clearInterval(autoScrollTimer);
+        isAutoScrolling = false;
+        if (autoScrollAnimationId) cancelAnimationFrame(autoScrollAnimationId);
     };
 
     // Pausa l'auto-scroll se l'utente interagisce con la galleria
