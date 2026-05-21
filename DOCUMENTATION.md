@@ -106,3 +106,11 @@ The objective is to design and develop a premium, highly immersive, and modern w
   - *Tech Notes*:
     - **CSS**: Removed `scroll-snap-type: x mandatory` and `scroll-snap-align` to prevent the browser from snapping and jittering during continuous movement.
     - **JS**: Replaced `setInterval` with a `requestAnimationFrame` loop advancing the scroll position by fractions of a pixel for buttery smooth 60fps scrolling.
+
+- **2026-05-21 12:10**: Official App Store Link Integration
+  - *Details*: Replaced all download placeholder links and scroll anchors in the active user CTAs (`btn-hero-appstore` in the Hero section and `btn-download-appstore` in the final download section) with Evolve's official Apple App Store download link (`https://apps.apple.com/app/evolve-habits-goal-tracker/id6770482363`).
+  - *Tech Notes*:
+    - **Direct Linking**: Updated the Hero App Store button and the bottom card download button to direct the user straight to the App Store rather than using local page scroll anchors.
+    - **Browser Standards**: Appended `target="_blank"` and `rel="noopener"` attributes to ensure standard security and preserve the landing page tab when users download the app.
+    - **Internal Anchors Preservation**: Left page navigation links pointing to `#download` intact so users can still scroll smoothly to the visual presentation before downloading.
+
