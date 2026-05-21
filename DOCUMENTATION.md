@@ -114,3 +114,10 @@ The objective is to design and develop a premium, highly immersive, and modern w
     - **Browser Standards**: Appended `target="_blank"` and `rel="noopener"` attributes to ensure standard security and preserve the landing page tab when users download the app.
     - **Internal Anchors Preservation**: Left page navigation links pointing to `#download` intact so users can still scroll smoothly to the visual presentation before downloading.
 
+- **2026-05-21 12:13**: Complete Repository README.md Creation
+  - *Details*: Created a comprehensive, highly professional, and visually structured `README.md` at the root of the repository. This document serves as the official welcome guide for GitHub visitors and app reviewers, outlining Evolve's core features, visual landing page characteristics (Bento grid, glassmorphism, fluid gallery), directory structure, local preview server setups, and a high-converting CTA badge linking directly to the App Store download.
+  - *Tech Notes*:
+    - **Badges**: Standardized custom App Store and status shields using shields.io formatting.
+    - **Language**: Drafted fully in Italian to match the primary application locale and target audience, ensuring perfect alignment with current legal documentation.
+
+
