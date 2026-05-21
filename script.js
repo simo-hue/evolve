@@ -1,20 +1,21 @@
 /* ==========================================================================
-   Evolve App Showcase JavaScript Logic
-   Animations: GSAP + ScrollTrigger, 3D Hover Tilt, Smooth Accordions, Lightbox
+   Evolve App Showcase JavaScript Logic - MODERNIZED
+   Animations: GSAP + ScrollTrigger, 3D Hover Tilt, Smooth Accordions, Native Dialog
    ========================================================================== */
 
 document.addEventListener("DOMContentLoaded", () => {
     // Registra ScrollTrigger con GSAP
-    gsap.registerPlugin(ScrollTrigger);
+    if (typeof gsap !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+        initFeatureScroll();
+        initPhilosophyAnimation();
+    }
 
-    // Inizializza tutte le funzionalità
     initNavbar();
     initMobileMenu();
-    initFeatureScroll();
     init3DTilt();
     initGallerySlider();
     initLightbox();
-    initPhilosophyAnimation();
     initFaqAccordion();
 });
 
@@ -41,10 +42,12 @@ function initMobileMenu() {
     const toggleMenu = () => {
         menuToggle.classList.toggle("active");
         mobileMenu.classList.toggle("open");
-        document.body.classList.toggle("no-scroll");
-    };
+        document.body.style.overflow = mobileMenu.classList.contains("open") ? "hidden" : "";
+    }
 
-    menuToggle.addEventListener("click", toggleMenu);
+    if(menuToggle) {
+        menuToggle.addEventListener("click", toggleMenu);
+    }
 
     mobileLinks.forEach(link => {
         link.addEventListener("click", () => {
@@ -56,54 +59,46 @@ function initMobileMenu() {
 }
 
 /* ==========================================================================
-   2. SCROLL SHOWCASE (THE CORE FEATURE)
+   2. SCROLL SHOWCASE (GSAP ScrollTrigger)
    ========================================================================== */
 function initFeatureScroll() {
     const screens = document.querySelectorAll(".scroll-screen-img");
     const dots = document.querySelectorAll(".progress-dot");
     const glowBg = document.getElementById("dynamic-glow-bg");
     
-    // Mappa dei colori per l'effetto glow dinamico associato ad ogni schermata
     const glowColors = {
-        1: "#8B5CF6", // Violet (Dashboard)
-        2: "#EC4899", // Pink (Habit Tracker)
-        3: "#06B6D4", // Cyan (Routine)
-        4: "#3B82F6", // Blue (Tasks)
-        5: "#D946EF", // Deep Magenta (AI Coach)
-        6: "#10B981", // Emerald (Analytics)
-        7: "#FBBF24"  // Gold (Pro / Custom)
+        1: "#8B5CF6", // Violet
+        2: "#EC4899", // Pink
+        3: "#06B6D4", // Cyan
+        4: "#3B82F6", // Blue
+        5: "#D946EF", // Deep Magenta
+        6: "#10B981", // Emerald
+        7: "#FBBF24"  // Gold
     };
 
-    // Funzione per aggiornare la schermata attiva, il pallino e lo sfondo glow
     function updateActiveScreen(index) {
-        // Aggiorna Schermata Telefono
         screens.forEach(screen => {
-            const screenIndex = parseInt(screen.getAttribute("data-index"));
-            if (screenIndex === index) {
+            if (parseInt(screen.getAttribute("data-index")) === index) {
                 screen.classList.add("active");
             } else {
                 screen.classList.remove("active");
             }
         });
 
-        // Aggiorna Pallini di Progresso
         dots.forEach(dot => {
-            const dotIndex = parseInt(dot.getAttribute("data-index"));
-            if (dotIndex === index) {
+            if (parseInt(dot.getAttribute("data-index")) === index) {
                 dot.classList.add("active");
             } else {
                 dot.classList.remove("active");
             }
         });
 
-        // Aggiorna il Glow Ambientale Dinamico
         if (glowBg && glowColors[index]) {
             glowBg.style.backgroundColor = glowColors[index];
             glowBg.style.transform = `scale(${1 + (index * 0.05)})`;
         }
     }
 
-    // ScrollTrigger per ciascun blocco di testo
     const textBlocks = gsap.utils.toArray(".feature-text-block");
     
     textBlocks.forEach((block, idx) => {
@@ -111,31 +106,25 @@ function initFeatureScroll() {
 
         ScrollTrigger.create({
             trigger: block,
-            start: "top 50%",
-            end: "bottom 50%",
+            start: "top 60%",
+            end: "bottom 60%",
             onEnter: () => updateActiveScreen(blockIndex),
             onEnterBack: () => updateActiveScreen(blockIndex),
             onLeave: () => {
-                // Se superiamo l'ultimo blocco in discesa, mantieni l'ultimo attivo
                 if (blockIndex === textBlocks.length) updateActiveScreen(blockIndex);
             },
             onLeaveBack: () => {
-                // Se torniamo sopra il primo blocco in salita, mantieni il primo attivo
                 if (blockIndex === 1) updateActiveScreen(1);
             },
-            toggleClass: { targets: block, className: "active" },
-            // markers: false // Attivare per debugging se necessario
+            toggleClass: { targets: block, className: "active" }
         });
     });
 
-    // Interattività sui pallini di progresso laterali
     dots.forEach(dot => {
         dot.addEventListener("click", () => {
             const targetIndex = parseInt(dot.getAttribute("data-index"));
             const targetBlock = document.getElementById(`feature-${targetIndex}`);
-            
             if (targetBlock) {
-                // Scroll fluido fino al blocco corrispondente
                 targetBlock.scrollIntoView({ behavior: "smooth", block: "center" });
             }
         });
@@ -146,165 +135,148 @@ function initFeatureScroll() {
    3. INTERACTIVE 3D PERSPECTIVE TILT
    ========================================================================== */
 function init3DTilt() {
-    // 3D Tilt su Hero Phone
-    const heroPhone = document.getElementById("hero-phone-tilt");
-    if (heroPhone) {
-        setupTiltEffect(heroPhone, heroPhone.querySelector(".screenshot-showcase"), null);
-    }
+    // Disabilita se prefers-reduced-motion
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
 
-    // 3D Tilt su Gallery Cards
-    const galleryCards = document.querySelectorAll(".gallery-card");
-    galleryCards.forEach(card => {
-        const inner = card.querySelector(".gallery-card-inner");
-        const glow = card.querySelector(".gallery-card-glow");
-        setupTiltEffect(card, inner, glow);
-    });
-}
+    const tiltElements = document.querySelectorAll(".gallery-card, .screenshot-showcase");
+    
+    tiltElements.forEach(container => {
+        const targetElement = container.classList.contains("gallery-card") 
+            ? container.querySelector(".gallery-card-inner")
+            : container;
+            
+        const glowElement = container.querySelector(".gallery-card-glow");
 
-function setupTiltEffect(container, targetElement, glowElement) {
-    container.addEventListener("mousemove", (e) => {
-        const rect = container.getBoundingClientRect();
-        const x = e.clientX - rect.left; // coordinata x all'interno dell'elemento
-        const y = e.clientY - rect.top;  // coordinata y all'interno dell'elemento
-        
-        const width = rect.width;
-        const height = rect.height;
-        
-        const xc = width / 2;
-        const yc = height / 2;
-        
-        // Calcola l'angolo di rotazione (max 12 gradi per non deformare troppo)
-        const maxTilt = 12;
-        const angleX = -((y - yc) / yc) * maxTilt;
-        const angleY = ((x - xc) / xc) * maxTilt;
-        
-        // Applica le trasformazioni 3D
-        targetElement.style.transform = `rotateX(${angleX}deg) rotateY(${angleY}deg) scale(1.02)`;
-        targetElement.style.transition = "transform 0.1s cubic-bezier(0.25, 1, 0.5, 1)";
-        
-        // Effetto Glow basato sulla posizione del mouse
-        if (glowElement) {
-            glowElement.style.opacity = "1";
-            glowElement.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255, 255, 255, 0.15) 0%, transparent 60%)`;
-        }
-    });
+        container.addEventListener("mousemove", (e) => {
+            const rect = container.getBoundingClientRect();
+            const x = e.clientX - rect.left; 
+            const y = e.clientY - rect.top;  
+            
+            const xc = rect.width / 2;
+            const yc = rect.height / 2;
+            
+            const maxTilt = 8; // Ridotto per eleganza
+            const angleX = -((y - yc) / yc) * maxTilt;
+            const angleY = ((x - xc) / xc) * maxTilt;
+            
+            targetElement.style.transform = `rotateX(${angleX}deg) rotateY(${angleY}deg) scale(1.02)`;
+            targetElement.style.transition = "transform 0.1s cubic-bezier(0.25, 1, 0.5, 1)";
+            
+            if (glowElement) {
+                glowElement.style.opacity = "1";
+                glowElement.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(255, 255, 255, 0.2) 0%, transparent 60%)`;
+            }
+        });
 
-    container.addEventListener("mouseleave", () => {
-        // Ripristina lo stato originale con una transizione fluida
-        targetElement.style.transform = "rotateX(0deg) rotateY(0deg) scale(1)";
-        targetElement.style.transition = "transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)";
-        
-        if (glowElement) {
-            glowElement.style.opacity = "0";
-            glowElement.style.transition = "opacity 0.6s ease";
-        }
+        container.addEventListener("mouseleave", () => {
+            targetElement.style.transform = "rotateX(0deg) rotateY(0deg) scale(1)";
+            targetElement.style.transition = "transform 0.6s cubic-bezier(0.16, 1, 0.3, 1)";
+            if (glowElement) glowElement.style.opacity = "0";
+        });
     });
 }
 
 /* ==========================================================================
-   3.5. GALLERY SLIDER (DRAGGABLE + NAVIGATION + PROGRESS)
+   4. GALLERY SLIDER (DRAGGABLE + NAVIGATION + PROGRESS)
    ========================================================================== */
 function initGallerySlider() {
     const track = document.getElementById("gallery-track");
     const prevBtn = document.getElementById("gallery-prev");
     const nextBtn = document.getElementById("gallery-next");
     const progressBar = document.getElementById("gallery-progress");
+    const wrapper = document.querySelector(".gallery-slider-wrapper");
     
     if (!track) return;
 
-    // --- 1. FUNZIONALITÀ CLICK FRECCE ---
     const getScrollAmount = () => {
         const firstCard = track.querySelector(".gallery-card");
-        if (firstCard) {
-            // Scorri di una larghezza card + gap
-            return firstCard.offsetWidth + 35; 
-        }
-        return 300;
+        return firstCard ? firstCard.offsetWidth + 30 : 330; 
     };
 
-    if (prevBtn) {
-        prevBtn.addEventListener("click", () => {
-            track.scrollBy({ left: -getScrollAmount(), behavior: "smooth" });
-        });
-    }
+    const scrollNext = () => track.scrollBy({ left: getScrollAmount(), behavior: "smooth" });
+    const scrollPrev = () => track.scrollBy({ left: -getScrollAmount(), behavior: "smooth" });
 
-    if (nextBtn) {
-        nextBtn.addEventListener("click", () => {
-            track.scrollBy({ left: getScrollAmount(), behavior: "smooth" });
-        });
-    }
+    if (prevBtn) prevBtn.addEventListener("click", scrollPrev);
+    if (nextBtn) nextBtn.addEventListener("click", scrollNext);
 
-    // --- 2. FUNZIONALITÀ TRASCINAMENTO MOUSE (DRAG-TO-SCROLL) ---
     let isDown = false;
     let startX;
     let scrollLeft;
-    let dragMoveActive = false; // per distinguere il drag dal click su lightbox
+    let autoScrollTimer;
+
+    // Funzione per l'auto-scroll automatico
+    const startAutoScroll = () => {
+        stopAutoScroll();
+        autoScrollTimer = setInterval(() => {
+            if (!isDown) {
+                // Se siamo alla fine, torna all'inizio, altrimenti scorri avanti
+                if (track.scrollLeft >= track.scrollWidth - track.clientWidth - 10) {
+                    track.scrollTo({ left: 0, behavior: "smooth" });
+                } else {
+                    scrollNext();
+                }
+            }
+        }, 3500); // Scorre automaticamente ogni 3.5 secondi
+    };
+
+    const stopAutoScroll = () => {
+        if (autoScrollTimer) clearInterval(autoScrollTimer);
+    };
+
+    // Pausa l'auto-scroll se l'utente interagisce con la galleria
+    if (wrapper) {
+        wrapper.addEventListener("mouseenter", stopAutoScroll);
+        wrapper.addEventListener("mouseleave", startAutoScroll);
+        wrapper.addEventListener("touchstart", stopAutoScroll, {passive: true});
+        wrapper.addEventListener("touchend", startAutoScroll);
+    }
+
+    // Inizializza l'auto-scroll all'avvio
+    startAutoScroll();
 
     track.addEventListener("mousedown", (e) => {
         isDown = true;
-        dragMoveActive = false;
         track.classList.add("dragging");
         startX = e.pageX - track.offsetLeft;
         scrollLeft = track.scrollLeft;
+        stopAutoScroll();
     });
 
-    track.addEventListener("mouseleave", () => {
-        isDown = false;
-        track.classList.remove("dragging");
+    track.addEventListener("mouseleave", () => { 
+        if(isDown) { isDown = false; track.classList.remove("dragging"); } 
     });
-
-    track.addEventListener("mouseup", (e) => {
-        isDown = false;
-        track.classList.remove("dragging");
+    
+    track.addEventListener("mouseup", () => { 
+        isDown = false; track.classList.remove("dragging"); 
     });
 
     track.addEventListener("mousemove", (e) => {
         if (!isDown) return;
         e.preventDefault();
         const x = e.pageX - track.offsetLeft;
-        const walk = (x - startX) * 2; // fattore velocità
-        
-        // Se il movimento è reale, segnalalo
-        if (Math.abs(walk) > 5) {
-            dragMoveActive = true;
-        }
-        
+        const walk = (x - startX) * 2; 
         track.scrollLeft = scrollLeft - walk;
     });
 
-    // Previeni click accidentali che aprono la Lightbox se stiamo trascinando
-    track.querySelectorAll(".gallery-card").forEach(card => {
-        card.addEventListener("click", (e) => {
-            if (dragMoveActive) {
-                e.stopPropagation();
-                e.preventDefault();
-            }
-        }, { capture: true });
-    });
-
-    // --- 3. BARRA DI PROGRESSO DELLO SCROLL ---
     const updateProgressBar = () => {
         const maxScroll = track.scrollWidth - track.clientWidth;
-        if (maxScroll <= 0) {
-            progressBar.style.width = "0%";
-            return;
-        }
+        if (maxScroll <= 0) { progressBar.style.width = "0%"; return; }
         const percentage = (track.scrollLeft / maxScroll) * 100;
         progressBar.style.width = `${Math.min(100, Math.max(0, percentage))}%`;
     };
 
     track.addEventListener("scroll", updateProgressBar);
     window.addEventListener("resize", updateProgressBar);
-    
-    // Inizializza al caricamento
     setTimeout(updateProgressBar, 100);
 }
 
 /* ==========================================================================
-   4. LIGHTBOX / SCREENSHOT ZOOM GALLERY
+   5. LIGHTBOX / NATIVE HTML5 DIALOG
    ========================================================================== */
 function initLightbox() {
     const lightbox = document.getElementById("lightbox");
+    if(!lightbox || typeof lightbox.showModal !== 'function') return; // Fallback se dialog non supportato nativamente
+    
     const lightboxImg = document.getElementById("lightbox-img");
     const lightboxCaption = document.getElementById("lightbox-caption");
     const closeBtn = document.getElementById("lightbox-close");
@@ -315,7 +287,6 @@ function initLightbox() {
     let currentIndex = 0;
     const imagesData = [];
 
-    // Mappa le descrizioni degli screenshots
     const screenshotCaptions = {
         1: "Dashboard Principale: Il tuo baricentro quotidiano.",
         2: "Habit Tracker: Visualizzazione intuitiva della costanza.",
@@ -326,7 +297,6 @@ function initLightbox() {
         7: "Customization themes: Esprimi la tua identità con temi eleganti."
     };
 
-    // Popola l'array dei dati delle immagini
     galleryCards.forEach((card, index) => {
         const img = card.querySelector("img");
         const imgIndex = parseInt(card.getAttribute("data-index"));
@@ -336,8 +306,10 @@ function initLightbox() {
             index: imgIndex
         });
 
-        // Event listener per click sulla card
         card.addEventListener("click", () => {
+            // Evita di aprire il modal se l'utente sta trascinando la galleria
+            if(document.getElementById("gallery-track").classList.contains("dragging")) return;
+            
             currentIndex = index;
             openLightbox(imagesData[currentIndex]);
         });
@@ -346,13 +318,13 @@ function initLightbox() {
     function openLightbox(data) {
         lightboxImg.src = data.src;
         lightboxCaption.textContent = data.caption;
-        lightbox.classList.add("open");
-        document.body.classList.add("no-scroll");
+        lightbox.showModal();
+        document.body.style.overflow = "hidden";
     }
 
     function closeLightbox() {
-        lightbox.classList.remove("open");
-        document.body.classList.remove("no-scroll");
+        lightbox.close();
+        document.body.style.overflow = "";
     }
 
     function navigateLightbox(direction) {
@@ -362,69 +334,58 @@ function initLightbox() {
             currentIndex = (currentIndex - 1 + imagesData.length) % imagesData.length;
         }
         
-        // Animazione di crossfade durante la navigazione
-        gsap.fromTo(lightboxImg, { opacity: 0, scale: 0.95 }, { opacity: 1, scale: 1, duration: 0.3 });
-        lightboxImg.src = imagesData[currentIndex].src;
-        lightboxCaption.textContent = imagesData[currentIndex].caption;
+        lightboxImg.style.opacity = 0;
+        setTimeout(() => {
+            lightboxImg.src = imagesData[currentIndex].src;
+            lightboxCaption.textContent = imagesData[currentIndex].caption;
+            lightboxImg.style.opacity = 1;
+        }, 150); // Piccolo delay per animazione CSS
     }
 
-    // Eventi Click
-    closeBtn.addEventListener("click", closeLightbox);
-    nextBtn.addEventListener("click", () => navigateLightbox("next"));
-    prevBtn.addEventListener("click", () => navigateLightbox("prev"));
+    if(closeBtn) closeBtn.addEventListener("click", closeLightbox);
+    if(nextBtn) nextBtn.addEventListener("click", () => navigateLightbox("next"));
+    if(prevBtn) prevBtn.addEventListener("click", () => navigateLightbox("prev"));
     
-    // Chiudi cliccando sullo sfondo
+    // Chiudi cliccando sul backdrop (fuori dall'immagine)
     lightbox.addEventListener("click", (e) => {
         if (e.target === lightbox) closeLightbox();
     });
 
-    // Navigazione Tastiera
     document.addEventListener("keydown", (e) => {
-        if (!lightbox.classList.contains("open")) return;
-        
-        if (e.key === "Escape") closeLightbox();
+        if (!lightbox.open) return;
         if (e.key === "ArrowRight") navigateLightbox("next");
         if (e.key === "ArrowLeft") navigateLightbox("prev");
     });
 }
 
 /* ==========================================================================
-   5. KINETIC MOTTO TEXT ANIMATION
+   6. KINETIC MOTTO TEXT ANIMATION
    ========================================================================== */
 function initPhilosophyAnimation() {
     const philosophyWords = gsap.utils.toArray(".philosophy-text .word");
-    
     if (philosophyWords.length === 0) return;
 
-    // Crea un'animazione ScrollTrigger per illuminare le parole una dopo l'altra
     gsap.fromTo(philosophyWords, 
+        { color: "rgba(255, 255, 255, 0.1)", textShadow: "none" },
         { 
-            color: "rgba(255, 255, 255, 0.15)",
-            textShadow: "none"
-        },
-        { 
-            color: (i, target) => {
-                return target.classList.contains('text-accent') ? 'var(--accent)' : '#ffffff';
-            },
+            color: (i, target) => target.classList.contains('text-accent') ? 'var(--accent)' : '#ffffff',
             textShadow: (i, target) => {
                 const glowColor = target.classList.contains('text-accent') ? 'var(--accent-glow)' : 'var(--primary-glow)';
-                const colorValue = target.classList.contains('text-accent') ? 'var(--accent)' : 'var(--primary)';
-                return `0 0 15px ${glowColor}, 0 0 30px ${glowColor}`;
+                return `0 0 20px ${glowColor}, 0 0 40px ${glowColor}`;
             },
             stagger: 0.15,
             scrollTrigger: {
                 trigger: ".philosophy-section",
-                start: "top 75%",
-                end: "bottom 35%",
-                scrub: true,
-                // markers: false
+                start: "top 80%",
+                end: "bottom 40%",
+                scrub: true
             }
         }
     );
 }
 
 /* ==========================================================================
-   6. FAQ ACCORDION INTERACTION
+   7. FAQ ACCORDION INTERACTION
    ========================================================================== */
 function initFaqAccordion() {
     const faqItems = document.querySelectorAll(".faq-item");
@@ -436,7 +397,6 @@ function initFaqAccordion() {
         question.addEventListener("click", () => {
             const isOpen = item.classList.contains("open");
 
-            // Chiudi tutte le altre risposte
             faqItems.forEach(otherItem => {
                 if (otherItem !== item && otherItem.classList.contains("open")) {
                     otherItem.classList.remove("open");
@@ -444,7 +404,6 @@ function initFaqAccordion() {
                 }
             });
 
-            // Apri o chiudi quella corrente
             if (isOpen) {
                 item.classList.remove("open");
                 answer.style.maxHeight = "0px";

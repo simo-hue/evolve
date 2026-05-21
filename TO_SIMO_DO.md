@@ -16,3 +16,8 @@ A local background HTTP server has been started automatically to serve the site.
 If you ever need to stop or restart the server:
 - The server was started with: `python3 -m http.server 8099`
 - If you need to stop it, you can terminate it from your active terminals or find it via terminal: `kill $(lsof -t -i:8099)`
+
+## 3. Review Modern Redesign
+- Apri la pagina web nel browser locale (es. `http://localhost:8099`) per testare il nuovo design stile "Bento Box" con glassmorphism intenso e micro-animazioni.
+- Prova la Lightbox (cliccando sugli screenshot) ora basata sulla Native API `<dialog>` e con animazioni `@starting-style`.
+- Tutte le informazioni originarie sono state mantenute come richiesto.

@@ -86,3 +86,17 @@ The objective is to design and develop a premium, highly immersive, and modern w
   - *Tech Notes*:
     - **Naming Correction**: Replaced all occurrences of `Evolve Plus` and `Prezzi / Plus` with `Evolve Pro` and `Prezzi / Pro` across `index.html`, `terms.html`, `privacy.html`, and `cookie.html`.
     - **Script Integration**: Updated `script.js` color mapping logs from `Plus` to `Pro` for architectural cohesion.
+
+- **2026-05-21 11:58**: Evolve Website Modern Redesign
+  - *Details*: Completely redesigned the Evolve app website to create a highly premium, modern, and "WOW" user experience. The original structure and text were maintained, but visually elevated.
+  - *Tech Notes*:
+    - **CSS/HTML Modernization**: Refactored `index.html` and `style.css` to use modern features like Native HTML5 `<dialog>` for the Lightbox modal instead of custom JS overlays.
+    - **Bento Box Layout**: Restructured the Features and FAQ sections into sleek Bento Box grids.
+    - **Advanced Aesthetics**: Applied deep Glassmorphism (`backdrop-filter`), intense dynamic neon glow backgrounds, high-fidelity shadows, and `@starting-style` for smooth top-layer animations.
+    - **Performance**: Removed redundant JS logic and synced native CSS animations with GSAP ScrollTriggers where appropriate.
+
+- **2026-05-21 12:01**: Evolve Website Gallery Auto-scroll
+  - *Details*: Added automatic scrolling functionality to the "La galleria dell'evoluzione" section.
+  - *Tech Notes*:
+    - **Script Update**: Updated `initGallerySlider` in `script.js` to use `setInterval` for advancing the gallery every 3.5 seconds.
+    - **UX Enhancements**: Automatically pauses the interval on `mouseenter` or `touchstart` and resumes on `mouseleave`/`touchend` to prevent fighting with user drag inputs.

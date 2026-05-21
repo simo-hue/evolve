@@ -1,30 +1,38 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Evolve - Migliora ogni giorno, diventa chi sei destinato ad essere</title>
-    
+
     <!-- Meta Tags SEO -->
-    <meta name="description" content="Evolve è l'applicazione iPhone definitiva per il tracciamento delle abitudini, la crescita personale e l'ottimizzazione del proprio tempo. Realizza il tuo potenziale ogni giorno.">
-    <meta name="keywords" content="Evolve app, crescita personale, habit tracker, produttività iPhone, routine quotidiane, intelligenza artificiale coach, sviluppo personale">
+    <meta name="description"
+        content="Evolve è l'applicazione iPhone definitiva per il tracciamento delle abitudini, la crescita personale e l'ottimizzazione del proprio tempo. Realizza il tuo potenziale ogni giorno.">
+    <meta name="keywords"
+        content="Evolve app, crescita personale, habit tracker, produttività iPhone, routine quotidiane, intelligenza artificiale coach, sviluppo personale">
     <meta name="author" content="Evolve">
+    <meta name="theme-color" content="#050507">
     <meta property="og:title" content="Evolve - La tua crescita personale quotidiana">
-    <meta property="og:description" content="Migliora ogni giorno, diventa chi sei destinato ad essere. Traccia abitudini, organizza task e consulta il tuo coach AI.">
+    <meta property="og:description"
+        content="Migliora ogni giorno, diventa chi sei destinato ad essere. Traccia abitudini, organizza task e consulta il tuo coach AI.">
     <meta property="og:image" content="iphone_img/01.png">
     <meta property="og:type" content="website">
-    
+
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
-    
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Outfit:wght@500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
     <!-- FontAwesome per icone moderne -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <!-- Stili Custom -->
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
     <!-- Sfondo Animato Ambientale -->
@@ -40,14 +48,14 @@
                 <img src="logo.png" alt="Evolve Logo" class="logo-img">
                 <span class="logo-text">Evolve</span>
             </a>
-            
+
             <nav class="nav-links">
                 <a href="#features" class="nav-link" id="link-features">Funzionalità</a>
                 <a href="#showcase" class="nav-link" id="link-showcase">Screenshots</a>
                 <a href="#philosophy" class="nav-link" id="link-philosophy">Filosofia</a>
                 <a href="#download" class="btn btn-secondary btn-sm" id="btn-nav-download">Scarica Ora</a>
             </nav>
-            
+
             <button class="mobile-menu-toggle" id="menu-toggle" aria-label="Apri menu">
                 <span class="bar"></span>
                 <span class="bar"></span>
@@ -56,7 +64,7 @@
         </div>
     </header>
 
-    <!-- Menu Mobile Mobile Overlay -->
+    <!-- Menu Mobile Mobile Overlay (Modificato per top-layer/starting-style) -->
     <div class="mobile-menu" id="mobile-menu">
         <nav class="mobile-nav-links">
             <a href="#features" class="mobile-link" id="mob-link-features">Funzionalità</a>
@@ -70,17 +78,14 @@
     <section class="hero" id="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <div class="badge" id="hero-badge">
-                    <span class="badge-icon"><i class="fa-solid fa-sparkles"></i></span>
-                    <span class="badge-text">App Store Feature del Mese</span>
-                </div>
                 <h1 class="hero-title" id="hero-main-title">
                     Migliora ogni giorno, <br>
                     <span class="text-gradient">diventa chi sei</span> <br>
                     destinato ad essere.
                 </h1>
                 <p class="hero-subtitle" id="hero-sub">
-                    Evolve trasforma la tua routine quotidiana in un viaggio di crescita consapevole. Traccia le tue abitudini, pianifica i tuoi obiettivi e sblocca il tuo potenziale con il supporto del tuo Coach AI.
+                    Evolve trasforma la tua routine quotidiana in un viaggio di crescita consapevole. Traccia le tue
+                    abitudini, pianifica i tuoi obiettivi e sblocca il tuo potenziale con il supporto del tuo Coach AI.
                 </p>
                 <div class="hero-buttons" id="hero-ctas">
                     <a href="#download" class="btn btn-primary btn-lg" id="btn-hero-appstore">
@@ -94,16 +99,16 @@
                         Esplora Funzionalità <i class="fa-solid fa-arrow-down-long"></i>
                     </a>
                 </div>
-                
+
                 <div class="hero-stats" id="hero-rating-stats">
                     <div class="stat-item">
                         <span class="stat-val">4.9<i class="fa-solid fa-star text-star"></i></span>
-                        <span class="stat-lbl">Valutazione</span>
+                        <span class="stat-lbl">Valutazione Globale</span>
                     </div>
                     <div class="stat-divider"></div>
                     <div class="stat-item">
                         <span class="stat-val">50k+</span>
-                        <span class="stat-lbl">Download</span>
+                        <span class="stat-lbl">Utenti Attivi</span>
                     </div>
                     <div class="stat-divider"></div>
                     <div class="stat-item">
@@ -112,7 +117,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="hero-visual" id="hero-visual-phone">
                 <div class="phone-glow"></div>
                 <!-- Screenshot Hero con 3D Tilt -->
@@ -126,77 +131,94 @@
         </div>
     </section>
 
-    <!-- Sezione SCROLL ANIMATION (Showcase delle Funzionalità) -->
+    <!-- Sezione SCROLL ANIMATION (Bento Box Features) -->
     <section class="features-scroll" id="features">
         <div class="features-scroll-wrapper">
-            
-            <!-- Lato Sinistro: Testo che scorre -->
+
+            <!-- Lato Sinistro: Testo Bento Blocks -->
             <div class="features-text-container">
-                
+
                 <!-- Feature 1 -->
                 <div class="feature-text-block active" data-index="1" id="feature-1">
                     <div class="feature-icon-wrapper block-1"><i class="fa-solid fa-chart-simple"></i></div>
                     <h2>Dashboard Quotidiana</h2>
                     <h3>Tutto sotto controllo in un'unica schermata.</h3>
-                    <p>Inizia la tua giornata con chiarezza assoluta. La dashboard principale di Evolve unisce le tue abitudini, i tuoi compiti prioritari e il tuo focus giornaliero. Un design minimale studiato appositamente per eliminare il rumore di fondo e farti concentrare solo su ciò che conta davvero oggi.</p>
+                    <p>Inizia la tua giornata con chiarezza assoluta. La dashboard principale di Evolve unisce le tue
+                        abitudini, i tuoi compiti prioritari e il tuo focus giornaliero. Un design minimale studiato
+                        appositamente per eliminare il rumore di fondo e farti concentrare solo su ciò che conta davvero
+                        oggi.</p>
                 </div>
-                
+
                 <!-- Feature 2 -->
                 <div class="feature-text-block" data-index="2" id="feature-2">
                     <div class="feature-icon-wrapper block-2"><i class="fa-solid fa-repeat"></i></div>
                     <h2>Habit Tracker Intelligente</h2>
                     <h3>Costruisci abitudini solide e durature.</h3>
-                    <p>La costanza è il segreto del successo. Monitora i tuoi progressi giornalieri con serie storiche (streaks) motivanti e grafici ad anello. Evolve ti invia promemoria intelligenti basati sulla tua routine e rende l'atto di completare un'abitudine un gesto estremamente gratificante.</p>
+                    <p>La costanza è il segreto del successo. Monitora i tuoi progressi giornalieri con serie storiche
+                        (streaks) motivanti e grafici ad anello. Evolve ti invia promemoria intelligenti basati sulla
+                        tua routine e rende l'atto di completare un'abitudine un gesto estremamente gratificante.</p>
                 </div>
-                
+
                 <!-- Feature 3 -->
                 <div class="feature-text-block" data-index="3" id="feature-3">
                     <div class="feature-icon-wrapper block-3"><i class="fa-solid fa-list-check"></i></div>
                     <h2>Routine Personalizzate</h2>
                     <h3>Crea la tua routine ideale di successo.</h3>
-                    <p>Organizza le tue giornate strutturandole in blocchi orari personalizzati. Definisci rituali mattutini potenzianti, routine pomeridiane focalizzate e abitudini serali rilassanti. Evolve ti guida passo dopo passo, facendoti entrare nello stato di flusso perfetto.</p>
+                    <p>Organizza le tue giornate strutturandole in blocchi orari personalizzati. Definisci rituali
+                        mattutini potenzianti, routine pomeridiane focalizzate e abitudini serali rilassanti. Evolve ti
+                        guida passo dopo passo, facendoti entrare nello stato di flusso perfetto.</p>
                 </div>
-                
+
                 <!-- Feature 4 -->
                 <div class="feature-text-block" data-index="4" id="feature-4">
                     <div class="feature-icon-wrapper block-4"><i class="fa-solid fa-bullseye"></i></div>
                     <h2>Focus & Task Manager</h2>
                     <h3>Gestisci e realizza i tuoi obiettivi.</h3>
-                    <p>Non le solite to-do list caotiche. Assegna priorità ai tuoi task e usa la funzione Focus per avviare sessioni di lavoro immersivo. Grazie all'integrazione di tecniche di time-boxing, rimarrai produttivo senza mai rischiare il burnout.</p>
+                    <p>Non le solite to-do list caotiche. Assegna priorità ai tuoi task e usa la funzione Focus per
+                        avviare sessioni di lavoro immersivo. Grazie all'integrazione di tecniche di time-boxing,
+                        rimarrai produttivo senza mai rischiare il burnout.</p>
                 </div>
-                
+
                 <!-- Feature 5 -->
                 <div class="feature-text-block" data-index="5" id="feature-5">
                     <div class="feature-icon-wrapper block-5"><i class="fa-solid fa-brain"></i></div>
                     <h2>Evolve AI Coach</h2>
                     <h3>Un mentore personale in tasca, 24/7.</h3>
-                    <p>Hai un blocco creativo o un momento di calo motivazionale? Parla con il tuo Coach AI integrato. Analizza le tue risposte, ti aiuta a ristrutturare i tuoi pensieri negativi, ti consiglia strategie personalizzate e monitora il tuo benessere mentale in tempo reale.</p>
+                    <p>Hai un blocco creativo o un momento di calo motivazionale? Parla con il tuo Coach AI integrato.
+                        Analizza le tue risposte, ti aiuta a ristrutturare i tuoi pensieri negativi, ti consiglia
+                        strategie personalizzate e monitora il tuo benessere mentale in tempo reale.</p>
                 </div>
-                
+
                 <!-- Feature 6 -->
                 <div class="feature-text-block" data-index="6" id="feature-6">
                     <div class="feature-icon-wrapper block-6"><i class="fa-solid fa-chart-line"></i></div>
                     <h2>Analisi & Statistiche Profonde</h2>
                     <h3>Misura visivamente il tuo cambiamento.</h3>
-                    <p>I dati non mentono. Accedi a report dettagliati settimanali, mensili e annuali. Comprendi quali abitudini influiscono positivamente sul tuo umore e sulla tua produttività e ottimizza le tue giornate grazie a statistiche basate su dati scientifici.</p>
+                    <p>I dati non mentono. Accedi a report dettagliati settimanali, mensili e annuali. Comprendi quali
+                        abitudini influiscono positivamente sul tuo umore e sulla tua produttività e ottimizza le tue
+                        giornate grazie a statistiche basate su dati scientifici.</p>
                 </div>
-                
+
                 <!-- Feature 7 -->
                 <div class="feature-text-block" data-index="7" id="feature-7">
                     <div class="feature-icon-wrapper block-7"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
                     <h2>Evolve Pro & Customization</h2>
                     <h3>Sblocca il tuo potenziale illimitato.</h3>
-                    <p>Rendi l'applicazione un riflesso della tua identità. Personalizza interamente l'aspetto grafico con una collezione di temi eleganti, icone esclusive e widget per la schermata home del tuo iPhone. Con Evolve Pro, i tuoi dati sono al sicuro nel cloud, sincronizzati su tutti i tuoi dispositivi.</p>
+                    <p>Rendi l'applicazione un riflesso della tua identità. Personalizza interamente l'aspetto grafico
+                        con una collezione di temi eleganti, icone esclusive e widget per la schermata home del tuo
+                        iPhone. Con Evolve Pro, i tuoi dati sono al sicuro nel cloud, sincronizzati su tutti i tuoi
+                        dispositivi.</p>
                 </div>
-                
+
             </div>
-            
+
             <!-- Lato Destro: Screenshot Sticky con le immagini che cambiano -->
             <div class="features-phone-container">
                 <div class="sticky-phone-wrapper">
                     <div class="dynamic-glow-bg" id="dynamic-glow-bg"></div>
                     <div class="screenshot-showcase" id="scroll-iphone">
-                        <img src="iphone_img/01.png" alt="Evolve Screen 01" class="scroll-screen-img active" data-index="1">
+                        <img src="iphone_img/01.png" alt="Evolve Screen 01" class="scroll-screen-img active"
+                            data-index="1">
                         <img src="iphone_img/02.png" alt="Evolve Screen 02" class="scroll-screen-img" data-index="2">
                         <img src="iphone_img/03.png" alt="Evolve Screen 03" class="scroll-screen-img" data-index="3">
                         <img src="iphone_img/04.png" alt="Evolve Screen 04" class="scroll-screen-img" data-index="4">
@@ -205,33 +227,35 @@
                         <img src="iphone_img/07.png" alt="Evolve Screen 07" class="scroll-screen-img" data-index="7">
                         <div class="iphone-glare"></div>
                     </div>
-                    
+
                     <!-- Indicatori di Progresso laterali al telefono -->
                     <div class="scroll-progress-indicator">
-                        <div class="progress-dot active" data-index="1"></div>
-                        <div class="progress-dot" data-index="2"></div>
-                        <div class="progress-dot" data-index="3"></div>
-                        <div class="progress-dot" data-index="4"></div>
-                        <div class="progress-dot" data-index="5"></div>
-                        <div class="progress-dot" data-index="6"></div>
-                        <div class="progress-dot" data-index="7"></div>
+                        <div class="progress-dot active" data-index="1" title="Dashboard"></div>
+                        <div class="progress-dot" data-index="2" title="Habit Tracker"></div>
+                        <div class="progress-dot" data-index="3" title="Routine"></div>
+                        <div class="progress-dot" data-index="4" title="Focus"></div>
+                        <div class="progress-dot" data-index="5" title="AI Coach"></div>
+                        <div class="progress-dot" data-index="6" title="Analytics"></div>
+                        <div class="progress-dot" data-index="7" title="Customization"></div>
                     </div>
                 </div>
             </div>
-            
+
         </div>
     </section>
 
-    <!-- Sezione INTERACTIVE GALLERY SLIDER -->
+    <!-- Sezione INTERACTIVE GALLERY BENTO SLIDER -->
     <section class="gallery-section" id="showcase">
         <div class="section-header">
             <h2 class="section-title">La galleria dell'evoluzione</h2>
-            <p class="section-subtitle">Esplora da vicino ogni dettaglio dell'interfaccia. Trascina la galleria con il mouse o usa le frecce laterali per scorrere gli screenshot in altissima definizione.</p>
+            <p class="section-subtitle">Esplora da vicino ogni dettaglio dell'interfaccia. Trascina la galleria o usa le
+                frecce laterali per scorrere gli screenshot in altissima definizione.</p>
         </div>
-        
+
         <div class="gallery-slider-wrapper">
-            <button class="gallery-arrow arrow-left" id="gallery-prev" aria-label="Screenshot Precedente"><i class="fa-solid fa-chevron-left"></i></button>
-            
+            <button class="gallery-arrow arrow-left" id="gallery-prev" aria-label="Screenshot Precedente"><i
+                    class="fa-solid fa-chevron-left"></i></button>
+
             <div class="gallery-track" id="gallery-track">
                 <div class="gallery-card" data-index="1">
                     <div class="gallery-card-glow"></div>
@@ -304,94 +328,107 @@
                     </div>
                 </div>
             </div>
-            
-            <button class="gallery-arrow arrow-right" id="gallery-next" aria-label="Screenshot Successivo"><i class="fa-solid fa-chevron-right"></i></button>
+
+            <button class="gallery-arrow arrow-right" id="gallery-next" aria-label="Screenshot Successivo"><i
+                    class="fa-solid fa-chevron-right"></i></button>
         </div>
 
-        <!-- Indicatore della barra di scorrimento -->
         <div class="gallery-scroll-bar-container">
             <div class="gallery-scroll-bar-progress" id="gallery-progress"></div>
         </div>
     </section>
 
-    <!-- Modal per Zoom Screenshots (Lightbox) -->
-    <div class="lightbox" id="lightbox">
-        <button class="lightbox-close" id="lightbox-close" aria-label="Chiudi galleria"><i class="fa-solid fa-xmark"></i></button>
-        <button class="lightbox-nav prev" id="lightbox-prev" aria-label="Precedente"><i class="fa-solid fa-chevron-left"></i></button>
+    <!-- Modal per Zoom Screenshots (HTML5 Native Dialog) -->
+    <dialog id="lightbox">
+        <div class="lightbox-controls">
+            <button class="lightbox-btn prev" id="lightbox-prev" aria-label="Precedente"><i
+                    class="fa-solid fa-chevron-left"></i></button>
+            <button class="lightbox-btn next" id="lightbox-next" aria-label="Successivo"><i
+                    class="fa-solid fa-chevron-right"></i></button>
+        </div>
+        <button class="lightbox-btn" id="lightbox-close" aria-label="Chiudi galleria"><i
+                class="fa-solid fa-xmark"></i></button>
         <div class="lightbox-content">
             <img src="" alt="Zoomed Screenshot" id="lightbox-img">
             <div class="lightbox-caption" id="lightbox-caption">Dettaglio Screenshot</div>
         </div>
-        <button class="lightbox-nav next" id="lightbox-next" aria-label="Successivo"><i class="fa-solid fa-chevron-right"></i></button>
-    </div>
+    </dialog>
 
     <!-- Sezione FILOSOFIA / MOTTO (Kinetic Scroll Typography) -->
     <section class="philosophy-section" id="philosophy">
         <div class="philosophy-container">
             <div class="philosophy-badge"><i class="fa-solid fa-quote-left"></i> La nostra Filosofia</div>
             <h2 class="philosophy-text" id="philosophy-trigger">
-                <!-- Verrà divisa in parole con JS per l'animazione di scorrimento -->
-                <span class="word">Migliora</span> 
-                <span class="word">ogni</span> 
-                <span class="word">giorno,</span> 
-                <span class="word text-accent">diventa</span> 
-                <span class="word text-accent">chi</span> 
-                <span class="word text-accent">sei</span> 
-                <span class="word">destinato</span> 
-                <span class="word">ad</span> 
+                <span class="word">Migliora</span>
+                <span class="word">ogni</span>
+                <span class="word">giorno,</span>
+                <span class="word text-accent">diventa</span>
+                <span class="word text-accent">chi</span>
+                <span class="word text-accent">sei</span>
+                <span class="word">destinato</span>
+                <span class="word">ad</span>
                 <span class="word">essere.</span>
             </h2>
-            <p class="philosophy-sub">Evolve non è solo uno strumento tecnologico. È una filosofia di vita che sostiene la costanza incrementale, il benessere psicofisico e l'auto-realizzazione consapevole.</p>
+            <p class="philosophy-sub">Evolve non è solo uno strumento tecnologico. È una filosofia di vita che sostiene
+                la costanza incrementale, il benessere psicofisico e l'auto-realizzazione consapevole.</p>
         </div>
     </section>
 
-    <!-- Sezione FAQ (Fisarmonica Interattiva) -->
+    <!-- Sezione FAQ (Fisarmonica Interattiva Bento) -->
     <section class="faq-section" id="faq">
-        <div class="faq-container">
-            <div class="section-header">
-                <h2 class="section-title">Domande Frequenti</h2>
-                <p class="section-subtitle">Tutto quello che c'è da sapere su Evolve per iniziare al meglio.</p>
+        <div class="section-header">
+            <h2 class="section-title">Domande Frequenti</h2>
+            <p class="section-subtitle">Tutto quello che c'è da sapere su Evolve per iniziare al meglio.</p>
+        </div>
+
+        <div class="faq-list">
+            <div class="faq-item" id="faq-item-1">
+                <button class="faq-question">
+                    <span>Evolve è disponibile solo per iPhone?</span>
+                    <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+                </button>
+                <div class="faq-answer">
+                    <p>Attualmente Evolve è nativamente ottimizzata per iOS e disponibile esclusivamente su iPhone per
+                        sfruttare al meglio i widget di sistema, le scorciatoie di Siri e l'integrazione con Apple
+                        Health. Stiamo valutando lo sviluppo per altre piattaforme in futuro.</p>
+                </div>
             </div>
-            
-            <div class="faq-list">
-                <div class="faq-item" id="faq-item-1">
-                    <button class="faq-question">
-                        <span>Evolve è disponibile solo per iPhone?</span>
-                        <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Attualmente Evolve è nativamente ottimizzata per iOS e disponibile esclusivamente su iPhone per sfruttare al meglio i widget di sistema, le scorciatoie di Siri e l'integrazione con Apple Health. Stiamo valutando lo sviluppo per altre piattaforme in futuro.</p>
-                    </div>
+
+            <div class="faq-item" id="faq-item-2">
+                <button class="faq-question">
+                    <span>Come funziona l'AI Coach integrato?</span>
+                    <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+                </button>
+                <div class="faq-answer">
+                    <p>Il Coach AI di Evolve utilizza modelli di linguaggio avanzati addestrati su principi di terapia
+                        cognitivo-comportamentale (CBT) e metodologie di coaching aziendale/personale. Fornisce spunti
+                        riflessivi, risponde in tempo reale e ti aiuta a superare i momenti di calo della motivazione. I
+                        tuoi dati di chat sono completamente crittografati.</p>
                 </div>
-                
-                <div class="faq-item" id="faq-item-2">
-                    <button class="faq-question">
-                        <span>Come funziona l'AI Coach integrato?</span>
-                        <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Il Coach AI di Evolve utilizza modelli di linguaggio avanzati addestrati su principi di terapia cognitivo-comportamentale (CBT) e metodologie di coaching aziendale/personale. Fornisce spunti riflessivi, risponde in tempo reale e ti aiuta a superare i momenti di calo della motivazione. I tuoi dati di chat sono completamente crittografati.</p>
-                    </div>
+            </div>
+
+            <div class="faq-item" id="faq-item-3">
+                <button class="faq-question">
+                    <span>I miei dati personali sono al sicuro?</span>
+                    <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+                </button>
+                <div class="faq-answer">
+                    <p>La privacy è un nostro valore fondante. Evolve memorizza i dati localmente sul tuo dispositivo e
+                        utilizza iCloud protetto da crittografia end-to-end per la sincronizzazione opzionale. Non
+                        vendiamo e non analizzeremo mai i tuoi dati per scopi pubblicitari.</p>
                 </div>
-                
-                <div class="faq-item" id="faq-item-3">
-                    <button class="faq-question">
-                        <span>I miei dati personali sono al sicuro?</span>
-                        <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>La privacy è un nostro valore fondante. Evolve memorizza i dati localmente sul tuo dispositivo e utilizza iCloud protetto da crittografia end-to-end per la sincronizzazione opzionale. Non vendiamo e non analizzeremo mai i tuoi dati per scopi pubblicitari.</p>
-                    </div>
-                </div>
-                
-                <div class="faq-item" id="faq-item-4">
-                    <button class="faq-question">
-                        <span>Esiste una versione gratuita di Evolve?</span>
-                        <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
-                    </button>
-                    <div class="faq-answer">
-                        <p>Sì, Evolve offre un piano base gratuito che ti permette di monitorare fino a 5 abitudini contemporaneamente, creare task ed esplorare le funzionalità principali. Con il piano Evolve Pro sblocchi abitudini illimitate, il Coach AI completo, statistiche avanzate e temi grafici esclusivi.</p>
-                    </div>
+            </div>
+
+            <div class="faq-item" id="faq-item-4">
+                <button class="faq-question">
+                    <span>Esiste una versione gratuita di Evolve?</span>
+                    <span class="faq-icon"><i class="fa-solid fa-plus"></i></span>
+                </button>
+                <div class="faq-answer">
+                    <p>Sì, Evolve offre un piano base gratuito che ti permette di monitorare fino a 5 abitudini
+                        contemporaneamente, creare task ed esplorare le funzionalità principali. Con il piano Evolve Pro
+                        sblocchi abitudini illimitate, il Coach AI completo, statistiche avanzate e temi grafici
+                        esclusivi.</p>
                 </div>
             </div>
         </div>
@@ -403,8 +440,9 @@
             <div class="download-card-glow"></div>
             <div class="download-content">
                 <h2 class="download-title">Pronto ad evolvere?</h2>
-                <p class="download-subtitle">Unisciti a migliaia di persone che hanno già rivoluzionato la propria vita, un giorno alla volta.</p>
-                
+                <p class="download-subtitle">Unisciti a migliaia di persone che hanno già rivoluzionato la propria vita,
+                    un giorno alla volta.</p>
+
                 <div class="download-ctas">
                     <a href="#" class="btn btn-primary btn-lg btn-glow" id="btn-download-appstore">
                         <i class="fa-brands fa-apple"></i>
@@ -414,14 +452,14 @@
                         </span>
                     </a>
                 </div>
-                
+
                 <div class="download-badge-row">
                     <span class="badge-item"><i class="fa-solid fa-shield-halved"></i> Privacy Garantita</span>
                     <span class="badge-item"><i class="fa-solid fa-circle-check"></i> Nessuna pubblicità</span>
                     <span class="badge-item"><i class="fa-solid fa-star"></i> App Store 4.9/5</span>
                 </div>
             </div>
-            
+
             <div class="download-visual">
                 <!-- Doppia prospettiva di telefoni in background -->
                 <div class="phone-perspective">
@@ -442,12 +480,15 @@
                 </a>
                 <p class="footer-motto">"Migliora ogni giorno, diventa chi sei destinato ad essere."</p>
                 <div class="footer-socials">
-                    <a href="https://www.instagram.com/simo___one/" target="_blank" rel="noopener" aria-label="Instagram" class="social-link"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="https://simo-hue.github.io" target="_blank" rel="noopener" aria-label="Sito Personale" class="social-link"><i class="fa-solid fa-globe"></i></a>
-                    <a href="https://www.linkedin.com/in/simonemattioli2003/" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-link"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://www.instagram.com/simo___one/" target="_blank" rel="noopener"
+                        aria-label="Instagram" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://simo-hue.github.io" target="_blank" rel="noopener" aria-label="Sito Personale"
+                        class="social-link"><i class="fa-solid fa-globe"></i></a>
+                    <a href="https://www.linkedin.com/in/simonemattioli2003/" target="_blank" rel="noopener"
+                        aria-label="LinkedIn" class="social-link"><i class="fa-brands fa-linkedin"></i></a>
                 </div>
             </div>
-            
+
             <div class="footer-links-grid">
                 <div class="links-col">
                     <h4>Prodotto</h4>
@@ -469,17 +510,19 @@
                 </div>
             </div>
         </div>
-        
+
         <div class="footer-bottom">
-            <p>&copy; 2026 Evolve App. Tutti i diritti riservati. Progettato con passione per l'evoluzione personale.</p>
+            <p>&copy; 2026 Evolve App. Tutti i diritti riservati. Progettato con passione per l'evoluzione personale.
+            </p>
         </div>
     </footer>
 
     <!-- GSAP per le animazioni -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-    
+
     <!-- Script Custom -->
     <script src="script.js"></script>
 </body>
+
 </html>
